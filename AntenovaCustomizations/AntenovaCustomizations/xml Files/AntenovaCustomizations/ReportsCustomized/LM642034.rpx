@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report Name="report1">
+  <CommonSettings>
+    <ViewPdf>True</ViewPdf>
+  </CommonSettings>
+  <Filters>
+    <FilterExp>
+      <DataField>v_QISDA_INNER_LABEL.ShipmentNbr</DataField>
+      <Value>@ShipmentNbr</Value>
+    </FilterExp>
+  </Filters>
+  <PageSettings>
+    <Margins>
+      <Bottom>0cm</Bottom>
+      <Left>1cm</Left>
+      <Right>0.8cm</Right>
+      <Top>0cm</Top>
+    </Margins>
+    <PaperKind>Custom</PaperKind>
+    <PaperSize>96mm, 58mm</PaperSize>
+  </PageSettings>
+  <Parameters>
+    <ReportParameter>
+      <Name>ShipmentNbr</Name>
+      <Prompt>Shipment Nbr.</Prompt>
+      <Required>True</Required>
+      <ViewName>=Report.GetFieldSchema('SOShipment.ShipmentNbr')</ViewName>
+    </ReportParameter>
+  </Parameters>
+  <SchemaUrl>http://localhost/AntenovaDB/</SchemaUrl>
+  <Sorting>
+    <SortExp>
+      <DataField>v_QISDA_INNER_LABEL.AlternateID</DataField>
+    </SortExp>
+  </Sorting>
+  <Tables>
+    <ReportTable Name="v_QISDA_INNER_LABEL">
+      <Fields>
+        <ReportField Name="AlternateID"></ReportField>
+        <ReportField Name="Attributes_INBOX_Value"></ReportField>
+        <ReportField Name="InventoryCD"></ReportField>
+        <ReportField Name="InventoryItemDescr"></ReportField>
+        <ReportField Name="NowNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="ShipDate">
+          <DataType>DateTime</DataType>
+        </ReportField>
+        <ReportField Name="ShipDate_Day"></ReportField>
+        <ReportField Name="ShipDate_Hour"></ReportField>
+        <ReportField Name="ShipDate_Month"></ReportField>
+        <ReportField Name="ShipDate_Quarter"></ReportField>
+        <ReportField Name="ShipmentNbr"></ReportField>
+        <ReportField Name="SumQty">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="Usr1stInnerQty">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="UsrDateCode"></ReportField>
+        <ReportField Name="UsrDateCode4LastBox"></ReportField>
+      </Fields>
+      <FullName>AntenovaCustomizations.v_QISDA_INNER_LABEL</FullName>
+    </ReportTable>
+  </Tables>
+  <Width>9.6cm</Width>
+  <Sections>
+    <PageHeader Name="pageHeaderSection1">
+      <Height>0in</Height>
+      <Visible>False</Visible>
+    </PageHeader>
+    <Detail Name="WNCInnerLabel">
+      <Height>5.8cm</Height>
+      <Style>
+        <Font>
+          <Size>26px</Size>
+        </Font>
+      </Style>
+      <Variables>
+        <ReportVariable>
+          <Name>CurrentPage</Name>
+          <ValueExpr>= 1 + $CurrentPage</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>CurrentQty</Name>
+          <ValueExpr>=IIF(CDec([v_QISDA_INNER_LABEL.SumQty]) - (CDec([v_QISDA_INNER_LABEL.Attributes_INBOX_Value]) * CDec([v_QISDA_INNER_LABEL.NowNbr])) &gt;= 0,#010;CDec([v_QISDA_INNER_LABEL.Attributes_INBOX_Value]),#010;CDec(CDec([v_QISDA_INNER_LABEL.SumQty]) - (CDec([v_QISDA_INNER_LABEL.Attributes_INBOX_Value]) * (CDec([v_QISDA_INNER_LABEL.NowNbr] - 1))))#010;)</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>CurrentDateCode</Name>
+          <ValueExpr>=IIF((CDec($CurrentQty) &lt;&gt; CDec([v_QISDA_INNER_LABEL.Attributes_INBOX_Value]) AND Len([v_QISDA_INNER_LABEL.UsrDateCode]) &gt; 7),#010;	[v_QISDA_INNER_LABEL.UsrDateCode4LastBox],#010;	IIF([v_QISDA_INNER_LABEL.Usr1stInnerQty] = 0,#010;		[v_QISDA_INNER_LABEL.UsrDateCode],#010;		IIF([v_QISDA_INNER_LABEL.Usr1stInnerQty] - (CInt([v_QISDA_INNER_LABEL.Attributes_INBOX_Value]) * CInt([v_QISDA_INNER_LABEL.NowNbr])) &gt;= 0,#010;			IIF(Len([v_QISDA_INNER_LABEL.UsrDateCode]) = 7 or Len([v_QISDA_INNER_LABEL.UsrDateCode]) = 15,#010;				Left([v_QISDA_INNER_LABEL.UsrDateCode], 7),#010;				Left([v_QISDA_INNER_LABEL.UsrDateCode], 4)#010;			),#010;			IIF(Len([v_QISDA_INNER_LABEL.UsrDateCode]) = 7 or Len([v_QISDA_INNER_LABEL.UsrDateCode]) = 15,#010;				Right([v_QISDA_INNER_LABEL.UsrDateCode], 7),#010;				Right([v_QISDA_INNER_LABEL.UsrDateCode], 4)#010;			)#010;		)#010;	)#010;)</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>CurrentDateCodeWithoutLetters</Name>
+          <ValueExpr>=IIF([v_QISDA_INNER_LABEL.Usr1stInnerQty] = 0,#010;	Replace(Replace(Replace([v_QISDA_INNER_LABEL.UsrDateCode], ' TW', ''), ' KR', ''), ' CN', ''),#010;	IIF([v_QISDA_INNER_LABEL.Usr1stInnerQty] - (CInt([v_QISDA_INNER_LABEL.Attributes_INBOX_Value]) * CInt([v_QISDA_INNER_LABEL.NowNbr])) &gt;= 0,#010;		Left(Replace(Replace(Replace([v_QISDA_INNER_LABEL.UsrDateCode], ' TW', ''), ' KR', ''), ' CN', ''), 4),#010;		Right(Replace(Replace(Replace([v_QISDA_INNER_LABEL.UsrDateCode], ' TW', ''), ' KR', ''), ' CN', ''), 4)#010;	)#010;)</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>CurrentLotNbr</Name>
+          <ValueExpr>=Replace(Replace(Replace($CurrentDateCode, ' TW', ''), ' KR', ''), ' CN', '')</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>DateCode4LastBox</Name>
+          <ValueExpr>=IIF((CDec($CurrentQty) &lt;&gt; CDec([v_QISDA_INNER_LABEL.Attributes_INBOX_Value]) AND Len([v_QISDA_INNER_LABEL.UsrDateCode]) &gt; 7),#010;	[v_QISDA_INNER_LABEL.UsrDateCode4LastBox],#010;	$CurrentDateCode#010;)</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>QRCodeValue</Name>
+          <ValueExpr>='RLC1082835' + Substring(Year([v_QISDA_INNER_LABEL.ShipDate]), 2, 2) + PadLeft(CStr(Month([v_QISDA_INNER_LABEL.ShipDate])), 2, '0') + PadLeft(CStr(Day([v_QISDA_INNER_LABEL.ShipDate])), 2, '0') + PadLeft(CInt([v_QISDA_INNER_LABEL.NowNbr]), 5, '0') + ',' + [v_QISDA_INNER_LABEL.AlternateID] + '-1082835,' + Left($CurrentDateCode, 4) + '-ANTENOVA,'+ Left($CurrentDateCode, 4) + ',' + CInt($CurrentQty)</ValueExpr>
+        </ReportVariable>
+      </Variables>
+      <Items>
+        <PictureBox Name="pictureBox1">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 0px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>276px, 20px</Size>
+          <Source>Barcode</Source>
+          <Value>='RLC1082835' + Substring(Year([v_QISDA_INNER_LABEL.ShipDate]), 2, 2) + PadLeft(CStr(Month([v_QISDA_INNER_LABEL.ShipDate])), 2, '0') + PadLeft(CStr(Day([v_QISDA_INNER_LABEL.ShipDate])), 2, '0') + PadLeft(CInt([v_QISDA_INNER_LABEL.NowNbr]), 5, '0')</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox2">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 44px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>244px, 20px</Size>
+          <Source>Barcode</Source>
+          <Value>=IIF([v_QISDA_INNER_LABEL.AlternateID] &lt;&gt; Null, [v_QISDA_INNER_LABEL.AlternateID] + '-1082835', '-1082835')</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox3">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 88px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>244px, 20px</Size>
+          <Source>Barcode</Source>
+          <Value>=Left($CurrentDateCode, 4) + '-ANTENOVA'</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox4">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 182px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>116px, 20px</Size>
+          <Source>Barcode</Source>
+          <Style>
+            <VerticalAlign>Top</VerticalAlign>
+          </Style>
+          <Value>=$CurrentQty</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox5">
+          <BarcodeType>QRCode</BarcodeType>
+          <Location>248px, 40px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings>
+            <CodeSize>110</CodeSize>
+          </QRCodeSettings>
+          <Size>112px, 104px</Size>
+          <Source>Barcode</Source>
+          <Value>=$QRCodeValue</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox6">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 152px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>148px, 20px</Size>
+          <Source>Barcode</Source>
+          <Value>=Left($CurrentDateCode, 4)</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox7">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 120px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>172px, 20px</Size>
+          <Source>Barcode</Source>
+          <Value>=[v_QISDA_INNER_LABEL.InventoryCD]</Value>
+        </PictureBox>
+        <TextBox Name="textBox1">
+          <Location>0px, 20px</Location>
+          <Size>208px, 10px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>='RLC1082835' + Substring(Year([v_QISDA_INNER_LABEL.ShipDate]), 2, 2) + PadLeft(CStr(Month([v_QISDA_INNER_LABEL.ShipDate])), 2, '0') + PadLeft(CStr(Day([v_QISDA_INNER_LABEL.ShipDate])), 2, '0') + PadLeft(CInt([v_QISDA_INNER_LABEL.NowNbr]), 5, '0')</Value>
+        </TextBox>
+        <TextBox Name="textBox10">
+          <Location>56px, 32px</Location>
+          <Size>136px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=[v_QISDA_INNER_LABEL.AlternateID] + '-1082835'</Value>
+        </TextBox>
+        <TextBox Name="textBox11">
+          <Location>0px, 32px</Location>
+          <Size>56px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>WNC PN+VC:</Value>
+        </TextBox>
+        <TextBox Name="textBox13">
+          <Location>0px, 76px</Location>
+          <Size>48px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>D/C+Brand: </Value>
+        </TextBox>
+        <TextBox Name="textBox14">
+          <Location>248px, 152px</Location>
+          <Size>104px, 48px</Size>
+          <Style>
+            <Font>
+              <Size>26px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Center</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>RoHS</Value>
+        </TextBox>
+        <TextBox Name="textBox2">
+          <Location>0px, 172px</Location>
+          <Size>24px, 10px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Bottom</VerticalAlign>
+          </Style>
+          <Value>QTY: </Value>
+        </TextBox>
+        <TextBox Name="textBox3">
+          <Location>0px, 64px</Location>
+          <Size>192px, 10px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=[v_QISDA_INNER_LABEL.InventoryItemDescr]</Value>
+        </TextBox>
+        <TextBox Name="textBox4">
+          <Location>32px, 108px</Location>
+          <Size>104px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=[v_QISDA_INNER_LABEL.InventoryCD]</Value>
+        </TextBox>
+        <TextBox Name="textBox5">
+          <Format>='N0'</Format>
+          <Location>24px, 172px</Location>
+          <Size>80px, 10px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Bottom</VerticalAlign>
+          </Style>
+          <Value>=$CurrentQty</Value>
+        </TextBox>
+        <TextBox Name="textBox6">
+          <Location>0px, 108px</Location>
+          <Size>32px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>MPN : </Value>
+        </TextBox>
+        <TextBox Name="textBox7">
+          <Location>0px, 140px</Location>
+          <Size>40px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>LOT No: </Value>
+        </TextBox>
+        <TextBox Name="textBox8">
+          <Location>48px, 76px</Location>
+          <Size>192px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=Left($CurrentDateCode, 4) + '-ANTENOVA'</Value>
+        </TextBox>
+        <TextBox Name="textBox9">
+          <Location>40px, 140px</Location>
+          <Size>80px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=Left($CurrentDateCode, 4)</Value>
+        </TextBox>
+      </Items>
+    </Detail>
+    <PageFooter Name="pageFooterSection1">
+      <Height>0in</Height>
+      <Visible>False</Visible>
+    </PageFooter>
+  </Sections>
+</Report>

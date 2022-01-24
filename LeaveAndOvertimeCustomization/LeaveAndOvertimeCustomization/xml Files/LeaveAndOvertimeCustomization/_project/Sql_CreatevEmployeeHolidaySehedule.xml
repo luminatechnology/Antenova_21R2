@@ -1,0 +1,34 @@
+﻿<Sql TableName="CreatevEmployeeHolidaySehedule" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[IF EXISTS
+(
+	SELECT *
+	FROM SYS.views
+	WHERE name = 'v_EmployeeHolidaySehedule' AND SCHEMA_ID = SCHEMA_ID('dbo')
+)
+DROP VIEW [dbo].[v_EmployeeHolidaySehedule]	
+GO
+CREATE VIEW v_EmployeeHolidaySehedule AS
+SELECT r.CompanyID,
+	   'LEAVE' AS CATAGORY,
+	   r.RefNbr,
+	   r.LeaveType AS Type,
+	   r.RequestEmployeeID,
+	   r.RequestDate,
+	   r.LeaveStart AS StartDate,
+	   r.LeaveEnd AS EndDate,
+	   r.Duration
+FROM LumLeaveRequest r
+WHERE r.Status = 'A'
+UNION
+SELECT o.CompanyID,
+	  'DAY IN LIEU' AS CATAGORY,
+	  o.RefNbr,
+	  'DAY IN LIEU' AS Type,
+	  o.RequestEmployeeID,
+	  o.RequestDate,
+	  o.OvertimeStart AS StartDate,
+	  o.OverTimeEnd AS EndDate,
+	  ISNULL(o.ApprovedRequestHours,0) AS ApprovedRequestHours
+FROM LumOvertimeRequest o
+WHERE o.Status = 'A']]></CDATA>
+</Sql>

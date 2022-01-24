@@ -1,0 +1,20 @@
+﻿<Forms ScreenID="CR304000">
+    <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FormName="FormOpen" DisplayName="Details" Columns="0" LineNbr="0">
+        <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="IP" DisplayName="Reason" SchemaField="PX.Objects.CR.CROpportunity.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="IP" />
+        <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Stage" DefaultValue="[stageID]" DisplayName="Stage" SchemaField="PX.Objects.CR.CROpportunity.stageID" ColumnSpan="1" FromScheme="False" Required="False" LineNumber="1" />
+    </Form>
+    <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="True" FormName="FormWon" DisplayName="Details" Columns="0" LineNbr="1">
+        <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="OT" DisplayName="Reason" SchemaField="PX.Objects.CR.CROpportunity.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="OT;PR;RL;TH" />
+        <Field IsActive="True" IsSystem="True" IsCustomized="True" IsCustomizedRecursive="False" FieldName="Stage" DefaultValue="MP" DisplayName="Stage" SchemaField="PX.Objects.CR.CROpportunity.stageID" ColumnSpan="1" FromScheme="True" Required="False" LineNumber="1">
+            <OriginalState IsActive="True" IsSystem="True" IsCustomized="False" FieldName="Stage" DefaultValue="[stageID]" DisplayName="Stage" SchemaField="PX.Objects.CR.CROpportunity.stageID" ColumnSpan="1" FromScheme="False" Required="False" LineNumber="1" />
+        </Field>
+    </Form>
+    <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="True" FormName="FormLost" DisplayName="Details" Columns="0" LineNbr="2">
+        <Field IsActive="True" IsSystem="True" IsCustomized="True" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="OT" DisplayName="Reason" SchemaField="PX.Objects.CR.CROpportunity.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="CL;OT;PR;CM;FC">
+            <OriginalState IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="CL" DisplayName="Reason" SchemaField="PX.Objects.CR.CROpportunity.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="CL;OT;PR;CM;FC" />
+        </Field>
+        <Field IsActive="True" IsSystem="True" IsCustomized="True" IsCustomizedRecursive="False" FieldName="Stage" DefaultValue="DL" DisplayName="Stage" SchemaField="PX.Objects.CR.CROpportunity.stageID" ColumnSpan="1" FromScheme="True" Required="False" LineNumber="1">
+            <OriginalState IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Stage" DefaultValue="[stageID]" DisplayName="Stage" SchemaField="PX.Objects.CR.CROpportunity.stageID" ColumnSpan="1" FromScheme="False" Required="False" LineNumber="1" />
+        </Field>
+    </Form>
+</Forms>

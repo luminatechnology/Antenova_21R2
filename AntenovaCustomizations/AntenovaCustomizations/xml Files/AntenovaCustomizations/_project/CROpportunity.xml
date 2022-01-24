@@ -1,0 +1,5 @@
+﻿<Table TableName="CROpportunity">
+    <Column TableName="CROpportunity" ColumnName="UsrSalesperson" ColumnType="int" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="CROpportunity" ColumnName="UsrSource" ColumnType="string" AllowNull="True" MaxLength="10" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="CROpportunity" ColumnName="UsrEndCust" ColumnType="string" AllowNull="True" MaxLength="200" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+</Table>

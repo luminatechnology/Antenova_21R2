@@ -1,0 +1,96 @@
+﻿<Automation screen="CR301000">
+    <Forms ScreenID="CR301000">
+        <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="True" FormName="FormOpen" DisplayName="Details" Columns="0" LineNbr="0">
+            <Field IsActive="True" IsSystem="True" IsCustomized="True" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="IQ" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="PI;SB;IQ">
+                <OriginalState IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="PI" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="PI;SB;IQ" />
+            </Field>
+        </Form>
+        <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FormName="FormQualify" DisplayName="Details" Columns="0" LineNbr="1">
+            <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="QM" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="QM" />
+        </Form>
+        <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FormName="FormAccept" DisplayName="Details" Columns="0" LineNbr="2">
+            <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="AS" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="AS;QM" />
+        </Form>
+        <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="True" FormName="FormDisqualify" DisplayName="Details" Columns="0" LineNbr="3">
+            <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="NI;CL;DL;OT" />
+            <Field IsActive="True" FieldName="ReasonNote" DisplayName="Reason Note" SchemaField="PX.Objects.CR.CRLead.UsrReasonNote" ColumnSpan="1" FromScheme="False" LineNumber="1" />
+        </Form>
+        <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FormName="FormConvert" DisplayName="Details" Columns="0" LineNbr="4">
+            <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="QS" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="QS;AS;QM" />
+        </Form>
+    </Forms>
+    <Actions ScreenID="CR301000">
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="Open" ActionType="W" After="Last" DisplayName="Open" Form="FormOpen" MassProcessingScreen="CR503020" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields>
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="IsActive" ActionName="Open" IsFromScheme="True" Value="True" StateActionFieldLineNbr="0" />
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Resolution" ActionName="Open" IsFromScheme="False" Value="[FormOpen.Reason]" StateActionFieldLineNbr="1" />
+            </StateActionFields>
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="Qualify" ActionType="W" After="Open" DisplayName="Qualify" Form="FormQualify" MassProcessingScreen="CR503020" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields>
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="IsActive" ActionName="Qualify" IsFromScheme="True" Value="True" StateActionFieldLineNbr="0" />
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Resolution" ActionName="Qualify" IsFromScheme="False" Value="[FormQualify.Reason]" StateActionFieldLineNbr="1" />
+            </StateActionFields>
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="Accept" ActionType="W" After="Qualify" DisplayName="Accept" Form="FormAccept" MassProcessingScreen="CR503020" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields>
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="IsActive" ActionName="Accept" IsFromScheme="True" Value="True" StateActionFieldLineNbr="0" />
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Resolution" ActionName="Accept" IsFromScheme="False" Value="[FormAccept.Reason]" StateActionFieldLineNbr="1" />
+            </StateActionFields>
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="True" ActionName="Disqualify" ActionType="W" After="Accept" DisplayName="Disqualify" Form="FormDisqualify" MassProcessingScreen="CR503020" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields>
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="IsActive" ActionName="Disqualify" IsFromScheme="True" Value="False" StateActionFieldLineNbr="0" />
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Resolution" ActionName="Disqualify" IsFromScheme="False" Value="[FormDisqualify.Reason]" StateActionFieldLineNbr="1" />
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="OverrideRefContact" ActionName="Disqualify" IsFromScheme="True" Value="True" StateActionFieldLineNbr="2" />
+                <StateActionField IsActive="True" FieldName="UsrReasonNote" ActionName="Disqualify" IsFromScheme="False" Value="[FormDisqualify.ReasonNote]" StateActionFieldLineNbr="3" />
+            </StateActionFields>
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="MarkAsConverted" ActionType="W" After="Disqualify" DisplayName="Mark as Converted" Form="FormConvert" MassProcessingScreen="CR503020" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields>
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Resolution" ActionName="MarkAsConverted" IsFromScheme="False" Value="[FormConvert.Reason]" StateActionFieldLineNbr="0" />
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="IsActive" ActionName="MarkAsConverted" IsFromScheme="True" Value="False" StateActionFieldLineNbr="1" />
+            </StateActionFields>
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="CloseAsDuplicate" ActionType="G" After="MarkAsConverted" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields>
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="IsActive" ActionName="CloseAsDuplicate" IsFromScheme="True" Value="False" StateActionFieldLineNbr="0" />
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Resolution" ActionName="CloseAsDuplicate" IsFromScheme="True" Value="DL" StateActionFieldLineNbr="1" />
+                <StateActionField IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="OverrideRefContact" ActionName="CloseAsDuplicate" IsFromScheme="True" Value="True" StateActionFieldLineNbr="2" />
+            </StateActionFields>
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="ConvertToOpportunityAll" ActionType="G" After="CloseAsDuplicate" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="CreateContact" ActionType="G" After="ConvertToOpportunityAll" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="CreateBothContactAndAccount" ActionType="G" After="CreateContact" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="CheckForDuplicates" ActionType="G" After="CreateBothContactAndAccount" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="MarkAsValidated" ActionType="G" After="CheckForDuplicates" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Action IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" ActionName="ValidateAddress" ActionType="G" After="MarkAsValidated" MenuFolderType="Action" WindowMode="S">
+            <StateActionFields />
+            <StateActionParams />
+        </Action>
+        <Category IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" DisplayName="Actions" CategoryName="Action" LineNbr="0" />
+        <Category IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" DisplayName="Inquiries" CategoryName="Inquiry" After="Action" LineNbr="1" />
+        <Category IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" DisplayName="Reports" CategoryName="Report" After="Inquiry" LineNbr="2" />
+    </Actions>
+</Automation>

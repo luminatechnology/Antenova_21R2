@@ -1,0 +1,41 @@
+﻿<Sql TableName="v_ATRACK_OUTER_LABEL" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[IF EXISTS (
+	SELECT *
+	FROM SYS.views
+	WHERE name = 'v_ATRACK_OUTER_LABEL' AND SCHEMA_ID = SCHEMA_ID('dbo')
+)
+DROP VIEW [dbo].[v_ATRACK_OUTER_LABEL]
+GO
+CREATE VIEW [dbo].[v_ATRACK_OUTER_LABEL] AS
+SELECT SOShipment.CompanyID, 
+	   NumberPool.NowNbr + 1 as 'GroupNowNbr',
+	   SOPackageDetail.UsrShipmentSplitLineNbr as 'UsrShipmentSplitLineNbr',
+	   CONVERT(INT, NumberPool.NowNbr + 1 + CEILING((SUM(SOPackageDetail.Qty) / CSAnswers_INBOX.Value))) as 'NowNbr', 
+	   SOShipment.ShipmentNbr,  
+	   SOShipment.ShipDate, 
+	   SOLine.AlternateID, 
+	   SOOrder.CustomerOrderNbr,
+	   SOPackageDetail.UsrDateCode, 
+	   CSAnswers_CARTON.Value AS 'Attributes_CARTON_Value', 
+	   CSAnswers_INBOX.Value AS 'Attributes_INBOX_Value', 
+	   InventoryItem.Descr AS 'InventoryItemDescr', 
+	   InventoryItem.InventoryCD, 
+	   InventoryItem.InventoryID,
+	   SUM(SOPackageDetail.Qty) AS 'sumQty'
+FROM SOShipment
+LEFT JOIN SOPackageDetail ON SOPackageDetail.ShipmentNbr = SOShipment.ShipmentNbr and SOPackageDetail.CompanyID = SOShipment.CompanyID
+LEFT JOIN SOShipLine ON SOShipLine.ShipmentNbr = SOPackageDetail.ShipmentNbr and SOShipLine.LineNbr = SOPackageDetail.UsrShipmentSplitLineNbr and SOShipLine.CompanyID = SOShipment.CompanyID
+LEFT JOIN SOOrder ON SOShipLine.OrigOrderNbr = SOOrder.OrderNbr and SOShipLine.OrigOrderType = SOOrder.OrderType and SOOrder.CompanyID = SOShipment.CompanyID
+LEFT JOIN InventoryItem ON SOShipLine.InventoryID = InventoryItem.InventoryID and InventoryItem.CompanyID = SOShipment.CompanyID
+LEFT JOIN SOLine ON SOShipLine.OrigOrderNbr = SOLine.OrderNbr and SOShipLine.OrigOrderType = SOLine.OrderType and SOShipLine.OrigLineNbr = SOLine.LineNbr and SOLine.CompanyID = SOShipment.CompanyID
+LEFT JOIN CSAttribute ON CSAttribute.AttributeID = 'MADEIN' and CSAttribute.CompanyID = SOShipment.CompanyID
+LEFT OUTER JOIN CSAnswers as CSAnswers_INBOX ON CSAnswers_INBOX.RefNoteID = InventoryItem.NoteID and CSAnswers_INBOX.AttributeID = 'QTYINBOX' and CSAnswers_INBOX.CompanyID = SOShipment.CompanyID
+LEFT OUTER JOIN CSAnswers as CSAnswers_CARTON ON CSAnswers_CARTON.RefNoteID = InventoryItem.NoteID and CSAnswers_CARTON.AttributeID = 'QTYCARTON' and CSAnswers_CARTON.CompanyID = SOShipment.CompanyID
+CROSS JOIN(
+	    SELECT DISTINCT NUMBER AS NowNbr
+		FROM master.dbo.spt_values
+		WHERE name IS NULL
+) NumberPool
+GROUP BY SOShipment.CompanyID, NumberPool.NowNbr, SOPackageDetail.UsrShipmentSplitLineNbr, SOShipment.ShipmentNbr, SOShipment.ShipDate, SOLine.AlternateID, SOOrder.CustomerOrderNbr, SOPackageDetail.UsrDateCode, CSAnswers_CARTON.Value, CSAnswers_INBOX.Value, InventoryItem.Descr, InventoryItem.InventoryCD, InventoryItem.InventoryID
+HAVING NumberPool.NowNbr < (SUM(SOPackageDetail.Qty) / CSAnswers_CARTON.Value)]]></CDATA>
+</Sql>

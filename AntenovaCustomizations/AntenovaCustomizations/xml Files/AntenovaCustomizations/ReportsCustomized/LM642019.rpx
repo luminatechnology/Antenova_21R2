@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report Name="report1">
+  <CommonSettings>
+    <ViewPdf>True</ViewPdf>
+  </CommonSettings>
+  <Filters>
+    <FilterExp>
+      <DataField>v_QISDA_OUTER_LABEL.ShipmentNbr</DataField>
+      <Value>@ShipmentNbr</Value>
+    </FilterExp>
+  </Filters>
+  <PageSettings>
+    <Margins>
+      <Bottom>0cm</Bottom>
+      <Left>1cm</Left>
+      <Right>0.8cm</Right>
+      <Top>0cm</Top>
+    </Margins>
+    <PaperKind>Custom</PaperKind>
+    <PaperSize>96mm, 58mm</PaperSize>
+  </PageSettings>
+  <Parameters>
+    <ReportParameter>
+      <Name>ShipmentNbr</Name>
+      <Prompt>Shipment Nbr.</Prompt>
+      <Required>True</Required>
+      <ViewName>=Report.GetFieldSchema('SOShipment.ShipmentNbr')</ViewName>
+    </ReportParameter>
+  </Parameters>
+  <Relations>
+    <ReportRelation>
+      <ChildName>SOPackageDetail</ChildName>
+      <Links>
+        <RelationRow>
+          <ChildField>UsrOuterBoxOrder</ChildField>
+          <ParentField>GroupNowNbr</ParentField>
+        </RelationRow>
+        <RelationRow>
+          <ChildField>InventoryID</ChildField>
+          <ParentField>InventoryID</ParentField>
+        </RelationRow>
+        <RelationRow>
+          <ChildField>ShipmentNbr</ChildField>
+          <ParentField>ShipmentNbr</ParentField>
+        </RelationRow>
+      </Links>
+      <ParentName>v_QISDA_OUTER_LABEL</ParentName>
+    </ReportRelation>
+  </Relations>
+  <SchemaUrl>http://localhost/AntenovaDB/</SchemaUrl>
+  <Sorting>
+    <SortExp>
+      <DataField>v_QISDA_OUTER_LABEL.AlternateID</DataField>
+    </SortExp>
+  </Sorting>
+  <Tables>
+    <ReportTable Name="SOPackageDetail">
+      <Fields>
+        <ReportField Name="BoxID"></ReportField>
+        <ReportField Name="COD">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="Confirmed">
+          <DataType>Boolean</DataType>
+        </ReportField>
+        <ReportField Name="CreatedByID"></ReportField>
+        <ReportField Name="CreatedByID_Creator_displayName"></ReportField>
+        <ReportField Name="CreatedByID_Creator_Username"></ReportField>
+        <ReportField Name="CreatedByID_description"></ReportField>
+        <ReportField Name="CreatedByScreenID"></ReportField>
+        <ReportField Name="CreatedDateTime">
+          <DataType>DateTime</DataType>
+        </ReportField>
+        <ReportField Name="CreatedDateTime_Day"></ReportField>
+        <ReportField Name="CreatedDateTime_Hour"></ReportField>
+        <ReportField Name="CreatedDateTime_Month"></ReportField>
+        <ReportField Name="CreatedDateTime_Quarter"></ReportField>
+        <ReportField Name="CustomRefNbr1"></ReportField>
+        <ReportField Name="CustomRefNbr2"></ReportField>
+        <ReportField Name="DeclaredValue">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="Description"></ReportField>
+        <ReportField Name="InventoryID"></ReportField>
+        <ReportField Name="InventoryID_description"></ReportField>
+        <ReportField Name="InventoryID_InventoryItem_descr"></ReportField>
+        <ReportField Name="InventoryID_Segment1"></ReportField>
+        <ReportField Name="LastModifiedByID"></ReportField>
+        <ReportField Name="LastModifiedByID_description"></ReportField>
+        <ReportField Name="LastModifiedByID_Modifier_displayName"></ReportField>
+        <ReportField Name="LastModifiedByID_Modifier_Username"></ReportField>
+        <ReportField Name="LastModifiedByScreenID"></ReportField>
+        <ReportField Name="LastModifiedDateTime">
+          <DataType>DateTime</DataType>
+        </ReportField>
+        <ReportField Name="LastModifiedDateTime_Day"></ReportField>
+        <ReportField Name="LastModifiedDateTime_Hour"></ReportField>
+        <ReportField Name="LastModifiedDateTime_Month"></ReportField>
+        <ReportField Name="LastModifiedDateTime_Quarter"></ReportField>
+        <ReportField Name="LineNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="NoteActivity"></ReportField>
+        <ReportField Name="NoteFiles"></ReportField>
+        <ReportField Name="NoteID">
+          <DataType>Object</DataType>
+        </ReportField>
+        <ReportField Name="NoteImages"></ReportField>
+        <ReportField Name="NoteText"></ReportField>
+        <ReportField Name="PackageType"></ReportField>
+        <ReportField Name="Qty">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="QtyUOM"></ReportField>
+        <ReportField Name="ShipmentNbr"></ReportField>
+        <ReportField Name="TrackData"></ReportField>
+        <ReportField Name="TrackNumber"></ReportField>
+        <ReportField Name="tstamp"></ReportField>
+        <ReportField Name="Usr1stInnerQty">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="UsrCountry"></ReportField>
+        <ReportField Name="UsrDateCode"></ReportField>
+        <ReportField Name="UsrDateCode4LastBox"></ReportField>
+        <ReportField Name="UsrDateCode4ThisBox"></ReportField>
+        <ReportField Name="UsrGrossWeight">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="UsrOuterBoxOrder">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="UsrShipmentSplitLineNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="Weight">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="WeightUOM"></ReportField>
+      </Fields>
+      <FullName>PX.Objects.SO.SOPackageDetail</FullName>
+    </ReportTable>
+    <ReportTable Name="v_QISDA_OUTER_LABEL">
+      <Fields>
+        <ReportField Name="AlternateID"></ReportField>
+        <ReportField Name="Attributes_CARTON_Value"></ReportField>
+        <ReportField Name="Attributes_INBOX_Value"></ReportField>
+        <ReportField Name="GroupNowNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="InventoryCD"></ReportField>
+        <ReportField Name="InventoryID">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="InventoryItemDescr"></ReportField>
+        <ReportField Name="NowNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="ShipDate">
+          <DataType>DateTime</DataType>
+        </ReportField>
+        <ReportField Name="ShipDate_Day"></ReportField>
+        <ReportField Name="ShipDate_Hour"></ReportField>
+        <ReportField Name="ShipDate_Month"></ReportField>
+        <ReportField Name="ShipDate_Quarter"></ReportField>
+        <ReportField Name="ShipmentNbr"></ReportField>
+        <ReportField Name="SumQty">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="Usr1stInnerQty">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="UsrDateCode"></ReportField>
+      </Fields>
+      <FullName>AntenovaCustomizations.v_QISDA_OUTER_LABEL</FullName>
+    </ReportTable>
+  </Tables>
+  <Width>9.6cm</Width>
+  <Sections>
+    <PageHeader Name="pageHeaderSection1">
+      <Height>0in</Height>
+      <Visible>False</Visible>
+    </PageHeader>
+    <Detail Name="WNCOuterLabel">
+      <Height>5.8cm</Height>
+      <Style>
+        <Font>
+          <Size>26px</Size>
+        </Font>
+      </Style>
+      <Variables>
+        <ReportVariable>
+          <Name>CurrentLine</Name>
+          <ValueExpr>= 1 + $CurrentLine</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>CurrentDateCode</Name>
+          <ValueExpr>=[SOPackageDetail.UsrDateCode4ThisBox]</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>CurrentLotNbr</Name>
+          <ValueExpr>=Replace(Replace(Replace($CurrentDateCode, ' TW', ''), ' KR', ''), ' CN', '')</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>QRCodeValue</Name>
+          <ValueExpr>='RLC1082835' + Substring(Year([v_QISDA_OUTER_LABEL.ShipDate]), 2, 2) + PadLeft(CStr(Month([v_QISDA_OUTER_LABEL.ShipDate])), 2, '0') + PadLeft(CStr(Day([v_QISDA_OUTER_LABEL.ShipDate])), 2, '0') + PadLeft(CInt([v_QISDA_OUTER_LABEL.NowNbr]), 5, '0') + ',' + [v_QISDA_OUTER_LABEL.AlternateID] + '-1082835,' + $CurrentLotNbr + '-ANTENOVA,'+ $CurrentLotNbr + ',' + CInt([SOPackageDetail.Qty])</ValueExpr>
+        </ReportVariable>
+      </Variables>
+      <Items>
+        <PictureBox Name="pictureBox1">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 0px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>276px, 20px</Size>
+          <Source>Barcode</Source>
+          <Value>='RLC1082835' + Substring(Year([v_QISDA_OUTER_LABEL.ShipDate]), 2, 2) + PadLeft(CStr(Month([v_QISDA_OUTER_LABEL.ShipDate])), 2, '0') + PadLeft(CStr(Day([v_QISDA_OUTER_LABEL.ShipDate])), 2, '0') + PadLeft(CInt([v_QISDA_OUTER_LABEL.NowNbr]), 5, '0')</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox2">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 44px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>244px, 20px</Size>
+          <Source>Barcode</Source>
+          <Value>=IIF([v_QISDA_OUTER_LABEL.AlternateID] &lt;&gt; Null, [v_QISDA_OUTER_LABEL.AlternateID] + '-1082835', '-1082835')</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox3">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 88px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>244px, 20px</Size>
+          <Source>Barcode</Source>
+          <Value>=$CurrentLotNbr + '-ANTENOVA'</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox4">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 182px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>116px, 20px</Size>
+          <Source>Barcode</Source>
+          <Style>
+            <VerticalAlign>Top</VerticalAlign>
+          </Style>
+          <Value>=CInt([SOPackageDetail.Qty])</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox5">
+          <BarcodeType>QRCode</BarcodeType>
+          <Location>248px, 40px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings>
+            <CodeSize>110</CodeSize>
+          </QRCodeSettings>
+          <Size>112px, 104px</Size>
+          <Source>Barcode</Source>
+          <Value>=$QRCodeValue</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox6">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 152px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>148px, 20px</Size>
+          <Source>Barcode</Source>
+          <Value>=$CurrentLotNbr</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox7">
+          <BarcodeSettings>
+            <LeftMargin>0</LeftMargin>
+            <TopMargin>30</TopMargin>
+          </BarcodeSettings>
+          <BarcodeType>Code128</BarcodeType>
+          <Location>4px, 120px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>172px, 20px</Size>
+          <Source>Barcode</Source>
+          <Value>=[v_QISDA_OUTER_LABEL.InventoryCD]</Value>
+        </PictureBox>
+        <TextBox Name="textBox1">
+          <Location>0px, 20px</Location>
+          <Size>208px, 10px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>='RLC1082835' + Substring(Year([v_QISDA_OUTER_LABEL.ShipDate]), 2, 2) + PadLeft(CStr(Month([v_QISDA_OUTER_LABEL.ShipDate])), 2, '0') + PadLeft(CStr(Day([v_QISDA_OUTER_LABEL.ShipDate])), 2, '0') + PadLeft(CInt([v_QISDA_OUTER_LABEL.NowNbr]), 5, '0')</Value>
+        </TextBox>
+        <TextBox Name="textBox10">
+          <Location>56px, 32px</Location>
+          <Size>136px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=[v_QISDA_OUTER_LABEL.AlternateID] + '-1082835'</Value>
+        </TextBox>
+        <TextBox Name="textBox11">
+          <Location>0px, 32px</Location>
+          <Size>56px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>WNC PN+VC:</Value>
+        </TextBox>
+        <TextBox Name="textBox13">
+          <Location>0px, 76px</Location>
+          <Size>48px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>D/C+Brand: </Value>
+        </TextBox>
+        <TextBox Name="textBox14">
+          <Location>248px, 152px</Location>
+          <Size>104px, 48px</Size>
+          <Style>
+            <Font>
+              <Size>26px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Center</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>RoHS</Value>
+        </TextBox>
+        <TextBox Name="textBox2">
+          <Location>0px, 172px</Location>
+          <Size>24px, 10px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Bottom</VerticalAlign>
+          </Style>
+          <Value>QTY: </Value>
+        </TextBox>
+        <TextBox Name="textBox3">
+          <Location>0px, 64px</Location>
+          <Size>192px, 10px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=[v_QISDA_OUTER_LABEL.InventoryItemDescr]</Value>
+        </TextBox>
+        <TextBox Name="textBox4">
+          <Location>32px, 108px</Location>
+          <Size>104px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=[v_QISDA_OUTER_LABEL.InventoryCD]</Value>
+        </TextBox>
+        <TextBox Name="textBox5">
+          <Format>='N0'</Format>
+          <Location>24px, 172px</Location>
+          <Size>80px, 10px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Bottom</VerticalAlign>
+          </Style>
+          <Value>=[SOPackageDetail.Qty]</Value>
+        </TextBox>
+        <TextBox Name="textBox6">
+          <Location>0px, 108px</Location>
+          <Size>32px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>MPN : </Value>
+        </TextBox>
+        <TextBox Name="textBox7">
+          <Location>0px, 140px</Location>
+          <Size>40px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>LOT No: </Value>
+        </TextBox>
+        <TextBox Name="textBox8">
+          <Location>48px, 76px</Location>
+          <Size>184px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=$CurrentLotNbr + '-ANTENOVA'</Value>
+        </TextBox>
+        <TextBox Name="textBox9">
+          <Location>40px, 140px</Location>
+          <Size>80px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <Padding>
+              <Left>2px</Left>
+            </Padding>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=$CurrentLotNbr</Value>
+        </TextBox>
+      </Items>
+    </Detail>
+    <PageFooter Name="pageFooterSection1">
+      <Height>0in</Height>
+      <Visible>False</Visible>
+    </PageFooter>
+  </Sections>
+</Report>

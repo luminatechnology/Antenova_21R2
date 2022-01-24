@@ -1,0 +1,21 @@
+﻿<Sql TableName="CreatevGetOrganizationWorkGroup" CustomScript="#CDATA">
+    <CDATA name="CustomScript"><![CDATA[IF EXISTS
+(
+	SELECT *
+	FROM SYS.views
+	WHERE name = 'v_GetOrganizationWorkGroup' AND SCHEMA_ID = SCHEMA_ID('dbo')
+)
+DROP VIEW [dbo].[v_GetOrganizationWorkGroup]	
+GO
+CREATE VIEW v_GetOrganizationWorkGroup AS
+with OrgWorkGroup as (
+	select CompanyID,workgroupid,Description
+	from EPCompanyTree where Description = 'Company Organization'
+	union all
+	select t.CompanyID,t.workgroupid,t.Description
+	from EPCompanyTree t, OrgWorkGroup v
+	where t.ParentWGID = v.WorkGroupID and t.CompanyID = v.CompanyID
+)
+select *
+from OrgWorkGroup]]></CDATA>
+</Sql>

@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report Name="report1">
+  <CommonSettings>
+    <ViewPdf>True</ViewPdf>
+  </CommonSettings>
+  <EmbeddedImages>
+    <EmbeddedImage>
+      <ImageData>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</ImageData>
+      <MimeType>image/jpeg</MimeType>
+      <Name>qisda</Name>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Filters>
+    <FilterExp>
+      <DataField>v_QISDA_OUTER_LABEL.ShipmentNbr</DataField>
+      <Value>@ShipmentNbr</Value>
+    </FilterExp>
+  </Filters>
+  <PageSettings>
+    <Margins>
+      <Left>0.4cm</Left>
+      <Right>0cm</Right>
+      <Top>0cm</Top>
+    </Margins>
+    <PaperKind>Custom</PaperKind>
+    <PaperSize>96mm, 58mm</PaperSize>
+  </PageSettings>
+  <Parameters>
+    <ReportParameter>
+      <Name>ShipmentNbr</Name>
+      <Prompt>Shipment Nbr.</Prompt>
+      <Required>True</Required>
+      <ViewName>=Report.GetFieldSchema('SOShipment.ShipmentNbr')</ViewName>
+    </ReportParameter>
+  </Parameters>
+  <Relations>
+    <ReportRelation>
+      <ChildName>SOPackageDetail</ChildName>
+      <Links>
+        <RelationRow>
+          <ChildField>ShipmentNbr</ChildField>
+          <ParentField>ShipmentNbr</ParentField>
+        </RelationRow>
+        <RelationRow>
+          <ChildField>InventoryID</ChildField>
+          <ParentField>InventoryID</ParentField>
+        </RelationRow>
+        <RelationRow>
+          <ChildField>UsrOuterBoxOrder</ChildField>
+          <ParentField>GroupNowNbr</ParentField>
+        </RelationRow>
+      </Links>
+      <ParentName>v_QISDA_OUTER_LABEL</ParentName>
+    </ReportRelation>
+  </Relations>
+  <SchemaUrl>http://localhost/AntenovaDB/</SchemaUrl>
+  <Sorting>
+    <SortExp>
+      <DataField>v_QISDA_OUTER_LABEL.AlternateID</DataField>
+    </SortExp>
+  </Sorting>
+  <Tables>
+    <ReportTable Name="v_QISDA_OUTER_LABEL">
+      <Fields>
+        <ReportField Name="AlternateID"></ReportField>
+        <ReportField Name="Attributes_CARTON_Value"></ReportField>
+        <ReportField Name="Attributes_INBOX_Value"></ReportField>
+        <ReportField Name="GroupNowNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="InventoryCD"></ReportField>
+        <ReportField Name="InventoryID">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="InventoryItemDescr"></ReportField>
+        <ReportField Name="NowNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="ShipDate">
+          <DataType>DateTime</DataType>
+        </ReportField>
+        <ReportField Name="ShipDate_Day"></ReportField>
+        <ReportField Name="ShipDate_Hour"></ReportField>
+        <ReportField Name="ShipDate_Month"></ReportField>
+        <ReportField Name="ShipDate_Quarter"></ReportField>
+        <ReportField Name="ShipmentNbr"></ReportField>
+        <ReportField Name="SumQty">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="Usr1stInnerQty">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="UsrDateCode"></ReportField>
+      </Fields>
+      <FullName>AntenovaCustomizations.v_QISDA_OUTER_LABEL</FullName>
+    </ReportTable>
+    <ReportTable Name="SOPackageDetail">
+      <Fields>
+        <ReportField Name="BoxID"></ReportField>
+        <ReportField Name="COD">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="Confirmed">
+          <DataType>Boolean</DataType>
+        </ReportField>
+        <ReportField Name="CreatedByID"></ReportField>
+        <ReportField Name="CreatedByID_Creator_displayName"></ReportField>
+        <ReportField Name="CreatedByID_Creator_Username"></ReportField>
+        <ReportField Name="CreatedByID_description"></ReportField>
+        <ReportField Name="CreatedByScreenID"></ReportField>
+        <ReportField Name="CreatedDateTime">
+          <DataType>DateTime</DataType>
+        </ReportField>
+        <ReportField Name="CreatedDateTime_Day"></ReportField>
+        <ReportField Name="CreatedDateTime_Hour"></ReportField>
+        <ReportField Name="CreatedDateTime_Month"></ReportField>
+        <ReportField Name="CreatedDateTime_Quarter"></ReportField>
+        <ReportField Name="CustomRefNbr1"></ReportField>
+        <ReportField Name="CustomRefNbr2"></ReportField>
+        <ReportField Name="DeclaredValue">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="Description"></ReportField>
+        <ReportField Name="InventoryID"></ReportField>
+        <ReportField Name="InventoryID_description"></ReportField>
+        <ReportField Name="InventoryID_InventoryItem_descr"></ReportField>
+        <ReportField Name="InventoryID_Segment1"></ReportField>
+        <ReportField Name="LastModifiedByID"></ReportField>
+        <ReportField Name="LastModifiedByID_description"></ReportField>
+        <ReportField Name="LastModifiedByID_Modifier_displayName"></ReportField>
+        <ReportField Name="LastModifiedByID_Modifier_Username"></ReportField>
+        <ReportField Name="LastModifiedByScreenID"></ReportField>
+        <ReportField Name="LastModifiedDateTime">
+          <DataType>DateTime</DataType>
+        </ReportField>
+        <ReportField Name="LastModifiedDateTime_Day"></ReportField>
+        <ReportField Name="LastModifiedDateTime_Hour"></ReportField>
+        <ReportField Name="LastModifiedDateTime_Month"></ReportField>
+        <ReportField Name="LastModifiedDateTime_Quarter"></ReportField>
+        <ReportField Name="LineNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="NoteActivity"></ReportField>
+        <ReportField Name="NoteFiles"></ReportField>
+        <ReportField Name="NoteID">
+          <DataType>Object</DataType>
+        </ReportField>
+        <ReportField Name="NoteImages"></ReportField>
+        <ReportField Name="NoteText"></ReportField>
+        <ReportField Name="PackageType"></ReportField>
+        <ReportField Name="Qty">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="QtyUOM"></ReportField>
+        <ReportField Name="ShipmentNbr"></ReportField>
+        <ReportField Name="TrackData"></ReportField>
+        <ReportField Name="TrackNumber"></ReportField>
+        <ReportField Name="tstamp"></ReportField>
+        <ReportField Name="Usr1stInnerQty">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="UsrCountry"></ReportField>
+        <ReportField Name="UsrDateCode"></ReportField>
+        <ReportField Name="UsrDateCode4LastBox"></ReportField>
+        <ReportField Name="UsrDateCode4ThisBox"></ReportField>
+        <ReportField Name="UsrGrossWeight">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="UsrOuterBoxOrder">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="UsrShipmentSplitLineNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="Weight">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="WeightUOM"></ReportField>
+      </Fields>
+      <FullName>PX.Objects.SO.SOPackageDetail</FullName>
+    </ReportTable>
+  </Tables>
+  <Width>9.6cm</Width>
+  <Sections>
+    <PageHeader Name="pageHeaderSection1">
+      <Height>0in</Height>
+      <Visible>False</Visible>
+    </PageHeader>
+    <Detail Name="QisdaOuterLabel">
+      <Height>5.8cm</Height>
+      <Style>
+        <Font>
+          <Size>26px</Size>
+        </Font>
+      </Style>
+      <Variables>
+        <ReportVariable>
+          <Name>CurrentRow</Name>
+          <ValueExpr>=CInt([v_QISDA_OUTER_LABEL.NowNbr] - ([v_QISDA_OUTER_LABEL.SumQty]/CDec([v_QISDA_OUTER_LABEL.Attributes_INBOX_Value])))</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>ProductionDayOfWeek</Name>
+          <ValueExpr>=DayOfWeek(DateAdd(CDate(Substring(Year(Today()), 0, 2) + Substring([v_QISDA_OUTER_LABEL.UsrDateCode], 0, 2) + '/01/01'), 'd', (CInt(Substring([v_QISDA_OUTER_LABEL.UsrDateCode], 2, 2))) * 7))</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>Date</Name>
+          <ValueExpr>=DateAdd(CDate(Substring(Year(Today()), 0, 2) + Substring([v_QISDA_OUTER_LABEL.UsrDateCode], 0, 2) + '/01/01'), 'd', (CInt(Substring([v_QISDA_OUTER_LABEL.UsrDateCode], 2, 2))) * 7 - $ProductionDayOfWeek + 1)</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>remainQty</Name>
+          <ValueExpr>=CInt([SOPackageDetail.Qty])</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>CurrentLine</Name>
+          <ValueExpr>= 1 + $CurrentLine</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>CurrentDateCode</Name>
+          <ValueExpr>=IIF([v_QISDA_OUTER_LABEL.Usr1stInnerQty] = 0,#010;	[v_QISDA_OUTER_LABEL.UsrDateCode],#010;	IIF([v_QISDA_OUTER_LABEL.Usr1stInnerQty] - (CInt($CurrentLine) * CInt([v_QISDA_OUTER_LABEL.Attributes_CARTON_Value])) &gt;= 0,#010;		IIF(Len([v_QISDA_OUTER_LABEL.UsrDateCode]) = 7 or Len([v_QISDA_OUTER_LABEL.UsrDateCode]) = 15,#010;			Left([v_QISDA_OUTER_LABEL.UsrDateCode], 7),#010;			Left([v_QISDA_OUTER_LABEL.UsrDateCode], 4)#010;		),#010;		IIF(CInt(Abs([v_QISDA_OUTER_LABEL.Usr1stInnerQty] - CInt($CurrentLine) * CInt([v_QISDA_OUTER_LABEL.Attributes_CARTON_Value]))) % CInt([v_QISDA_OUTER_LABEL.Attributes_CARTON_Value]) = 0,#010;			IIF(Len([v_QISDA_OUTER_LABEL.UsrDateCode]) = 7 or Len([v_QISDA_OUTER_LABEL.UsrDateCode]) = 15,#010;				Right([v_QISDA_OUTER_LABEL.UsrDateCode], 7),#010;				Right([v_QISDA_OUTER_LABEL.UsrDateCode], 4)#010;			),#010;			[v_QISDA_OUTER_LABEL.UsrDateCode]#010;		)#010;	)#010;)</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>CurrentLotNbr</Name>
+          <ValueExpr>=Replace(Replace(Replace($CurrentDateCode, ' TW', ''), ' KR', ''), ' CN', '')</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>LotNo</Name>
+          <ValueExpr>='L000000000000' + Left($CurrentDateCode, 4) + PadLeft(CInt([v_QISDA_OUTER_LABEL.NowNbr]), 4, '0')</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>B</Name>
+          <ValueExpr>= 'B' + [v_QISDA_OUTER_LABEL.AlternateID] + '52020' + Year($Date) + PadLeft(CStr(Month($Date)), 2, '0') + PadLeft(CStr(Day($Date)), 2, '0') + PadLeft($remainQty, 5, '0')</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>QRCodeValue</Name>
+          <ValueExpr>=$LotNo + ';\n' + #010; 'E' + Year($Date) + PadLeft(CStr(Month($Date)), 2, '0') + PadLeft(CStr(Day($Date)), 2, '0') + '0540' + ';\n' + #010; $B  + ';\n' + #010; 'R52020' + Year($Date) + PadLeft(CStr(Month($Date)), 2, '0') + PadLeft(CStr(Day($Date)), 2, '0') + PadLeft(CInt([v_QISDA_OUTER_LABEL.NowNbr]), 5, '0')</ValueExpr>
+        </ReportVariable>
+      </Variables>
+      <Items>
+        <PictureBox Name="pictureBox1">
+          <BarcodeType>Code128</BarcodeType>
+          <Location>0px, 28px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>200px, 24px</Size>
+          <Source>Barcode</Source>
+          <Value>=$LotNo</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox2">
+          <BarcodeType>Code128</BarcodeType>
+          <Location>0px, 76px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>200px, 24px</Size>
+          <Source>Barcode</Source>
+          <Value>= 'E' + Year($Date) + PadLeft(CStr(Month($Date)), 2, '0') + PadLeft(CStr(Day($Date)), 2, '0') + ' 0540'</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox3">
+          <BarcodeType>Code128</BarcodeType>
+          <Location>0px, 124px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>200px, 24px</Size>
+          <Source>Barcode</Source>
+          <Value>=$B</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox4">
+          <BarcodeType>Code128</BarcodeType>
+          <Location>0px, 172px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>200px, 24px</Size>
+          <Source>Barcode</Source>
+          <Value>= 'R52020' + Year($Date) + PadLeft(CStr(Month($Date)), 2, '0') + PadLeft(CStr(Day($Date)), 2, '0') + PadLeft(CInt([v_QISDA_OUTER_LABEL.NowNbr]), 5, '0')</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox5">
+          <BarcodeType>QRCode</BarcodeType>
+          <Location>232px, 32px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings>
+            <CodeSize>116</CodeSize>
+          </QRCodeSettings>
+          <Size>128px, 120px</Size>
+          <Source>Barcode</Source>
+          <Value>=$QRCodeValue</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox7">
+          <Location>232px, 168px</Location>
+          <MimeType>image/jpeg</MimeType>
+          <QRCodeSettings />
+          <Size>104px, 32px</Size>
+          <Source>Embedded</Source>
+          <Value>qisda</Value>
+        </PictureBox>
+        <TextBox Name="textBox1">
+          <Location>0px, 64px</Location>
+          <Size>128px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>(E) Product Date + Expire days: </Value>
+        </TextBox>
+        <TextBox Name="textBox10">
+          <Location>48px, 4px</Location>
+          <Size>96px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=[v_QISDA_OUTER_LABEL.AlternateID]</Value>
+        </TextBox>
+        <TextBox Name="textBox11">
+          <Location>152px, 4px</Location>
+          <Size>52px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>(Q) Quantity: </Value>
+        </TextBox>
+        <TextBox Name="textBox12">
+          <Format>='N0'</Format>
+          <Location>204px, 4px</Location>
+          <Size>64px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=$remainQty</Value>
+        </TextBox>
+        <TextBox Name="textBox13">
+          <Location>0px, 160px</Location>
+          <Size>64px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>(R) Reel ID: </Value>
+        </TextBox>
+        <TextBox Name="textBox14">
+          <Location>0px, 16px</Location>
+          <Size>56px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>(L) Lot No: </Value>
+        </TextBox>
+        <TextBox Name="textBox2">
+          <Location>24px, 196px</Location>
+          <Size>160px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>= 'R52020' + Year($Date) + PadLeft(CStr(Month($Date)), 2, '0') + PadLeft(CStr(Day($Date)), 2, '0') + PadLeft(CInt([v_QISDA_OUTER_LABEL.NowNbr]), 5, '0')</Value>
+        </TextBox>
+        <TextBox Name="textBox3">
+          <Location>0px, 112px</Location>
+          <Size>40px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>(B)</Value>
+        </TextBox>
+        <TextBox Name="textBox4">
+          <Location>24px, 52px</Location>
+          <Size>160px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=$LotNo</Value>
+        </TextBox>
+        <TextBox Name="textBox6">
+          <Location>24px, 100px</Location>
+          <Size>160px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>= 'E' + Year($Date) + PadLeft(CStr(Month($Date)), 2, '0') + PadLeft(CStr(Day($Date)), 2, '0') + ' 0540'</Value>
+        </TextBox>
+        <TextBox Name="textBox8">
+          <Location>24px, 148px</Location>
+          <Size>160px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>=$B</Value>
+        </TextBox>
+        <TextBox Name="textBox9">
+          <Location>0px, 4px</Location>
+          <Size>48px, 12px</Size>
+          <Style>
+            <Font>
+              <Size>8px</Size>
+              <Style>Bold</Style>
+            </Font>
+            <TextAlign>Left</TextAlign>
+            <VerticalAlign>Middle</VerticalAlign>
+          </Style>
+          <Value>(P) Part No: </Value>
+        </TextBox>
+      </Items>
+    </Detail>
+    <PageFooter Name="pageFooterSection1">
+      <Height>0in</Height>
+      <Visible>False</Visible>
+    </PageFooter>
+  </Sections>
+</Report>

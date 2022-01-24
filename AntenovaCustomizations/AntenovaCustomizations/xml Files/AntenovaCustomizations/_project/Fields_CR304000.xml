@@ -1,0 +1,6 @@
+﻿<Fields ScreenID="CR304000">
+    <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Source" ObjectName="PX.Objects.CR.CROpportunity" ComboBoxValues="Set|W|Web;Set|H|Phone Inquiry;Set|L|Purchased List" />
+    <Field IsActive="True" IsSystem="True" IsCustomized="True" IsCustomizedRecursive="False" FieldName="Resolution" ObjectName="PX.Objects.CR.CROpportunity" ComboBoxValues="Set|TH|Technology;Set|RL|Relationship;Set|PR|Price;Set|OT|Other;Set|NA|Assign;Set|IP|In Process;Set|FC|Functionality;Set|CM|Product Not Launch;Set|CL|Canceled">
+        <OriginalState IsActive="True" IsSystem="True" IsCustomized="False" FieldName="Resolution" ObjectName="PX.Objects.CR.CROpportunity" ComboBoxValues="Set|TH|Technology;Set|RL|Relationship;Set|PR|Price;Set|OT|Other;Set|NA|Assign;Set|IP|In Process;Set|FC|Functionality;Set|CM|Company Maturity;Set|CL|Canceled" />
+    </Field>
+</Fields>

@@ -1,0 +1,20 @@
+﻿<Forms ScreenID="CR301000">
+    <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="True" FormName="FormOpen" DisplayName="Details" Columns="0" LineNbr="0">
+        <Field IsActive="True" IsSystem="True" IsCustomized="True" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="IQ" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="PI;SB;IQ">
+            <OriginalState IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="PI" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="PI;SB;IQ" />
+        </Field>
+    </Form>
+    <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FormName="FormQualify" DisplayName="Details" Columns="0" LineNbr="1">
+        <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="QM" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="QM" />
+    </Form>
+    <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FormName="FormAccept" DisplayName="Details" Columns="0" LineNbr="2">
+        <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="AS" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="AS;QM" />
+    </Form>
+    <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="True" FormName="FormDisqualify" DisplayName="Details" Columns="0" LineNbr="3">
+        <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="NI;CL;DL;OT" />
+        <Field IsActive="True" FieldName="ReasonNote" DisplayName="Reason Note" SchemaField="PX.Objects.CR.CRLead.UsrReasonNote" ColumnSpan="1" FromScheme="False" LineNumber="1" />
+    </Form>
+    <Form IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FormName="FormConvert" DisplayName="Details" Columns="0" LineNbr="4">
+        <Field IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" FieldName="Reason" DefaultValue="QS" DisplayName="Reason" SchemaField="PX.Objects.CR.CRLead.resolution" ColumnSpan="1" FromScheme="True" Required="True" LineNumber="0" ComboBoxValues="QS;AS;QM" />
+    </Form>
+</Forms>

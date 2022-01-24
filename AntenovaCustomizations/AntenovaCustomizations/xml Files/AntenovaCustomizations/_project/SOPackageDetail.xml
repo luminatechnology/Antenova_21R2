@@ -1,0 +1,10 @@
+﻿<Table TableName="SOPackageDetail">
+    <Column TableName="SOPackageDetail" ColumnName="UsrShipmentSplitLineNbr" ColumnType="int" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOPackageDetail" ColumnName="UsrGrossWeight" ColumnType="decimal" AllowNull="True" DecimalPrecision="6" DecimalLength="19" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOPackageDetail" ColumnName="UsrCountry" ColumnType="string" AllowNull="True" MaxLength="50" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOPackageDetail" ColumnName="UsrDateCode" ColumnType="string" AllowNull="True" MaxLength="50" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOPackageDetail" ColumnName="Usr1stInnerQty" ColumnType="int" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOPackageDetail" ColumnName="UsrDateCode4LastBox" ColumnType="string" AllowNull="True" MaxLength="50" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOPackageDetail" ColumnName="UsrOuterBoxOrder" ColumnType="int" AllowNull="True" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+    <Column TableName="SOPackageDetail" ColumnName="UsrDateCode4ThisBox" ColumnType="string" AllowNull="True" MaxLength="50" DecimalPrecision="0" DecimalLength="0" IsNewColumn="True" IsUnicode="True" />
+</Table>

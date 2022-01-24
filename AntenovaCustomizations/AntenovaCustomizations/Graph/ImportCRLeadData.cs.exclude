@@ -1,0 +1,90 @@
+﻿using PX.Common;
+using PX.Data;
+using PX.Data.BQL.Fluent;
+using PX.Objects.CR;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web;
+
+namespace AntenovaCustomizations.Graph
+{
+    public class ImportCRLeadData : PXGraph<ImportCRLeadData>
+    {
+        private const string _sessionKey = "CRLeadFileImportSessionKey";
+
+        public PXSave<CRLead> Save;
+        public PXCancel<CRLead> Cancel;
+
+        public PXSelect<CRLead> UploadPanel;
+
+        public PXAction<CRLead> UploadFileBatch;
+        [PXUIField(DisplayName = "Upload File as Batches", MapEnableRights = PXCacheRights.Select, MapViewRights = PXCacheRights.Select, Visible = true)]
+        [PXButton(CommitChanges =true)]
+        public virtual IEnumerable uploadFileBatch(PXAdapter adapter)
+        {
+            if (this.UploadPanel.AskExt() == WebDialogResult.OK)
+            {
+                PX.SM.FileInfo file = PXContext.SessionTyped<PXSessionStatePXData>().FileInfo[_sessionKey];
+                HttpContext.Current.Session.Remove(_sessionKey);
+                ImportProcess(file);
+            }
+            return adapter.Get();
+        }
+
+        public void ImportProcess(PX.SM.FileInfo file)
+        {
+            var graph = new LeadMaint();
+            Byte[] bytes = file.BinData;
+
+            using (PX.Data.XLSXReader reader = new XLSXReader(bytes))
+            {
+                reader.Reset();
+                //Creating a dictionary to find column index by name
+                Dictionary<String, Int32> dic = reader.IndexKeyPairs.ToDictionary(p => p.Value, p => p.Key);
+                //Skipping first row with collumns names.
+                while (reader.MoveNext())
+                {
+                    CRLead row_CRLead = graph.Lead.Insert(graph.Lead.Cache.CreateInstance() as CRLead);
+                    Address row_Address = graph.AddressCurrent.Current;
+
+                    // Address
+                    graph.AddressCurrent.SetValueExt<Address.countryID>(row_Address, reader.GetValue(10));
+                    graph.AddressCurrent.SetValueExt<Address.postalCode>(row_Address, reader.GetValue(11));
+                    graph.AddressCurrent.SetValueExt<Address.state>(row_Address, reader.GetValue(12));
+                    graph.AddressCurrent.SetValueExt<Address.city>(row_Address, reader.GetValue(13));
+                    graph.AddressCurrent.SetValueExt<Address.addressLine1>(row_Address, reader.GetValue(14));
+                    graph.AddressCurrent.SetValueExt<Address.addressLine2>(row_Address, reader.GetValue(15));
+
+                    graph.Lead.SetValueExt<CRLead.firstName>(row_CRLead, reader.GetValue(1));
+                    graph.Lead.SetValueExt<CRLead.lastName>(row_CRLead, reader.GetValue(2));
+                    graph.Lead.SetValueExt<CRLead.displayName>(row_CRLead, $"{reader.GetValue(2)},{reader.GetValue(1)}");
+                    graph.Actions.PressSave();
+                    // CRLead
+
+                    graph.Lead.SetValueExt<CRLead.extRefNbr>(row_CRLead, reader.GetValue(3));
+                    graph.Lead.SetValueExt<CRLead.fullName>(row_CRLead, reader.GetValue(4));
+                    graph.Lead.SetValueExt<CRLead.salutation>(row_CRLead, reader.GetValue(5));
+                    graph.Lead.SetValueExt<CRLead.eMail>(row_CRLead, reader.GetValue(6));
+                    graph.Lead.SetValueExt<CRLead.phone1>(row_CRLead, reader.GetValue(7));
+                    graph.Lead.SetValueExt<CRLead.phone2>(row_CRLead, reader.GetValue(8));
+                    graph.Lead.SetValueExt<CRLead.webSite>(row_CRLead, reader.GetValue(9));
+                    graph.Lead.SetValueExt<CRLead.description>(row_CRLead, reader.GetValue(16));
+                    graph.Lead.SetValueExt<CRLead.contactID>(row_CRLead, reader.GetValue(17));
+                    //graph.Lead.SetValueExt<CRLead.bAccountID>(row_CRLead, reader.GetValue(18));
+                    graph.Lead.SetValueExt<CRLead.ownerID>(row_CRLead, reader.GetValue(19));
+                    graph.Lead.SetValueExt<CRLead.source>(row_CRLead, reader.GetValue(20));
+                    //graph.Lead.SetValueExt<CRLead.campaignID>(row_CRLead, reader.GetValue(21));
+                    graph.Lead.SetValueExt<CRLead.consentExpirationDate>(row_CRLead, reader.GetValue(22));
+                    //graph.Lead.SetValueExt<CRLead.classID>(row_CRLead, reader.GetValue(23));
+                   
+                }
+                graph.Actions.PressSave();
+            }
+        }
+
+    }
+}

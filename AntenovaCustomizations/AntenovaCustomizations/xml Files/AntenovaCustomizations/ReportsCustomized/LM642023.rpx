@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report Name="report1">
+  <CommonSettings>
+    <ViewPdf>True</ViewPdf>
+  </CommonSettings>
+  <Filters>
+    <FilterExp>
+      <DataField>v_TECHCOM_INNER_LABEL.ShipmentNbr</DataField>
+      <Value>@ShipmentNbr</Value>
+    </FilterExp>
+  </Filters>
+  <PageSettings>
+    <Margins>
+      <Bottom>1cm</Bottom>
+      <Left>0.6cm</Left>
+      <Right>0.6cm</Right>
+      <Top>0.2cm</Top>
+    </Margins>
+    <PaperKind>Custom</PaperKind>
+    <PaperSize>96mm, 58mm</PaperSize>
+  </PageSettings>
+  <Parameters>
+    <ReportParameter>
+      <Name>ShipmentNbr</Name>
+      <Prompt>Shipment Nbr.</Prompt>
+      <Required>True</Required>
+      <ViewName>=Report.GetFieldSchema('SOShipment.ShipmentNbr')</ViewName>
+    </ReportParameter>
+  </Parameters>
+  <SchemaUrl>http://localhost/AntenovaDB/</SchemaUrl>
+  <Tables>
+    <ReportTable Name="v_TECHCOM_INNER_LABEL">
+      <Fields>
+        <ReportField Name="DeliveryDate">
+          <DataType>DateTime</DataType>
+        </ReportField>
+        <ReportField Name="DeliveryDate_Day"></ReportField>
+        <ReportField Name="DeliveryDate_Hour"></ReportField>
+        <ReportField Name="DeliveryDate_Month"></ReportField>
+        <ReportField Name="DeliveryDate_Quarter"></ReportField>
+        <ReportField Name="InventoryID">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="MadeIn"></ReportField>
+        <ReportField Name="NowNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="PartNumber"></ReportField>
+        <ReportField Name="Qtyinbox_attributes"></ReportField>
+        <ReportField Name="Remarks"></ReportField>
+        <ReportField Name="ShipmentNbr"></ReportField>
+        <ReportField Name="Spec"></ReportField>
+        <ReportField Name="SumQty">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="UsrCountry"></ReportField>
+        <ReportField Name="UsrDateCode"></ReportField>
+      </Fields>
+      <FullName>AntenovaCustomizations.v_TECHCOM_INNER_LABEL</FullName>
+    </ReportTable>
+  </Tables>
+  <Width>96mm</Width>
+  <Sections>
+    <PageHeader Name="pageHeaderSection1">
+      <Height>0in</Height>
+      <Visible>False</Visible>
+    </PageHeader>
+    <Detail Name="TelcomInnerLabel">
+      <Height>58mm</Height>
+      <Style>
+        <Font>
+          <Size>26px</Size>
+        </Font>
+      </Style>
+      <Variables>
+        <ReportVariable>
+          <Name>LabelNbr</Name>
+          <ValueExpr>=$LabelNbr + 1</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>BarCodeValue</Name>
+          <ValueExpr>=[v_TECHCOM_INNER_LABEL.PartNumber] + [v_TECHCOM_INNER_LABEL.Qtyinbox_attributes] + 'UATV-ATV' + Substring(Year(Today()), 2, 2) + Month(Today()) + Day(Today()) + PadLeft(CStr($LabelNbr), 5, '0') + [v_TECHCOM_INNER_LABEL.MadeIn]</ValueExpr>
+        </ReportVariable>
+        <ReportVariable>
+          <Name>QRCodeValue</Name>
+          <ValueExpr>=[v_TECHCOM_INNER_LABEL.PartNumber] + ';' + Left([v_TECHCOM_INNER_LABEL.UsrDateCode], 4) + ';' + 'ATV-ATV' + ';' + Left([v_TECHCOM_INNER_LABEL.UsrDateCode], 4) + ';' + [v_TECHCOM_INNER_LABEL.Qtyinbox_attributes] + ';' + [v_TECHCOM_INNER_LABEL.Remarks] + ';' + 'UATV-ATV' + Substring(Year(Today()), 2, 2) + Month(Today()) + Day(Today()) + PadLeft(CStr($LabelNbr), 5, '0') + [v_TECHCOM_INNER_LABEL.MadeIn] + ';' + 'Made in' + [v_TECHCOM_INNER_LABEL.UsrCountry] + ';' + [v_TECHCOM_INNER_LABEL.InventoryID]</ValueExpr>
+        </ReportVariable>
+      </Variables>
+      <Items>
+        <PictureBox Name="pictureBox1">
+          <BarcodeType>QRCode</BarcodeType>
+          <Location>224px, 0px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings>
+            <CodeSize>140</CodeSize>
+          </QRCodeSettings>
+          <Size>136px, 128px</Size>
+          <Source>Barcode</Source>
+          <Value>=$QRCodeValue</Value>
+        </PictureBox>
+        <PictureBox Name="pictureBox6">
+          <BarcodeType>Code128</BarcodeType>
+          <Location>0px, 176px</Location>
+          <MimeType>image/bmp</MimeType>
+          <QRCodeSettings />
+          <Size>360px, 24px</Size>
+          <Source>Barcode</Source>
+          <Value>=$BarCodeValue</Value>
+        </PictureBox>
+        <TextBox Name="textBox1">
+          <Location>0px, 0px</Location>
+          <Size>208px, 0.16667in</Size>
+          <Value>Company: ANTENOVA LIMITED</Value>
+        </TextBox>
+        <TextBox Name="textBox10">
+          <Location>64px, 96px</Location>
+          <Size>160px, 0.16667in</Size>
+          <Value>='UATV-ATV' + Substring(Year(Today()), 2, 2) + Month(Today()) + Day(Today()) + PadLeft(CStr($LabelNbr), 5, '0') + [v_TECHCOM_INNER_LABEL.UsrCountry]</Value>
+        </TextBox>
+        <TextBox Name="textBox11">
+          <Location>0px, 112px</Location>
+          <Size>64px, 0.16667in</Size>
+          <Value>Lot Code : </Value>
+        </TextBox>
+        <TextBox Name="textBox12">
+          <Location>64px, 112px</Location>
+          <Size>160px, 0.16667in</Size>
+          <Value>=Left([v_TECHCOM_INNER_LABEL.UsrDateCode], 4)</Value>
+        </TextBox>
+        <TextBox Name="textBox13">
+          <Location>0px, 128px</Location>
+          <Size>40px, 0.16667in</Size>
+          <Value>Spec :</Value>
+        </TextBox>
+        <TextBox Name="textBox15">
+          <Location>0px, 144px</Location>
+          <Size>56px, 0.16667in</Size>
+          <Value>Mfg Site :</Value>
+        </TextBox>
+        <TextBox Name="textBox16">
+          <Location>0px, 160px</Location>
+          <Size>64px, 0.16667in</Size>
+          <Value>Remarks :</Value>
+        </TextBox>
+        <TextBox Name="textBox17">
+          <Location>64px, 160px</Location>
+          <Size>168px, 0.16667in</Size>
+          <Value>=[v_TECHCOM_INNER_LABEL.Remarks]</Value>
+        </TextBox>
+        <TextBox Name="textBox22">
+          <Location>0px, 48px</Location>
+          <Size>168px, 0.16667in</Size>
+          <Value>Vendor Code : ATV-ATV</Value>
+        </TextBox>
+        <TextBox Name="textBox23">
+          <Format>='N0'</Format>
+          <Location>64px, 64px</Location>
+          <Size>88px, 0.16667in</Size>
+          <Value>=[v_TECHCOM_INNER_LABEL.Qtyinbox_attributes]</Value>
+        </TextBox>
+        <TextBox Name="textBox24">
+          <Location>0px, 64px</Location>
+          <Size>64px, 0.16667in</Size>
+          <Value>Quantity  : </Value>
+        </TextBox>
+        <TextBox Name="textBox25">
+          <Location>40px, 128px</Location>
+          <Size>216px, 0.16667in</Size>
+          <Value>=[v_TECHCOM_INNER_LABEL.Spec]</Value>
+        </TextBox>
+        <TextBox Name="textBox26">
+          <Location>56px, 144px</Location>
+          <Size>144px, 0.16667in</Size>
+          <Value>='Made in ' + [v_TECHCOM_INNER_LABEL.MadeIn]</Value>
+        </TextBox>
+        <TextBox Name="textBox3">
+          <Location>0px, 16px</Location>
+          <Size>72px, 0.16667in</Size>
+          <Value>Quanta P/N : </Value>
+        </TextBox>
+        <TextBox Name="textBox4">
+          <Location>72px, 16px</Location>
+          <Size>144px, 0.16667in</Size>
+          <Value>=[v_TECHCOM_INNER_LABEL.PartNumber]</Value>
+        </TextBox>
+        <TextBox Name="textBox5">
+          <Location>72px, 32px</Location>
+          <Size>144px, 0.16667in</Size>
+          <Style>
+            <Padding>
+              <Left>1px</Left>
+            </Padding>
+          </Style>
+          <Value>=Replace([v_TECHCOM_INNER_LABEL.UsrDateCode], ',', '.')</Value>
+        </TextBox>
+        <TextBox Name="textBox6">
+          <Location>0px, 32px</Location>
+          <Size>72px, 0.16667in</Size>
+          <Value>Date Code : </Value>
+        </TextBox>
+        <TextBox Name="textBox7">
+          <Location>0px, 80px</Location>
+          <Size>88px, 0.16667in</Size>
+          <Value>Delivery Date : </Value>
+        </TextBox>
+        <TextBox Name="textBox8">
+          <Format>='yyyyMMdd'</Format>
+          <Location>88px, 80px</Location>
+          <Size>136px, 0.16667in</Size>
+          <Value>=[v_TECHCOM_INNER_LABEL.DeliveryDate]</Value>
+        </TextBox>
+        <TextBox Name="textBox9">
+          <Location>0px, 96px</Location>
+          <Size>64px, 0.16667in</Size>
+          <Value>Unique ID :</Value>
+        </TextBox>
+      </Items>
+    </Detail>
+    <PageFooter Name="pageFooterSection1">
+      <Height>0in</Height>
+      <Visible>False</Visible>
+    </PageFooter>
+  </Sections>
+</Report>
