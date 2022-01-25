@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesForecastANTENOVA", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeaveAndOvertimeCustomization", "..\LeaveAndOvertimeCustomization\LeaveAndOvertimeCustomization\LeaveAndOvertimeCustomization.csproj", "{0B4A6187-B5A9-435F-92B5-A46ADB09E1B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipmentTracking", "..\ShipmentTracking\ShipmentTracking\ShipmentTracking.csproj", "{6B53150E-0A98-47B5-87B6-33E4B931280D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{0B4A6187-B5A9-435F-92B5-A46ADB09E1B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B4A6187-B5A9-435F-92B5-A46ADB09E1B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B4A6187-B5A9-435F-92B5-A46ADB09E1B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B53150E-0A98-47B5-87B6-33E4B931280D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B53150E-0A98-47B5-87B6-33E4B931280D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B53150E-0A98-47B5-87B6-33E4B931280D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B53150E-0A98-47B5-87B6-33E4B931280D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
