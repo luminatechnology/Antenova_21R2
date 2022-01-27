@@ -49,6 +49,23 @@ namespace PX.Objects.SO
         #region UsrOpportunityID
         [PXDBString(10, IsUnicode = true, InputMask = ">CCCCCCCCCCCCCCC")]
         [PXUIField(DisplayName = "Opportunity Nbr.",Enabled = false)]
+        [PXSelector(typeof(Search2<CROpportunity.opportunityID,
+            LeftJoin<BAccount, On<BAccount.bAccountID, Equal<CROpportunity.bAccountID>>,
+            LeftJoin<Contact, On<Contact.contactID, Equal<CROpportunity.contactID>>>>,
+            Where<BAccount.bAccountID, IsNull, Or<Match<BAccount, Current<AccessInfo.userName>>>>,
+            OrderBy<Desc<CROpportunity.opportunityID>>>),
+            new[] { typeof(CROpportunity.opportunityID),
+                typeof(CROpportunity.subject),
+                typeof(CROpportunity.status),
+                typeof(CROpportunity.curyAmount),
+                typeof(CROpportunity.curyID),
+                typeof(CROpportunity.closeDate),
+                typeof(CROpportunity.stageID),
+                typeof(CROpportunity.classID),
+                typeof(CROpportunity.isActive),
+                typeof(BAccount.acctName),
+                typeof(Contact.displayName) },
+                Filterable = true)]
         public virtual string UsrOpportunityID { get; set; }
         public abstract class usrOpportunityID : PX.Data.BQL.BqlString.Field<usrOpportunityID> { }
         #endregion
