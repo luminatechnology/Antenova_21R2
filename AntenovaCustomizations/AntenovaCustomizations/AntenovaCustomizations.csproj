@@ -97,6 +97,7 @@
     <Compile Include="Graph_Extension\SOOrderEntry.cs" />
     <Compile Include="Graph_Extension\SOShipmentEntry.cs" />
     <Compile Include="Library\PublicFunc.cs" />
+    <Compile Include="LUMItemLotSerFileMaint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
