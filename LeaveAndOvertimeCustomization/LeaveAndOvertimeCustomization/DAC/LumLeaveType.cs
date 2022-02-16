@@ -72,6 +72,13 @@ namespace LeaveAndOvertimeCustomization.DAC
         public abstract class isOnlyWorkDay : PX.Data.BQL.BqlBool.Field<isOnlyWorkDay> { }
         #endregion
 
+        #region IsBindingEmployee
+        [PXDBBool()]
+        [PXUIField(DisplayName = "Biding to person")]
+        public virtual bool? IsBindingEmployee { get; set; }
+        public abstract class isBindingEmployee : PX.Data.BQL.BqlBool.Field<isBindingEmployee> { }
+        #endregion
+
         #region Noteid
         [PXNote()]
         public virtual Guid? Noteid { get; set; }

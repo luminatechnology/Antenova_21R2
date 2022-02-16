@@ -256,7 +256,9 @@ namespace LeaveAndOvertimeCustomization
                 // setting submit
                 this.Submit.SetVisible(row.Status == LumLeaveRequestStatus.OnHold && row.RefNbr != "<NEW>");
                 // setting cancel
-                this.CancelRequest.SetVisible(row.Status != LumLeaveRequestStatus.Cancel);
+                var approvalList = this.Approval.Select().RowCast<EPApproval>().OrderByDescending(x => x.LastModifiedDateTime).FirstOrDefault();
+                var IsFinalApproverUser = row.Status == LumLeaveRequestStatus.Approved && (approvalList == null || approvalList.ApprovedByID == Accessinfo.ContactID);
+                this.CancelRequest.SetVisible(IsFinalApproverUser);
                 // setting field Enable
                 PXUIFieldAttribute.SetEnabled<LumLeaveRequest.leaveStart>(e.Cache, null, row.Status == LumLeaveRequestStatus.OnHold);
                 PXUIFieldAttribute.SetEnabled<LumLeaveRequest.leaveEnd>(e.Cache, null, row.Status == LumLeaveRequestStatus.OnHold);

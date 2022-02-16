@@ -10,6 +10,7 @@
   <col name="IsAttachedRequired" type="Bit" nullable="true" />
   <col name="AttachedRequiredHours" type="Decimal(10,2)" nullable="true" />
   <col name="IsOnlyWorkDay" type="Bit" nullable="true" />
+  <col name="IsBindingEmployee" type="Bit" nullable="true" />
   <col name="NoteID" type="UniqueIdentifier" nullable="true" />
   <col name="CreatedByID" type="UniqueIdentifier" />
   <col name="CreatedByScreenID" type="Char(8)" />

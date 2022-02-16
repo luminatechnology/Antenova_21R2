@@ -53,7 +53,7 @@ namespace LeaveAndOvertimeCustomization.Descriptor
                                .And<LumLeaveRequest.status.IsEqual<P.AsString>>
                                .And<LumLeaveRequest.leaveType.IsEqual<P.AsString>>>
                          .View.Select(new PXGraph(), employee.BAccountID, LumLeaveRequestStatus.Approved, leaveType).RowCast<LumLeaveRequest>().ToList();
-            foreach (var item in approvedRequests.Where(x => x.LeaveStart?.Year == DateTime.Now.Year))
+            foreach (var item in approvedRequests.Where(x => x.LeaveStart?.Year == DateTime.Now.Year || (GetLeaveTypeInfo(leaveType).IsBindingEmployee ?? false)))
                 usedTime += GetLeaveDuration(employee, item.LeaveStart, item.LeaveEnd, isOnlyWorkDay);
             return (availTime ?? 0) - usedTime;
         }
