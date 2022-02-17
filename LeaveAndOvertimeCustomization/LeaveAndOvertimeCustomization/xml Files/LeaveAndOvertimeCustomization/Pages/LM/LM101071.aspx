@@ -22,6 +22,7 @@
                     <px:PXGridColumn DataField="IsAttachedRequired" Width="150" Type="CheckBox"></px:PXGridColumn>
                     <px:PXGridColumn DataField="AttachedRequiredHours" Width="150"></px:PXGridColumn>
                     <px:PXGridColumn DataField="IsOnlyWorkDay" Width="150" Type="CheckBox"></px:PXGridColumn>
+                    <px:PXGridColumn DataField="IsBindingEmployee" Width="150" Type="CheckBox"></px:PXGridColumn>
                 </Columns>
                 <RowTemplate>
                     <px:PXNumberEdit runat="server" ID="editMaxLeaveDays" DataField="MaxLeaveDays"></px:PXNumberEdit>

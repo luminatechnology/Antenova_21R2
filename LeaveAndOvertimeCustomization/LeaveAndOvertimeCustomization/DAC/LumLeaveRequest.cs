@@ -227,13 +227,16 @@ namespace LeaveAndOvertimeCustomization.DAC
 
         #region WorkgroupID
         [PXDBInt]
-        [PXDefault]
+        [PXDBDefault]
+        [PXUIField(DisplayName = "Approval Workgroup")]
+        [PXDefault(typeof(Search<EPEmployee.defaultWorkgroupID, Where<EPEmployee.userID, Equal<AccessInfo.userID.FromCurrent>>>))]
         [PXSelector(typeof(SelectFrom<EPCompanyTree>
                           .InnerJoin<EPCompanyTreeMember>.On<EPCompanyTreeMember.workGroupID.IsEqual<EPCompanyTree.workGroupID>>
-                          .Where<EPCompanyTreeMember.contactID.IsEqual<AccessInfo.contactID.FromCurrent>>
+                          .InnerJoin<BAccount2>.On<EPCompanyTreeMember.contactID.IsEqual<BAccount2.defContactID>>
+                          .InnerJoin<EPEmployee>.On<BAccount2.bAccountID.IsEqual<EPEmployee.bAccountID>>
+                          .Where<EPEmployee.userID.IsEqual<AccessInfo.userID.FromCurrent>>
                           .SearchFor<EPCompanyTree.workGroupID>),
                     SubstituteKey = typeof(EPCompanyTree.description))]
-        [PXUIField(DisplayName = "Approval Workgroup", Enabled = false)]
         public virtual int? WorkgroupID { get; set; }
         public abstract class workgroupID : PX.Data.BQL.BqlInt.Field<workgroupID> { }
         #endregion

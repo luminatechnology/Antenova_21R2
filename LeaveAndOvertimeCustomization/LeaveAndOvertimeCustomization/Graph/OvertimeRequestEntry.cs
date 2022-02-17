@@ -331,9 +331,10 @@ namespace LeaveAndOvertimeCustomization.Graph
                     e.Cache.SetValue<EPApproval.refNoteID>(e.Row, doc.NoteID);
 
                     EPEmployee employee = GetRequestEmployeeObject();
+                    BAccount2 acct = SelectFrom<BAccount2>.Where<BAccount2.bAccountID.IsEqual<P.AsInt>>.View.Select(this, employee.BAccountID);
                     if (employee != null)
                     {
-                        e.Cache.SetValue<EPApproval.documentOwnerID>(e.Row, employee.UserID);
+                        e.Cache.SetValue<EPApproval.documentOwnerID>(e.Row, acct.DefContactID);
                         e.Cache.SetValue<EPApproval.bAccountID>(e.Row, employee.BAccountID);
                     }
                     e.Cache.SetValue<EPApproval.docDate>(e.Row, doc.RequestDate);

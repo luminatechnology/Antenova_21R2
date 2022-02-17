@@ -16,7 +16,7 @@
   <col name="PendingApproval" type="Bit" />
   <col name="Approved" type="Bit" />
   <col name="Rejected" type="Bit" />
-  <col name="OwnerID" type="UniqueIdentifier" nullable="true" />
+  <col name="OwnerID" type="Int" nullable="true" />
   <col name="WorkgroupID" type="Int" nullable="true" />
   <col name="RequestHours" type="Decimal(8,3)" nullable="true" />
   <col name="ApprovedRequestHours" type="Decimal(8,3)" nullable="true" />
