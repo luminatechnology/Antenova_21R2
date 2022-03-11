@@ -62,5 +62,19 @@ namespace LeaveAndOvertimeCustomization.DAC
         public virtual Decimal? Entitledhours { get; set; }
         public abstract class entitledhours : PX.Data.BQL.BqlDecimal.Field<entitledhours> { }
         #endregion
+
+        #region StartOfYear
+        [PXDBDate()]
+        [PXUIField(DisplayName = "Start Of Year")]
+        public virtual DateTime? StartOfYear { get; set; }
+        public abstract class startOfYear : PX.Data.BQL.BqlDateTime.Field<startOfYear> { }
+        #endregion
+
+        #region EndOfYear
+        [PXDBDate()]
+        [PXUIField(DisplayName = "End Of Year")]
+        public virtual DateTime? EndOfYear { get; set; }
+        public abstract class endOfYear : PX.Data.BQL.BqlDateTime.Field<endOfYear> { }
+        #endregion
     }
 }
