@@ -31,7 +31,7 @@ INNER JOIN LumEmployeeAnnualLeaveLine t on r.CompanyID = t.CompanyID
 								   and r.LeaveStart between t.StartDate and t.EndDate
 								   and r.RequestEmployeeID = t.EmployeeID
 								   and r.LeaveType = t.LeaveType
-WHERE r.CompanyID = 2 and r.LeaveType = 'Holiday' and status = 'A' and RequestEmployeeID = 10
+WHERE r.CompanyID = 2 and r.LeaveType = 'Holiday' and status = 'A'
 GROUP BY r.CompanyID,r.RequestEmployeeID,r.LeaveType,YEAR(r.RequestDate),t.StartDate,t.EndDate )
 --OHTER LEAVE TYPE
 SELECT t.CompanyID,
