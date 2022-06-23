@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report Name="report1">
+<Report version="" Name="report1">
   <CommonSettings>
     <ViewPdf>True</ViewPdf>
   </CommonSettings>
@@ -346,7 +346,7 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
       <ChildName>Contact</ChildName>
       <Links>
         <RelationRow>
-          <ChildField>UserID</ChildField>
+          <ChildField>ContactID</ChildField>
           <ParentField>OwnerID</ParentField>
         </RelationRow>
       </Links>
@@ -2881,6 +2881,7 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
       <FullName>PX.Objects.SO.SOPackageDetailEx</FullName>
     </ReportTable>
   </Tables>
+  <Version></Version>
   <ViewerFields>
     <ViewerField Name="SOShipment.ShipmentNbr"></ViewerField>
     <ViewerField Name="SOShipment.SiteID"></ViewerField>
@@ -2933,7 +2934,6 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
       <Visible>False</Visible>
     </PageHeader>
     <Detail Name="detailSection1">
-      <GridSize>4px, 4px</GridSize>
       <Height>0.16667in</Height>
       <Variables>
         <ReportVariable>

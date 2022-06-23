@@ -126,7 +126,7 @@ namespace PX.Objects.SO
 
         #region Packing List - LM642005
         public PXAction<SOShipment> PackingList;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Packing List", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable packingList(PXAdapter adapter)
         {
@@ -143,7 +143,7 @@ namespace PX.Objects.SO
 
         #region Taiwan Packing List - LM642006
         public PXAction<SOShipment> TaiwanPackingList;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Packing List - Taiwan", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable taiwanpackingList(PXAdapter adapter)
         {
@@ -160,7 +160,7 @@ namespace PX.Objects.SO
 
         #region UK Packing List - LM642007
         public PXAction<SOShipment> UKPackingList;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Packing List - UK", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable uKpackingList(PXAdapter adapter)
         {
@@ -194,7 +194,7 @@ namespace PX.Objects.SO
 
         #region General Outer Label - LM642010
         public PXAction<SOShipment> GeneralOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print General Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable generalOuterLabel(PXAdapter adapter)
         {
@@ -211,7 +211,7 @@ namespace PX.Objects.SO
 
         #region Hana Outer Label - LM642011
         public PXAction<SOShipment> HanaOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Hana Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable hanaOuterLabel(PXAdapter adapter)
         {
@@ -228,7 +228,7 @@ namespace PX.Objects.SO
 
         #region Anglia Outer Label - LM642012
         public PXAction<SOShipment> AngliaOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Anglia Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable angliaOuterLabel(PXAdapter adapter)
         {
@@ -245,7 +245,7 @@ namespace PX.Objects.SO
 
         #region Global EMS Outer Label - LM642013
         public PXAction<SOShipment> GlobalEMSOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Global EMS Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable globalEMSOuterLabel(PXAdapter adapter)
         {
@@ -262,7 +262,7 @@ namespace PX.Objects.SO
 
         #region USI Outer Label - LM642014
         public PXAction<SOShipment> USIOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Report / Print USI Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable uSIOuterLabel(PXAdapter adapter)
         {
@@ -291,7 +291,7 @@ namespace PX.Objects.SO
 
         #region Sanmina Outer Label - LM642015
         public PXAction<SOShipment> SanminaOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Sanmina Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable sanminaOuterLabel(PXAdapter adapter)
         {
@@ -308,7 +308,7 @@ namespace PX.Objects.SO
 
         #region Standard Outer Label 1 - LM642016
         public PXAction<SOShipment> StandardOuterLabel1;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Standard Outer Label 1", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable standardOuterLabel1(PXAdapter adapter)
         {
@@ -325,7 +325,7 @@ namespace PX.Objects.SO
 
         #region Standard Outer Label 2 - LM642017
         public PXAction<SOShipment> StandardOuterLabel2;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Standard Outer Label 2", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable standardOuterLabel2(PXAdapter adapter)
         {
@@ -342,7 +342,7 @@ namespace PX.Objects.SO
 
         #region Bosch Outer Label - LM642018
         public PXAction<SOShipment> BoschOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Bosch Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable boschOuterLabel(PXAdapter adapter)
         {
@@ -371,7 +371,7 @@ namespace PX.Objects.SO
 
         #region WNC Outer Label - LM642019
         public PXAction<SOShipment> WNCOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print WNC Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable wNCOuterLabel(PXAdapter adapter)
         {
@@ -400,7 +400,7 @@ namespace PX.Objects.SO
 
         #region Sanmina Inner Label - LM642020
         public PXAction<SOShipment> SanminaInnerLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Sanmina Inner Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable sanminaInnerLabel(PXAdapter adapter)
         {
@@ -417,7 +417,7 @@ namespace PX.Objects.SO
 
         #region USI Inner Label - LM642021
         public PXAction<SOShipment> USIInnerLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Report / Print USI Inner Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable uSIInnerLabel(PXAdapter adapter)
         {
@@ -434,7 +434,7 @@ namespace PX.Objects.SO
 
         #region Techcom Outer Label - LM642022
         public PXAction<SOShipment> TechcomOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Techcom Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable techcomOuterLabel(PXAdapter adapter)
         {
@@ -463,7 +463,7 @@ namespace PX.Objects.SO
 
         #region Techcom Inner Label - LM642023
         public PXAction<SOShipment> TechcomInnerLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Techcom Inner Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable techcomInnerLabel(PXAdapter adapter)
         {
@@ -492,7 +492,7 @@ namespace PX.Objects.SO
 
         #region Standard Outer Label 3 - LM642024
         public PXAction<SOShipment> StandardOuterLabel3;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Standard Outer Label 3", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable standardOuterLabel3(PXAdapter adapter)
         {
@@ -521,7 +521,7 @@ namespace PX.Objects.SO
 
         #region Standard Outer Label 4 - LM642025
         public PXAction<SOShipment> StandardOuterLabel4;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Standard Outer Label 4", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable standardOuterLabel4(PXAdapter adapter)
         {
@@ -550,7 +550,7 @@ namespace PX.Objects.SO
 
         #region Bosch Inner Label - LM642026
         public PXAction<SOShipment> BoschInnerLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Bosch Inner Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable boschInnerLabel(PXAdapter adapter)
         {
@@ -579,7 +579,7 @@ namespace PX.Objects.SO
 
         #region Systech Outer Label - LM642027
         public PXAction<SOShipment> SystechOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Systech Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable systechOuterLabel(PXAdapter adapter)
         {
@@ -596,7 +596,7 @@ namespace PX.Objects.SO
 
         #region Systech Inner Label - LM642028
         public PXAction<SOShipment> SystechInnerLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Systech Inner Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable systechInnerLabel(PXAdapter adapter)
         {
@@ -613,7 +613,7 @@ namespace PX.Objects.SO
 
         #region USITW Outer Label - LM642029
         public PXAction<SOShipment> USITWOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print USITW Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable uSITWOuterLabel(PXAdapter adapter)
         {
@@ -642,7 +642,7 @@ namespace PX.Objects.SO
 
         #region USITW Inner Label - LM642030
         public PXAction<SOShipment> USITWInnerLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print USITW Inner Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable uSITWInnerLabel(PXAdapter adapter)
         {
@@ -671,7 +671,7 @@ namespace PX.Objects.SO
 
         #region Qisda Outer Label - LM642031
         public PXAction<SOShipment> QisdaOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Qisda Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable qisdaOuterLabel(PXAdapter adapter)
         {
@@ -700,7 +700,7 @@ namespace PX.Objects.SO
 
         #region Qisda Inner Label - LM642032
         public PXAction<SOShipment> QisdaInnerLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Qisda Inner Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable qisdaInnerLabel(PXAdapter adapter)
         {
@@ -729,7 +729,7 @@ namespace PX.Objects.SO
 
         #region Hi-flying Outer Label - LM642033
         public PXAction<SOShipment> HiflyingOuterLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Hi-flying Outer Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable hiflyingOuterLabel(PXAdapter adapter)
         {
@@ -746,7 +746,7 @@ namespace PX.Objects.SO
 
         #region WNC Inner Label - LM642034
         public PXAction<SOShipment> WNCInnerLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print WNC Inner Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable wNCInnerLabel(PXAdapter adapter)
         {
@@ -792,7 +792,7 @@ namespace PX.Objects.SO
 
         #region Atrack Outer Label - LM642036
         public PXAction<SOShipment> AtrackInnerLabel;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print Atrack Inner Label", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable atrackInnerLabel(PXAdapter adapter)
         {
