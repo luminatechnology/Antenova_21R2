@@ -57,10 +57,11 @@ namespace AntenovaCustomizations.Library
         }
 
         /// <summary> Get Employee By Sales Person</summary>
-        public Guid? GetEmployeeBySalesPerson(int SalesPerson)
+        public int? GetEmployeeBySalesPerson(int SalesPerson)
         {
-            return new PXGraph().Select<EPEmployee>().Where(x => x.SalesPersonID == SalesPerson).FirstOrDefault()
-                ?.UserID;
+            return SelectFrom<EPEmployee>
+                   .Where<EPEmployee.salesPersonID.IsEqual<P.AsInt>>
+                   .View.SelectSingleBound(new PXGraph(), null, SalesPerson).TopFirst?.DefContactID;
         }
     }
 }
