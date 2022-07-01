@@ -1,0 +1,263 @@
+﻿<ReportDefinition>
+    <data-set>
+        <relations format-version="3" relations-version="20211015" main-table="RMReport" file-name="(Type)-(Description)">
+            <link from="RMColumn (ColumnSetCode)" to="RMColumnSet (ColumnSetCode)" />
+            <link from="RMColumn (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="RMColumn (NoteID)" to="RMColumnKvExt (RecordID)" type="RowKvExt" />
+            <link from="RMColumnHeader (ColumnSetCode, ColumnCode)" to="RMColumn (ColumnSetCode, ColumnCode)" />
+            <link from="RMColumnHeader (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="RMColumnHeader (NoteID)" to="RMColumnHeaderKvExt (RecordID)" type="RowKvExt" />
+            <link from="RMColumn (DataSourceID)" to="RMDataSource (DataSourceID)" type="RowExtension" />
+            <link from="RMRow (DataSourceID)" to="RMDataSource (DataSourceID)" type="RowExtension" />
+            <link from="RMUnit (DataSourceID)" to="RMDataSource (DataSourceID)" type="RowExtension" />
+            <link from="RMReport (DataSourceID)" to="RMDataSource (DataSourceID)" type="RowExtension" />
+            <link from="RMReport (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="RMColumnSet (ColumnSetCode)" to="RMReport (ColumnSetCode)" type="FromMaster" updateable="False" />
+            <link from="RMColumnSet (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="RMRowSet (RowSetCode)" to="RMReport (RowSetCode)" type="FromMaster" updateable="False" />
+            <link from="RMRowSet (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="RMUnitSet (UnitSetCode)" to="RMReport (UnitSetCode)" type="FromMaster" updateable="False" />
+            <link from="Ledger (LedgerID)" to="RMDataSource (LedgerID)" type="FromMaster" updateable="False" do-not-change="Ledger" />
+            <link from="RMRow (RowSetCode)" to="RMRowSet (RowSetCode)" />
+            <link from="RMRow (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="RMRow (NoteID)" to="RMRowKvExt (RecordID)" type="RowKvExt" />
+            <link from="RMColumn (StyleID)" to="RMStyle (StyleID)" type="RowExtension" />
+            <link from="RMColumnHeader (StyleID)" to="RMStyle (StyleID)" type="RowExtension" />
+            <link from="RMReport (StyleID)" to="RMStyle (StyleID)" type="RowExtension" />
+            <link from="RMRow (StyleID)" to="RMStyle (StyleID)" type="RowExtension" />
+            <link from="RMUnit (UnitSetCode)" to="RMUnitSet (UnitSetCode)" />
+            <link from="RMUnit (NoteID)" to="Note (NoteID)" type="Note" />
+            <link from="RMUnit (NoteID)" to="RMUnitKvExt (RecordID)" type="RowKvExt" />
+        </relations>
+        <layout>
+            <table name="RMReport">
+                <table name="RMDataSource" uplink="(DataSourceID) = (DataSourceID)" />
+                <table name="Note" uplink="(NoteID) = (NoteID)" />
+                <table name="RMStyle" uplink="(StyleID) = (StyleID)" />
+            </table>
+            <table name="RMColumnSet">
+                <table name="RMColumn" uplink="(ColumnSetCode) = (ColumnSetCode)">
+                    <table name="RMColumnHeader" uplink="(ColumnSetCode, ColumnCode) = (ColumnSetCode, ColumnCode)">
+                        <table name="Note" uplink="(NoteID) = (NoteID)" />
+                        <table name="RMColumnHeaderKvExt" uplink="(NoteID) = (RecordID)" />
+                        <table name="RMStyle" uplink="(StyleID) = (StyleID)" />
+                    </table>
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    <table name="RMColumnKvExt" uplink="(NoteID) = (RecordID)" />
+                    <table name="RMDataSource" uplink="(DataSourceID) = (DataSourceID)" />
+                    <table name="RMStyle" uplink="(StyleID) = (StyleID)" />
+                </table>
+                <table name="Note" uplink="(NoteID) = (NoteID)" />
+            </table>
+            <table name="RMRowSet">
+                <table name="RMRow" uplink="(RowSetCode) = (RowSetCode)">
+                    <table name="RMDataSource" uplink="(DataSourceID) = (DataSourceID)" />
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    <table name="RMRowKvExt" uplink="(NoteID) = (RecordID)" />
+                    <table name="RMStyle" uplink="(StyleID) = (StyleID)" />
+                </table>
+                <table name="Note" uplink="(NoteID) = (NoteID)" />
+            </table>
+            <table name="RMUnitSet">
+                <table name="RMUnit" uplink="(UnitSetCode) = (UnitSetCode)">
+                    <table name="RMDataSource" uplink="(DataSourceID) = (DataSourceID)" />
+                    <table name="Note" uplink="(NoteID) = (NoteID)" />
+                    <table name="RMUnitKvExt" uplink="(NoteID) = (RecordID)" />
+                </table>
+            </table>
+            <table name="Ledger" />
+        </layout>
+        <data>
+            <RMReport>
+                <row ReportCode="FATB" ReportUID="b5e82fa0-82b3-425a-9b91-5f8ae3e8465f" Type="GL" Description="Fixed Asset Trial Balance" RowSetCode="FATBR" ColumnSetCode="FATBC" RequestLedgerID="0" RequestAccountClassID="0" RequestStartAccount="0" RequestEndAccount="0" RequestStartSub="0" RequestEndSub="0" RequestStartAccountGroup="0" RequestEndAccountGroup="0" RequestStartProject="0" RequestEndProject="0" RequestStartProjectTask="0" RequestEndProjectTask="0" RequestStartInventory="0" RequestEndInventory="0" RequestStartPeriod="1" RequestEndPeriod="1" RequestOrganizationID="0" RequestUseMasterCalendar="0" RequestStartBranch="0" RequestEndBranch="0" Landscape="0" ApplyRestrictionGroups="0" MarginLeft="0" MarginLeftType="1" MarginTop="0" MarginTopType="1" MarginRight="0" MarginRightType="1" MarginBottom="0" MarginBottomType="1" WidthType="1" HeightType="1">
+                    <RMDataSource LedgerID="1" Expand="N" StartPeriod="202001" EndPeriod="202006" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                </row>
+            </RMReport>
+            <RMColumnSet>
+                <row Type="GL" ColumnSetCode="FATBC" HeaderCntr="24" Description="Fixed Assets Trial Balance">
+                    <RMColumn ColumnCode="E" Rounding="0" Format="#,##0.00;(#,##0.00)" ColumnType="0" CellEvalOrder="0" CellFormatOrder="0" Width="100" AutoHeight="0" ExtraSpace="0" SuppressEmpty="0" HideZero="0" SuppressLine="0" PrintControl="0" PageBreak="0">
+                        <RMColumnHeader HeaderNbr="6" StartColumn="E" EndColumn="E" Height="10">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="5" StartColumn="E" EndColumn="E" Height="1">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="4" StartColumn="E" EndColumn="E" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="3" StartColumn="E" EndColumn="E" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="2" StartColumn="E" EndColumn="E" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="1" StartColumn="E" EndColumn="E" Height="18">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMDataSource Expand="N" UseMasterCalendar="0" AmountType="5" RowDescription="N " />
+                        <RMStyle TextAlign="3" FontSizeType="1" FontStyle="0" />
+                    </RMColumn>
+                    <RMColumn ColumnCode="D" Rounding="0" Format="#,##0.00;(#,##0.00)" ColumnType="0" CellEvalOrder="0" CellFormatOrder="0" Width="100" AutoHeight="0" ExtraSpace="0" SuppressEmpty="0" HideZero="0" SuppressLine="0" PrintControl="0" PageBreak="0">
+                        <RMColumnHeader HeaderNbr="6" StartColumn="D" EndColumn="D" Height="10">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="5" StartColumn="D" EndColumn="D" Height="1">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="4" StartColumn="D" EndColumn="D" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="3" StartColumn="D" EndColumn="D" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="2" StartColumn="D" EndColumn="D" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="1" StartColumn="D" EndColumn="D" Height="18">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMDataSource Expand="N" UseMasterCalendar="0" AmountType="2" RowDescription="N " />
+                        <RMStyle TextAlign="3" FontSizeType="1" FontStyle="0" />
+                    </RMColumn>
+                    <RMColumn ColumnCode="C" Rounding="0" Format="#,##0.00;(#,##0.00)" ColumnType="0" CellEvalOrder="0" CellFormatOrder="0" Width="100" AutoHeight="0" ExtraSpace="0" SuppressEmpty="0" HideZero="0" SuppressLine="0" PrintControl="0" PageBreak="0">
+                        <RMColumnHeader HeaderNbr="6" StartColumn="C" EndColumn="C" Height="10">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="5" StartColumn="C" EndColumn="C" Height="1">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="4" StartColumn="C" EndColumn="C" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="3" StartColumn="C" EndColumn="C" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="2" StartColumn="C" EndColumn="C" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="1" StartColumn="C" EndColumn="C" Height="18">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMDataSource Expand="N" UseMasterCalendar="0" AmountType="3" RowDescription="N " />
+                        <RMStyle TextAlign="3" FontSizeType="1" FontStyle="0" />
+                    </RMColumn>
+                    <RMColumn ColumnCode="B" Rounding="0" Format="#,##0.00;(#,##0.00)" ColumnType="0" CellEvalOrder="0" CellFormatOrder="0" Width="100" AutoHeight="0" ExtraSpace="0" SuppressEmpty="0" HideZero="0" SuppressLine="0" PrintControl="0" PageBreak="0">
+                        <RMColumnHeader HeaderNbr="6" StartColumn="B" EndColumn="B" Height="10">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="5" StartColumn="B" EndColumn="B" Height="1">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="4" StartColumn="B" EndColumn="B" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="3" StartColumn="B" EndColumn="B" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="2" StartColumn="B" EndColumn="B" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="1" Formula="='User: ' + Report.GetDefUI('RowAccessInfo.DisplayName')" StartColumn="B" EndColumn="B" Height="18">
+                            <RMStyle TextAlign="3" FontSize="14" FontSizeType="1" FontStyle="1" />
+                        </RMColumnHeader>
+                        <RMDataSource Expand="N" UseMasterCalendar="0" AmountType="4" RowDescription="N " />
+                        <RMStyle TextAlign="3" FontSizeType="1" FontStyle="0" />
+                    </RMColumn>
+                    <RMColumn ColumnCode="A" Rounding="0" ColumnType="0" CellEvalOrder="0" CellFormatOrder="0" Width="140" AutoHeight="0" ExtraSpace="10" SuppressEmpty="0" HideZero="0" SuppressLine="1" PrintControl="0" PageBreak="0">
+                        <RMColumnHeader HeaderNbr="6" StartColumn="A" EndColumn="A" Height="10">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="5" StartColumn="A" EndColumn="A" Height="1">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="4" Formula="=' As of  ' +  Format( '{0: MMMM d yyyy}',Report.GetPeriodEndDate(@StartPeriod) )" StartColumn="A" EndColumn="A" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="3" Formula="=Right( @UnitCode, Len( @UnitCode) -1 ) +' - '+@UnitText" StartColumn="A" EndColumn="A" Height="16">
+                            <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="2" Formula="='Balance Sheet'" StartColumn="A" EndColumn="A" Height="16">
+                            <RMStyle TextAlign="1" FontSize="14" FontSizeType="1" FontStyle="1" />
+                        </RMColumnHeader>
+                        <RMColumnHeader HeaderNbr="1" Formula="=Report.GetDefUI('RowCompanyBAccount.AcctName')" StartColumn="A" EndColumn="A" Height="18">
+                            <RMStyle TextAlign="1" FontSize="14" FontSizeType="1" FontStyle="1" />
+                        </RMColumnHeader>
+                        <RMDataSource Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMColumn>
+                </row>
+            </RMColumnSet>
+            <RMRowSet>
+                <row RowSetCode="FATBR" Type="GL" RowCntr="30" Description="Balance Sheet">
+                    <RMRow RowNbr="29" RowCode="00134" Description="0051 Telephone System - depreciation" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0051" EndAccount="0051" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="27" RowCode="00132" Description="0050 Telephone System" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0050" EndAccount="0050" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="25" RowCode="00130" Description="0046 Software - depreciation" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0046" EndAccount="0046" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="23" RowCode="00128" Description="0045 Software" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0045" EndAccount="0045" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="21" RowCode="00126" Description="0041 Computers &amp; Software - depreciation" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0041" EndAccount="0041" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="19" RowCode="00124" Description="0040 Computers &amp; Software" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0040" EndAccount="0040" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="17" RowCode="00122" Description="0036 Patents &amp; Licenses - depreciation" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0036" EndAccount="0036" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="15" RowCode="00120" Description="0035 Patents &amp; Licenses" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0035" EndAccount="0035" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="13" RowCode="00118" Description="0021 Production/QA Equipment - depreciation" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0021" EndAccount="0021" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="11" RowCode="00116" Description="0020 Production/QA Equipment" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0020" EndAccount="0020" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="9" RowCode="00114" Description="0016 Tooling - depreciation" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0016" EndAccount="0016" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="7" RowCode="00112" Description="0015 Tooling" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0015" EndAccount="0015" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="4" RowCode="00199" RowType="3" Formula="=@00110" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="10" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="3" RowCode="00196" RowType="2" LineStyle="4" SuppressEmpty="0" HideZero="0" Height="2" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle Color="FF000000" TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="2" RowCode="00110" Description="0011 Engineering Tools &amp; Equipment - depreciation" RowType="0" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="16" Indent="10" PrintControl="0" PageBreak="0">
+                        <RMDataSource StartAccount="0011" EndAccount="0011" Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="CD" />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                    <RMRow RowNbr="1" RowCode="00101" RowType="1" LineStyle="0" SuppressEmpty="0" HideZero="0" Height="10" Indent="0" PrintControl="0" PageBreak="0">
+                        <RMDataSource Expand="N" UseMasterCalendar="0" AmountType="0" RowDescription="N " />
+                        <RMStyle TextAlign="0" FontSizeType="1" FontStyle="0" />
+                    </RMRow>
+                </row>
+            </RMRowSet>
+            <Ledger>
+                <row LedgerID="1" LedgerCD="ACTUAL" BalanceType="A" PostInterCompany="1" BaseCuryID="USD" Descr="Actual" ConsolAllowed="0" DeletedDatabaseRecord="0" NoteID="33b14b3e-2e45-4cde-a69f-633c5a1eb93e" />
+            </Ledger>
+        </data>
+    </data-set>
+</ReportDefinition>
