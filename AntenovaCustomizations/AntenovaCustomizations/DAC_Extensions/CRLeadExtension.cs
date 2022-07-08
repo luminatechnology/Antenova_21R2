@@ -52,14 +52,14 @@ namespace PX.Objects.CR
         #endregion
 
         #region UsrSalesPerson
-        [PXDBInt(BqlField = typeof(Standalone.CRLeadStandaloneExt.usrsalesPerson))]
+        [PXDBInt]
         [PXUIField(DisplayName = "Sales Person")]
         [PXDefault(typeof(SearchFor<EPEmployee.salesPersonID>.Where<EPEmployee.userID.IsEqual<AccessInfo.userID.FromCurrent>>))]
         [PXSelector(typeof(SelectFrom<vSALESPERSONREGIONMAPPING>
                 .InnerJoin<EPCompanyTreeMember>.On<EPCompanyTreeMember.workGroupID.IsEqual<vSALESPERSONREGIONMAPPING.workGroupID>>
                 .InnerJoin<AR.SalesPerson>.On<AR.SalesPerson.salesPersonID.IsEqual<vSALESPERSONREGIONMAPPING.salespersonID>>
                 .Where<EPCompanyTreeMember.contactID.IsEqual<AccessInfo.contactID.FromCurrent>>
-                .AggregateTo<GroupBy<vSALESPERSONREGIONMAPPING.salespersonID,Max<vSALESPERSONREGIONMAPPING.salespersonID>>>
+                .AggregateTo<GroupBy<vSALESPERSONREGIONMAPPING.salespersonID, Max<vSALESPERSONREGIONMAPPING.salespersonID>>>
                 .SearchFor<vSALESPERSONREGIONMAPPING.salespersonID>),
             typeof(vSALESPERSONREGIONMAPPING.salespersonCD),
             typeof(PX.Objects.AR.SalesPerson.isActive),
