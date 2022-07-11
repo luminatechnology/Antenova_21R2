@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report Name="report1">
+<Report version="20201103" Name="report1">
   <CommonSettings>
     <ViewPdf>True</ViewPdf>
   </CommonSettings>
@@ -11,9 +11,11 @@
   </Filters>
   <MailSettings>
     <ActivitySource>SOShipment.NoteID</ActivitySource>
-    <ParentSource></ParentSource>
+    <Bcc></Bcc>
+    <Body></Body>
+    <Cc></Cc>
+    <Format></Format>
     <Subject>='Invoice from: '+[BAccount.AcctName] </Subject>
-    <TemplateID></TemplateID>
     <To>=IsNull([Contact.EMail],'')</To>
   </MailSettings>
   <PageSettings>
@@ -148,14 +150,25 @@
       <ParentName>SOShipLine</ParentName>
     </ReportRelation>
     <ReportRelation>
-      <ChildName>EPEmployee</ChildName>
+      <ChildAlias>EPBAccount</ChildAlias>
+      <ChildName>BAccount</ChildName>
       <Links>
         <RelationRow>
-          <ChildField>UserID</ChildField>
+          <ChildField>DefContactID</ChildField>
           <ParentField>OwnerID</ParentField>
         </RelationRow>
       </Links>
       <ParentName>SOShipment</ParentName>
+    </ReportRelation>
+    <ReportRelation>
+      <ChildName>EPEmployee</ChildName>
+      <Links>
+        <RelationRow>
+          <ChildField>BAccountID</ChildField>
+          <ParentField>BAccountID</ParentField>
+        </RelationRow>
+      </Links>
+      <ParentName>BAccount</ParentName>
     </ReportRelation>
     <ReportRelation>
       <ChildName>Carrier</ChildName>
@@ -214,7 +227,7 @@
       <ParentName>SOShipLine</ParentName>
     </ReportRelation>
   </Relations>
-  <SchemaUrl>http://localhost/AntenovaDB/</SchemaUrl>
+  <SchemaUrl>http://localhost/Antenova_2021R2/</SchemaUrl>
   <Sorting>
     <SortExp>
       <DataField>SOShipment.ShipmentNbr</DataField>
@@ -2783,6 +2796,7 @@
       <FullName>PX.Objects.IN.InventoryItem</FullName>
     </ReportTable>
   </Tables>
+  <Version>20201103</Version>
   <ViewerFields>
     <ViewerField Name="SOShipment.ShipmentNbr"></ViewerField>
     <ViewerField Name="SOShipment.SiteID"></ViewerField>
@@ -2831,7 +2845,6 @@
       </Items>
     </PageHeader>
     <Detail Name="detailSection1">
-      <GridSize>4px, 4px</GridSize>
       <Height>0.42328cm</Height>
       <Variables>
         <ReportVariable>
