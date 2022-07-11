@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report Name="report1">
+<Report version="20201103" Name="report1">
   <CommonSettings>
     <ViewPdf>True</ViewPdf>
   </CommonSettings>
@@ -153,7 +153,7 @@
       <ChildName>Contact</ChildName>
       <Links>
         <RelationRow>
-          <ChildField>UserID</ChildField>
+          <ChildField>ContactID</ChildField>
           <ParentField>OwnerID</ParentField>
         </RelationRow>
       </Links>
@@ -259,7 +259,7 @@
       <ParentName>SOOrder</ParentName>
     </ReportRelation>
   </Relations>
-  <SchemaUrl>http://localhost/AntenovaDB/</SchemaUrl>
+  <SchemaUrl>https://www.acumatica.com.tw/Antenova/</SchemaUrl>
   <Sorting>
     <SortExp>
       <DataField>SOShipment.ShipmentNbr</DataField>
@@ -2688,6 +2688,7 @@
       <FullName>PX.Objects.SO.SOPackageDetailEx</FullName>
     </ReportTable>
   </Tables>
+  <Version>20201103</Version>
   <ViewerFields>
     <ViewerField Name="SOShipment.ShipmentNbr"></ViewerField>
     <ViewerField Name="SOShipment.SiteID"></ViewerField>

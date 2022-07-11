@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report Name="report1">
+<Report version="" Name="report1">
   <EmbeddedImages>
     <EmbeddedImage>
       <ImageData>iVBORw0KGgoAAAANSUhEUgAAAnEAAACaCAIAAABJ84kHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowMzoxNSAxNDo0NDo0Mpl/cmwAAP94SURBVHhe7P13kGbZdR8IXvPs57/0pjLLm6521QbtYLobBECAJCiaHQ7lGZJ2Z3al1WhjNiZm/pgIxczuRGxsxEysImZXERqjndVwKVIUSREgCBBANxrtu7pMl6/Mqqys9O7Lzz9/7/7OfV9WV6MNGlyCpKQ89erl++6779pzzu+ce++7j2ut2cfTJ937dMQHf/8sSJkCCXNp0kUAKM/iwxmZiPv0F0OZ6SupGd/jIY0e4gin30JprZRQjAuB/9R5eTTTZxFFwyUFORq3zbN7/S81fiFdCtHmAbrEjb04hhCHg7kp1ITfi7BP+7RP+/TToz9jTP3paq37MNWo1cGRZ/rhrPcx9S+QUtM1FlATP3CF3kN/cJZoxTm3gIlKcwJAwj5zm07aonNHsIRpafq0pDiAOX82NrE8lQowrSBYVczGH8JmPGaS6ROQ8kxFNrfcRAmBFA2vDECefqm9sL2AQQlzpsojmsT2ym8ow5UBaDpyVkR1DPJbiiqVV4RsCM1MEZmV2364osfpjlQCIRlVXkuNa7pv7lKsnGNRswENbu7TPu3TvzX0bxumgkwe9xyXe2S07l6J8/M+qP7FEbGVNt0EDMMFACbvOPwgz5SuYk6/EhNeUEKCG02XxUIpepTgx844MCYHWGAqHnY0AVZmQItgiwkDrzlfsNDEUSq2hLQzJIF4dIcDKsEu92Fqzjz3Y2o++JFbA3lqNjDV3AKlgE+UydwSeSTBQkFPuYoKThCJMIPJgQTMap9lhLmm/oEQKWeF2Jaa9+woE6qoXMAqlUOzlk3t4Bie9SNAr6kZCikTxQG4dAdVQ3DB
@@ -207,10 +207,10 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
   <LayoutUnit>Inch</LayoutUnit>
   <MailSettings>
     <ActivitySource>ARInvoice.NoteID</ActivitySource>
-    <Bcc></Bcc>
+    <Body></Body>
     <Cc>=IsNull([Customer.NOTICECC_Attributes],'')</Cc>
-    <Format></Format>
     <ParentSource>Customer.NoteID</ParentSource>
+    <Subject></Subject>
     <TemplateID>Email Shipment Notice</TemplateID>
     <To>=IsNull([ShipContact.Email],'')</To>
   </MailSettings>
@@ -357,14 +357,25 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
       <ParentName>ARTran</ParentName>
     </ReportRelation>
     <ReportRelation>
-      <ChildName>EPEmployee</ChildName>
+      <ChildAlias>EPBAccount</ChildAlias>
+      <ChildName>BAccount</ChildName>
       <Links>
         <RelationRow>
-          <ChildField>UserID</ChildField>
+          <ChildField>DefContactID</ChildField>
           <ParentField>OwnerID</ParentField>
         </RelationRow>
       </Links>
       <ParentName>ARInvoice</ParentName>
+    </ReportRelation>
+    <ReportRelation>
+      <ChildName>EPEmployee</ChildName>
+      <Links>
+        <RelationRow>
+          <ChildField>BAccountID</ChildField>
+          <ParentField>BAccountID</ParentField>
+        </RelationRow>
+      </Links>
+      <ParentName>BAccount</ParentName>
     </ReportRelation>
     <ReportRelation>
       <ChildAlias>BillingAddress</ChildAlias>
@@ -4834,6 +4845,7 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
       <FullName>PX.Objects.CS.CSAttributeDetail</FullName>
     </ReportTable>
   </Tables>
+  <Version></Version>
   <ViewerFields>
     <ViewerField Name="ARInvoice.DocType"></ViewerField>
     <ViewerField Name="ARInvoice.RefNbr"></ViewerField>

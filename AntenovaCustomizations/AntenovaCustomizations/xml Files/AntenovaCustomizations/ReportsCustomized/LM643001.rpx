@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report Name="report1">
+<Report version="" Name="report1">
   <ExportFileName>=Format('Invoice_#{0}', [ARInvoice.RefNbr])</ExportFileName>
   <Filters>
     <FilterExp>
@@ -14,9 +14,11 @@
   <LayoutUnit>Inch</LayoutUnit>
   <MailSettings>
     <ActivitySource>ARInvoice.NoteID</ActivitySource>
-    <Body></Body>
+    <Bcc></Bcc>
     <Cc>=IsNull([Customer.NOTICECC_Attributes],'')</Cc>
+    <Format></Format>
     <ParentSource>Customer.NoteID</ParentSource>
+    <Subject></Subject>
     <TemplateID>Email Shipment Notice</TemplateID>
     <To>=IsNull([ShipContact.Email],'')</To>
   </MailSettings>
@@ -163,14 +165,25 @@
       <ParentName>ARTran</ParentName>
     </ReportRelation>
     <ReportRelation>
-      <ChildName>EPEmployee</ChildName>
+      <ChildAlias>EPBAccount</ChildAlias>
+      <ChildName>BAccount</ChildName>
       <Links>
         <RelationRow>
-          <ChildField>UserID</ChildField>
+          <ChildField>DefContactID</ChildField>
           <ParentField>OwnerID</ParentField>
         </RelationRow>
       </Links>
       <ParentName>ARInvoice</ParentName>
+    </ReportRelation>
+    <ReportRelation>
+      <ChildName>EPEmployee</ChildName>
+      <Links>
+        <RelationRow>
+          <ChildField>BAccountID</ChildField>
+          <ParentField>BAccountID</ParentField>
+        </RelationRow>
+      </Links>
+      <ParentName>BAccount</ParentName>
     </ReportRelation>
     <ReportRelation>
       <ChildAlias>BillingAddress</ChildAlias>
@@ -4647,6 +4660,7 @@
       <FullName>PX.Objects.CS.CSAttributeDetail</FullName>
     </ReportTable>
   </Tables>
+  <Version></Version>
   <ViewerFields>
     <ViewerField Name="ARInvoice.DocType"></ViewerField>
     <ViewerField Name="ARInvoice.RefNbr"></ViewerField>
