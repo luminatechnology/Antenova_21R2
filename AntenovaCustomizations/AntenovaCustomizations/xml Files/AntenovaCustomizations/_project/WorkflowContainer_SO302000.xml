@@ -119,9 +119,9 @@
             <State IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" Identifier="_" IsInitial="True" StateLineNbr="0" Layout="300 100" />
             <State IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" Identifier="H" IsInitial="False" StateLineNbr="1" Layout="600 300" />
             <State IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" Identifier="N" IsInitial="False" StateLineNbr="2" Layout="900 500" />
-            <State IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" Identifier="F" IsInitial="False" StateLineNbr="3" Layout="1200 700" />
+            <State IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="True" Identifier="F" IsInitial="False" StateLineNbr="3" Layout="1200 700" />
             <State IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" Identifier="Y" IsInitial="False" StateLineNbr="4" Layout="1500 900" />
-            <State IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" Identifier="I" IsInitial="False" StateLineNbr="5" Layout="1800 1100" />
+            <State IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="True" Identifier="I" IsInitial="False" StateLineNbr="5" Layout="1800 1100" />
             <State IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="True" Identifier="C" IsInitial="False" StateLineNbr="6" Layout="2100 1300" />
             <State IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" Identifier="R" IsInitial="False" StateLineNbr="7" Layout="2400 1500" />
         </States>
@@ -184,6 +184,10 @@
             <StateProperty IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" StatePropertyLineNbr="7" FieldName="&lt;Table&gt;" IsDisabled="True" IsHide="False" IsRequired="False" ObjectName="PX.Objects.SO.SOOrderShipment" StateName="C" />
             <StateProperty IsActive="True" StatePropertyLineNbr="8" FieldName="UsrWaybill" IsDisabled="False" IsHide="False" IsRequired="False" ObjectName="PX.Objects.SO.SOShipment" StateName="C" />
             <StateProperty IsActive="True" StatePropertyLineNbr="9" FieldName="UsrCarrierPluginID" IsDisabled="False" IsHide="False" IsRequired="False" ObjectName="PX.Objects.SO.SOShipment" StateName="C" />
+            <StateProperty IsActive="True" StatePropertyLineNbr="8" FieldName="UsrWaybill" IsDisabled="False" IsHide="False" IsRequired="False" ObjectName="PX.Objects.SO.SOShipment" StateName="I" />
+            <StateProperty IsActive="True" StatePropertyLineNbr="9" FieldName="UsrCarrierPluginID" IsDisabled="False" IsHide="False" IsRequired="False" ObjectName="PX.Objects.SO.SOShipment" StateName="I" />
+            <StateProperty IsActive="True" StatePropertyLineNbr="8" FieldName="UsrWaybill" IsDisabled="False" IsHide="False" IsRequired="False" ObjectName="PX.Objects.SO.SOShipment" StateName="F" />
+            <StateProperty IsActive="True" StatePropertyLineNbr="9" FieldName="UsrCarrierPluginID" IsDisabled="False" IsHide="False" IsRequired="False" ObjectName="PX.Objects.SO.SOShipment" StateName="F" />
         </StateProperties>
         <StateActions>
             <StateAction IsActive="True" IsSystem="True" IsCustomized="False" IsCustomizedRecursive="False" StateActionLineNbr="0" ActionName="initializeState" IsDisabled="False" IsHide="False" IsTopLevel="False" StateName="_" AutoRun="True" />

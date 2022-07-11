@@ -48,7 +48,7 @@ namespace PX.Objects.SO
 
         #region UsrOpportunityID
         [PXDBString(10, IsUnicode = true, InputMask = ">CCCCCCCCCCCCCCC")]
-        [PXUIField(DisplayName = "Opportunity Nbr.")]
+        [PXUIField(DisplayName = "Opportunity Nbr.",Enabled = true)]
         [PXSelector(typeof(Search2<CROpportunity.opportunityID,
             LeftJoin<BAccount, On<BAccount.bAccountID, Equal<CROpportunity.bAccountID>>,
             LeftJoin<Contact, On<Contact.contactID, Equal<CROpportunity.contactID>>>>,
