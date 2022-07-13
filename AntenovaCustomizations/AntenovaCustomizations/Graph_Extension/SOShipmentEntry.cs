@@ -36,39 +36,99 @@ namespace PX.Objects.SO
         {
             base.Initialize();
             Base.report.AddMenuAction(COCReport);
+            COCReport.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(PackingList);
+            PackingList.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(TaiwanPackingList);
+            TaiwanPackingList.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(UKPackingList);
+            UKPackingList.SetDisplayOnMainToolbar(false);
+
             //Base.report.AddMenuAction(SignaturePackingList);
             Base.report.AddMenuAction(GeneralOuterLabel);
+            GeneralOuterLabel.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(HanaOuterLabel);
+            HanaOuterLabel.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(AngliaOuterLabel);
+            AngliaOuterLabel.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(GlobalEMSOuterLabel);
+            GlobalEMSOuterLabel.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(USIOuterLabel);
+            USIOuterLabel.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(USIInnerLabel);
+            USIInnerLabel.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(SanminaOuterLabel);
+            SanminaOuterLabel.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(SanminaInnerLabel);
+            SanminaInnerLabel.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(StandardOuterLabel1);
+            StandardOuterLabel1.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(StandardOuterLabel2);
+            StandardOuterLabel2.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(StandardOuterLabel3);
+            StandardOuterLabel3.SetDisplayOnMainToolbar(false);
+
             Base.report.AddMenuAction(StandardOuterLabel4);
+            StandardOuterLabel4.SetDisplayOnMainToolbar(false);
 
             Labels.MenuAutoOpen = true;
             Labels.AddMenuAction(BoschOuterLabel);
+            BoschOuterLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(BoschInnerLabel);
+            BoschInnerLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(WNCOuterLabel);
+            WNCOuterLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(WNCInnerLabel);
+            WNCInnerLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(TechcomOuterLabel);
+            TechcomOuterLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(TechcomInnerLabel);
+            TechcomInnerLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(SystechOuterLabel);
+            SystechOuterLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(SystechInnerLabel);
+            SystechInnerLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(USITWOuterLabel);
+            USITWOuterLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(USITWInnerLabel);
+            USITWInnerLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(QisdaOuterLabel);
+            QisdaOuterLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(QisdaInnerLabel);
+            QisdaInnerLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(HiflyingOuterLabel);
+            HiflyingOuterLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(AtrackOuterLabel);
+            AtrackOuterLabel.SetDisplayOnMainToolbar(false);
+
             Labels.AddMenuAction(AtrackInnerLabel);
+            AtrackInnerLabel.SetDisplayOnMainToolbar(false);
         }
 
         /// <summary> Override Persist Event </summary>
@@ -107,7 +167,7 @@ namespace PX.Objects.SO
 
         #region COCReport
         public PXAction<SOShipment> COCReport;
-        [PXButton]
+        [PXButton(IsLockedOnToolbar = false)]
         [PXUIField(DisplayName = "Print COC Report", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable cOCReport(PXAdapter adapter)
         {
@@ -906,7 +966,7 @@ namespace PX.Objects.SO
         }
 
         /// <summary> Set Date Code DDL </summary>
-        protected void _(Events.RowSelected<SOPackageDetailEx>e, PXRowSelected baseMethod)
+        protected void _(Events.RowSelected<SOPackageDetailEx> e, PXRowSelected baseMethod)
         {
             baseMethod?.Invoke(e.Cache, e.Args);
             if (e.Row != null)
