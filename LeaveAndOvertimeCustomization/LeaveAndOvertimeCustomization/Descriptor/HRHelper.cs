@@ -10,6 +10,7 @@ using PX.Objects.EP;
 using PX.Objects.CR;
 using PX.Data;
 using LeaveAndOvertimeCustomization.DAC;
+using PX.Common;
 
 namespace LeaveAndOvertimeCustomization.Descriptor
 {
@@ -219,14 +220,16 @@ namespace LeaveAndOvertimeCustomization.Descriptor
         /// <summary> Get Work Time </summary>
         public List<WorktimeInfo> GetWorkTimeInfo(EPEmployee employee)
         {
-            var result = new List<WorktimeInfo>();
+            var userTimeZone = PXContext.PXIdentity.TimeZone;
+            var workCalendar = new List<WorktimeInfo>();
             if (employee == null)
                 return null;
             CSCalendar calendar = SelectFrom<CSCalendar>.Where<CSCalendar.calendarID.IsEqual<P.AsString>>.View.Select(new PXGraph(), employee.CalendarID);
+            var calendarTimeZoneInfo = PXTimeZoneInfo.FindSystemTimeZoneById(calendar.TimeZone);
             #region Build WorkDay object
             if (calendar.SunWorkDay ?? false)
             {
-                result.Add(new WorktimeInfo()
+                workCalendar.Add(new WorktimeInfo()
                 {
                     DayofWeek = GetDayofWeekName(0),
                     StartTime = calendar.SunStartTime,
@@ -235,7 +238,7 @@ namespace LeaveAndOvertimeCustomization.Descriptor
             }
             if (calendar.MonWorkDay ?? false)
             {
-                result.Add(new WorktimeInfo()
+                workCalendar.Add(new WorktimeInfo()
                 {
                     DayofWeek = GetDayofWeekName(1),
                     StartTime = calendar.MonStartTime,
@@ -244,7 +247,7 @@ namespace LeaveAndOvertimeCustomization.Descriptor
             }
             if (calendar.TueWorkDay ?? false)
             {
-                result.Add(new WorktimeInfo()
+                workCalendar.Add(new WorktimeInfo()
                 {
                     DayofWeek = GetDayofWeekName(2),
                     StartTime = calendar.TueStartTime,
@@ -253,7 +256,7 @@ namespace LeaveAndOvertimeCustomization.Descriptor
             }
             if (calendar.WedWorkDay ?? false)
             {
-                result.Add(new WorktimeInfo()
+                workCalendar.Add(new WorktimeInfo()
                 {
                     DayofWeek = GetDayofWeekName(3),
                     StartTime = calendar.WedStartTime,
@@ -262,7 +265,7 @@ namespace LeaveAndOvertimeCustomization.Descriptor
             }
             if (calendar.ThuWorkDay ?? false)
             {
-                result.Add(new WorktimeInfo()
+                workCalendar.Add(new WorktimeInfo()
                 {
                     DayofWeek = GetDayofWeekName(4),
                     StartTime = calendar.ThuStartTime,
@@ -271,7 +274,7 @@ namespace LeaveAndOvertimeCustomization.Descriptor
             }
             if (calendar.FriWorkDay ?? false)
             {
-                result.Add(new WorktimeInfo()
+                workCalendar.Add(new WorktimeInfo()
                 {
                     DayofWeek = GetDayofWeekName(5),
                     StartTime = calendar.FriStartTime,
@@ -280,7 +283,7 @@ namespace LeaveAndOvertimeCustomization.Descriptor
             }
             if (calendar.SatWorkDay ?? false)
             {
-                result.Add(new WorktimeInfo()
+                workCalendar.Add(new WorktimeInfo()
                 {
                     DayofWeek = GetDayofWeekName(6),
                     StartTime = calendar.SatStartTime,
@@ -288,7 +291,17 @@ namespace LeaveAndOvertimeCustomization.Descriptor
                 });
             }
             #endregion
-            return result;
+
+            // 時區轉換
+            workCalendar.ForEach(x =>
+            {
+                if (x.StartTime.HasValue)
+                    x.StartTime = PXTimeZoneInfo.ConvertTimeFromUtc(PXTimeZoneInfo.ConvertTimeToUtc(x.StartTime.Value, calendarTimeZoneInfo), userTimeZone);
+                if (x.EndTime.HasValue)
+                    x.EndTime = PXTimeZoneInfo.ConvertTimeFromUtc(PXTimeZoneInfo.ConvertTimeToUtc(x.EndTime.Value, calendarTimeZoneInfo), userTimeZone);
+            });
+
+            return workCalendar;
         }
 
         /// <summary> Get Break Time </summary>
