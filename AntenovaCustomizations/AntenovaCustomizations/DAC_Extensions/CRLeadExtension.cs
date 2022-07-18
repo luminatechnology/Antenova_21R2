@@ -18,8 +18,9 @@ namespace PX.Objects.CR
     public class CRLeadExt : PXCacheExtension<PX.Objects.CR.CRLead>
     {
 
-        [PXDBString(1000, IsUnicode = true, BqlField = typeof(Standalone.CRLead.description))]
+        [PXDBString(1000, IsUnicode = true)]
         [PXUIField(DisplayName = "Description", Visibility = PXUIVisibility.SelectorVisible)]
+        [PXMergeAttributes(Method = MergeMethod.Replace)]
         public virtual string Description { get; set; }
 
         #region UsrEndCust
