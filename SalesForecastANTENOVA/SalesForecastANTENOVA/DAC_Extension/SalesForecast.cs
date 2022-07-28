@@ -141,9 +141,7 @@ namespace SalesForecastANTENOVA
         #endregion
 
         #region UnitPrice
-        [PXDBCurrency(typeof(Search<CommonSetup.decPlPrcCst>), 
-                      typeof(AccessInfo.baseCuryID), 
-                      typeof(SalesForecast.unitPrice))]
+        [PXDBDecimal]
         [PXUIField(DisplayName = "Unit Price")]
         public virtual Decimal? UnitPrice { get; set; }
         public abstract class unitPrice : IBqlField{ }
