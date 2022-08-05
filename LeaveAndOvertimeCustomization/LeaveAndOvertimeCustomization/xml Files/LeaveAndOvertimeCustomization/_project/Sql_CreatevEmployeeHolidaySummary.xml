@@ -40,17 +40,18 @@ SELECT t.CompanyID,
 	   b.AcctCD,
 	   ISNULL(YEAR(annual.StartDate),YEAR(GETDATE())) AS YEAR,
 	   lt.LeaveType,
-	   lt.MaxLeaveDays * 8 AS AVAILABLEHOURS,
+	   ISNULL(annual.LeaveHours,0) AS AVAILABLEHOURS,
 	   ISNULL(s.USEDHour,0) AS USEDHOUR,
-	   (lt.MaxLeaveDays * 8) - ISNULL(s.USEDHour,0) AS ENTITLEDHOURS,
-	   CAST((CAST(ISNULL(YEAR(annual.StartDate),YEAR(GETDATE())) AS  VARCHAR(10)) + '/01/01') AS DATETIME) AS StartOfYear,
-	   CAST((CAST(ISNULL(YEAR(annual.StartDate),YEAR(GETDATE())) AS  VARCHAR(10)) + '/12/31') AS DATETIME) AS EndOfYear
+	   ISNULL(annual.LeaveHours,0) - ISNULL(s.USEDHour,0) AS ENTITLEDHOURS,
+	   ISNULL(annual.StartDate, DATEADD(yy, DATEDIFF(yy, 0, GETDATE()), 0)) AS StartOfYear,
+	   ISNULL(annual.EndDate,DATEADD(yy, DATEDIFF(yy, 0, GETDATE()) + 1, -1)) AS EndOfYear
 FROM EPEmployee t 
 INNER JOIN BAccount b ON t.CompanyID = b.CompanyID and t.BAccountID = b.BAccountID
 INNER JOIN LumLeaveType lt ON t.CompanyID = lt.CompanyID
 						  AND lt.LeaveType NOT IN ('Holiday','Day in Lieu')
 LEFT JOIN LumEmployeeAnnualLeaveLine annual ON t.CompanyID = annual.CompanyID
 										   AND t.BAccountID = annual.EmployeeID
+										   AND lt.LeaveType = annual.LeaveType
 LEFT JOIN leavesummary s ON t.CompanyID = s.CompanyID
 					    AND t.BAccountID = s.RequestEmployeeID
 						AND lt.LeaveType = s.LeaveType
@@ -72,6 +73,7 @@ FROM EPEmployee t
 INNER JOIN BAccount b ON t.CompanyID = b.CompanyID and t.BAccountID = b.BAccountID
 LEFT JOIN LumEmployeeAnnualLeaveLine annual ON t.CompanyID = annual.CompanyID
 										   AND  t.BAccountID = annual.EmployeeID
+										   AND annual.LeaveType = 'Holiday'
 LEFT JOIN holidaySummary s ON t.CompanyID = s.CompanyID
 					      AND t.BAccountID = s.RequestEmployeeID
 						  AND annual.LeaveType = s.LeaveType
