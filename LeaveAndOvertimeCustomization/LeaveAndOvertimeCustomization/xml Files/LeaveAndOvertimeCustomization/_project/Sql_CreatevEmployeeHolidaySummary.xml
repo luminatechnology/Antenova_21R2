@@ -40,9 +40,9 @@ SELECT t.CompanyID,
 	   b.AcctCD,
 	   ISNULL(YEAR(annual.StartDate),YEAR(GETDATE())) AS YEAR,
 	   lt.LeaveType,
-	   ISNULL(annual.LeaveHours,0) AS AVAILABLEHOURS,
+	   COALESCE(annual.LeaveHours, lt.MaxLeaveDays*8, 0) AS AVAILABLEHOURS,
 	   ISNULL(s.USEDHour,0) AS USEDHOUR,
-	   ISNULL(annual.LeaveHours,0) - ISNULL(s.USEDHour,0) AS ENTITLEDHOURS,
+	   COALESCE(annual.LeaveHours, lt.MaxLeaveDays*8, 0) - ISNULL(s.USEDHour,0) AS ENTITLEDHOURS,
 	   ISNULL(annual.StartDate, DATEADD(yy, DATEDIFF(yy, 0, GETDATE()), 0)) AS StartOfYear,
 	   ISNULL(annual.EndDate,DATEADD(yy, DATEDIFF(yy, 0, GETDATE()) + 1, -1)) AS EndOfYear
 FROM EPEmployee t 

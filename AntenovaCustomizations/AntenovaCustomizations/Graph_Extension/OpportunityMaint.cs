@@ -33,20 +33,12 @@ namespace PX.Objects.CR
                .InnerJoin<ENGineering>.On<ENGLine.engrRef.IsEqual<ENGineering.engrRef>>
                .Where<ENGineering.opprid.IsEqual<CROpportunity.opportunityID.FromCurrent>>.View ENGListLine;
 
-        public PublicFunc library = new PublicFunc();
-
-        #region Override Base DataView
-
-        public virtual IEnumerable salesOrders()
-        {
-            var result = SelectFrom<SOOrder>
+        public SelectFrom<SOOrder>
                 .InnerJoin<SOLine>.On<SOLine.orderType.IsEqual<SOOrder.orderType>.And<SOLine.orderNbr.IsEqual<SOOrder.orderNbr>>>
                 .Where<SOLineExt.usrOpportunityID.IsEqual<CROpportunity.opportunityID.FromCurrent>>
-                .View.Select(Base);
-            return result;
-        }
+                .View Soorders;
 
-        #endregion
+        public PublicFunc library = new PublicFunc();
 
         #region Override DAC
 
@@ -84,6 +76,21 @@ namespace PX.Objects.CR
                 graph.Document.Current = SelectFrom<ENGineering>
                                          .Where<ENGineering.engrRef.IsEqual<P.AsString>>
                                          .View.Select(Base, row.EngrRef);
+                PXRedirectHelper.TryRedirect(graph, PXRedirectHelper.WindowMode.NewWindow);
+            }
+            return adapter.Get();
+        }
+
+        public PXAction<CROpportunity> viewSOOrder;
+        [PXButton]
+        [PXUIField(Visible = false, Enabled = true)]
+        public virtual IEnumerable ViewSOOrder(PXAdapter adapter)
+        {
+            var row = this.Soorders.Current;
+            if (row != null)
+            {
+                var graph = PXGraph.CreateInstance<SOOrderEntry>();
+                graph.Document.Current = graph.Document.Search<SOOrder.orderType, SOOrder.orderNbr>(row.OrderType, row.OrderNbr);
                 PXRedirectHelper.TryRedirect(graph, PXRedirectHelper.WindowMode.NewWindow);
             }
             return adapter.Get();
