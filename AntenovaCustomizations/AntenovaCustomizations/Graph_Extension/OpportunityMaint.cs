@@ -18,7 +18,6 @@ using PX.Objects.Common.Extensions;
 using PX.Objects.CR.MassProcess;
 using PX.Objects.CR.Standalone;
 using PX.TM;
-using PX.Objects.CR.Extensions.CRCreateSalesOrder;
 
 namespace PX.Objects.CR
 {
@@ -354,5 +353,26 @@ namespace PX.Objects.CR
         #endregion
 
         #endregion
+        
+        // override Create Sales Order
+        public class CRCreateSalesOrderExt2 : CRCreateSalesOrderExt
+        {
+            public override void DoCreateSalesOrder()
+            {
+                try
+                {
+                    base.DoCreateSalesOrder();
+                }
+                catch (PXRedirectRequiredException ex)
+                {
+                    var opportunityID = Base.Opportunity.Current.OpportunityID;
+                    var soGraph = ex.Graph;
+                    var soLine = soGraph.Caches[typeof(SOLine)].Cached.RowCast<SOLine>();
+                    foreach (var item in soLine)
+                        item.GetExtension<SOLineExt>().UsrOpportunityID = opportunityID;
+                    throw new PXRedirectRequiredException(soGraph, "");
+                }
+            }
+        }
     }
 }
