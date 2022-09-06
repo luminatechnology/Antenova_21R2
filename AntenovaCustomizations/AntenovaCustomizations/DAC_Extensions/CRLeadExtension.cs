@@ -44,7 +44,7 @@ namespace PX.Objects.CR
         #endregion
 
         #region UsrSource
-        [PXDBString(10, InputMask = "", BqlField = typeof(Standalone.CRLeadStandaloneExt.usrSource))]
+        [PXDBString(10, InputMask = "")]
         [PXUIField(DisplayName = "Source")]
         [PXSelector(typeof(CRMSource.sourceID),
             typeof(CRMSource.descrption))]

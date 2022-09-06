@@ -364,14 +364,38 @@
                                                 </AddItem>
                                                 <AddItem>
                                                     <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
-                                                        <Prop Key="DataField" Value="SOLine__LineNbr" />
+                                                        <Prop Key="DataField" Value="SOLine__InventoryID" />
                                                         <Prop Key="Width" Value="70" />
+                                                    </PXGridColumn>
+                                                </AddItem>
+                                                <AddItem>
+                                                    <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                                                        <Prop Key="DataField" Value="SOLine__InventoryID_description" />
+                                                        <Prop Key="Width" Value="280" />
+                                                    </PXGridColumn>
+                                                </AddItem>
+                                                <AddItem>
+                                                    <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                                                        <Prop Key="DataField" Value="SOLine__OrderQty" />
+                                                        <Prop Key="Width" Value="100" />
+                                                    </PXGridColumn>
+                                                </AddItem>
+                                                <AddItem>
+                                                    <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                                                        <Prop Key="DataField" Value="SOLine__UnitPrice" />
+                                                        <Prop Key="Width" Value="100" />
                                                     </PXGridColumn>
                                                 </AddItem>
                                                 <AddItem>
                                                     <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
                                                         <Prop Key="DataField" Value="SOLine__CuryLineAmt" />
                                                         <Prop Key="Width" Value="120px" />
+                                                    </PXGridColumn>
+                                                </AddItem>
+                                                <AddItem>
+                                                    <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                                                        <Prop Key="DataField" Value="SOLine__LineNbr" />
+                                                        <Prop Key="Width" Value="70" />
                                                     </PXGridColumn>
                                                 </AddItem>
                                             </Children>
@@ -385,6 +409,7 @@
                                 <Prop Key="Mode.AutoInsert" Value="False" />
                                 <Prop Key="SkinID" Value="Details" />
                                 <Prop Key="Width" Value="100%" />
+                                <Prop Key="Height" Value="350px" />
                             </PXGrid>
                         </AddItem>
                     </Children>
