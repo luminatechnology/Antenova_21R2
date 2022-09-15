@@ -131,10 +131,7 @@ namespace LeaveAndOvertimeCustomization
                 {
                     try
                     {
-                        var acctInfo = SelectFrom<EPEmployee>
-                                       .InnerJoin<BAccount2>.On<EPEmployee.bAccountID.IsEqual<BAccount2.bAccountID>>
-                                       .Where<EPEmployee.userID.IsEqual<P.AsGuid>>.View.Select(this, row.ApprovedByID).FirstOrDefault();
-                        var contactData = Contact.PK.Find(this, acctInfo.GetItem<BAccount2>().DefContactID);
+                        var contactData = Contact.PK.Find(this, row.ApprovedByID);
                         if (contactData == null)
                             continue;
                         TemplateNotificationGenerator sender = TemplateNotificationGenerator.Create(this.document.Current, notification.NotificationID.Value);
@@ -258,6 +255,9 @@ namespace LeaveAndOvertimeCustomization
                 // setting cancel
                 var approvalList = this.Approval.Select().RowCast<EPApproval>().OrderByDescending(x => x.LastModifiedDateTime).FirstOrDefault();
                 var IsFinalApproverUser = row.Status == LumLeaveRequestStatus.Approved && (approvalList == null || approvalList.ApprovedByID == Accessinfo.ContactID);
+                // 指定Christy 可以Cancel所有人的申請
+                if (Accessinfo.UserID == Guid.Parse("B17F1DC1-FB84-4396-B884-4DD9196653B6") && row.Status == LumLeaveRequestStatus.Approved)
+                    IsFinalApproverUser = true;
                 this.CancelRequest.SetVisible(IsFinalApproverUser);
                 // setting field Enable
                 PXUIFieldAttribute.SetEnabled<LumLeaveRequest.leaveStart>(e.Cache, null, row.Status == LumLeaveRequestStatus.OnHold);
