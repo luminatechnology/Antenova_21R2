@@ -32,6 +32,7 @@
             <px:PXLayoutRule runat="server" ControlSize="XM" LabelsWidth="SM" />
             <px:PXSelector ID="edDelegateEmployeeID" runat="server" DataField="DelegateEmployeeID" Size="M" CommitChanges="True"></px:PXSelector>
             <px:PXDateTimeEdit ID="edRequestDate" runat="server" DataField="RequestDate"></px:PXDateTimeEdit>
+            <px:PXTextEdit ID="edRequestTimezone" runat="server" DataField="RequestTimezone" Width="150px"></px:PXTextEdit>
             <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="S" ControlSize="XM" StartGroup="True" />
             <px:PXPanel ID="XX" runat="server" RenderStyle="Simple">
                 <px:PXLayoutRule runat="server" StartColumn="True" LabelsWidth="S" ControlSize="M" />

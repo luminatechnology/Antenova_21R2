@@ -13,6 +13,7 @@ using PX.Data.BQL;
 using PX.Objects.CS;
 using LeaveAndOvertimeCustomization.Descriptor;
 using PX.TM;
+using PX.Common;
 
 namespace LeaveAndOvertimeCustomization
 {
@@ -259,6 +260,14 @@ namespace LeaveAndOvertimeCustomization
                 if (Accessinfo.UserID == Guid.Parse("B17F1DC1-FB84-4396-B884-4DD9196653B6") && row.Status == LumLeaveRequestStatus.Approved)
                     IsFinalApproverUser = true;
                 this.CancelRequest.SetVisible(IsFinalApproverUser);
+
+                object newRequestTimezone;
+                if (row != null && row.RequestEmployeeID.HasValue)
+                {
+                    e.Cache.RaiseFieldDefaulting<LumLeaveRequest.requestTimezone>(row, out newRequestTimezone);
+                    row.RequestTimezone = (string)newRequestTimezone;
+                }
+
                 // setting field Enable
                 PXUIFieldAttribute.SetEnabled<LumLeaveRequest.leaveStart>(e.Cache, null, row.Status == LumLeaveRequestStatus.OnHold);
                 PXUIFieldAttribute.SetEnabled<LumLeaveRequest.leaveEnd>(e.Cache, null, row.Status == LumLeaveRequestStatus.OnHold);
@@ -284,6 +293,17 @@ namespace LeaveAndOvertimeCustomization
                      .View.Select(this).TopFirst;
             if (wp != null)
                 e.NewValue = wp.WorkGroupID;
+        }
+
+        public virtual void _(Events.FieldDefaulting<LumLeaveRequest.requestTimezone> e)
+        {
+            var row = e.Row as LumLeaveRequest;
+            CSCalendar calendar = SelectFrom<CSCalendar>.Where<CSCalendar.calendarID.IsEqual<P.AsString>>.View.Select(new PXGraph(), GetRequestEmployeeObject()?.CalendarID);
+            if (row != null && calendar != null)
+            {
+                var calendarTimeZoneInfo = PXTimeZoneInfo.FindSystemTimeZoneById(calendar.TimeZone);
+                e.NewValue = calendarTimeZoneInfo.ShortName;
+            }
         }
 
         public virtual void _(Events.FieldUpdated<LumLeaveRequest.hold> e)

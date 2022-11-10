@@ -303,6 +303,14 @@ namespace LeaveAndOvertimeCustomization.DAC
         public abstract class remainingAvailableHours : PX.Data.BQL.BqlDecimal.Field<remainingAvailableHours> { }
         #endregion
 
+        #region RequestTimezone
+        [PXString]
+        [PXDefault]
+        [PXUIField(DisplayName = "Request Timezone",Enabled = false)]
+        public virtual string RequestTimezone { get;set;}
+        public abstract class requestTimezone: PX.Data.BQL.BqlString.Field<requestTimezone> { }
+        #endregion
+
         #region NoteID
         [PXNote(ShowInReferenceSelector = true)]
         public virtual Guid? NoteID { get; set; }

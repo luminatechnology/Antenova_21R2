@@ -64,29 +64,39 @@ namespace LeaveAndOvertimeCustomization.Descriptor
         {
             if (employee != null)
             {
+                var userTimezone = PXContext.PXIdentity.TimeZone;
                 // 判斷是否只請下午
                 bool isHalfday = false;
                 // breaktime
                 var breaktimeInfo = GetBreakTimeInfo(employee);
                 // worktime
-                var workTimeInfo = GetWorkTimeInfo(employee);
+                CSCalendar calendar = SelectFrom<CSCalendar>.Where<CSCalendar.calendarID.IsEqual<P.AsString>>.View.Select(new PXGraph(), employee.CalendarID);
+                var calendarTimeZoneInfo = PXTimeZoneInfo.FindSystemTimeZoneById(calendar.TimeZone);
+                var workTimeInfo = GetWorkTimeInfo(employee, calendar, calendarTimeZoneInfo);
                 if (workTimeInfo == null)
                     throw new PXException("can not find working day");
 
-                var tmpStartTime = LeaveStart.Value;
+                // 請假人的工作Calander時區請假開始時間
+                var timezoneStartTime = userTimezone.ShortName == "GMT+00:00" ? 
+                                            TimeZoneInfo.ConvertTimeFromUtc(LeaveStart.Value, TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId)) :
+                                            TimeZoneInfo.ConvertTimeFromUtc(LeaveStart.Value.ToUniversalTime(), TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId));
+                // 請假人的工作Calander時區請假結束時間
+                var timezoneEndTime = userTimezone.ShortName == "GMT+00:00" ?
+                                            TimeZoneInfo.ConvertTimeFromUtc(LeaveEnd.Value, TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId)) :
+                                            TimeZoneInfo.ConvertTimeFromUtc(LeaveEnd.Value.ToUniversalTime(), TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId));
                 // minute
                 double duration = 0;
-                while (tmpStartTime.Date <= LeaveEnd?.Date)
+                while (timezoneStartTime.Date <= timezoneEndTime.Date)
                 {
-                    var actWorkTime = workTimeInfo.FirstOrDefault(x => x.DayofWeek.ToLower() == tmpStartTime.DayOfWeek.ToString().ToLower());
-                    var actBreakTime = breaktimeInfo.FirstOrDefault(x => x.DayofWeek.ToLower() == tmpStartTime.DayOfWeek.ToString().ToLower());
+                    var actWorkTime = workTimeInfo.FirstOrDefault(x => x.DayofWeek.ToLower() == timezoneStartTime.DayOfWeek.ToString().ToLower());
+                    var actBreakTime = breaktimeInfo.FirstOrDefault(x => x.DayofWeek.ToLower() == timezoneStartTime.DayOfWeek.ToString().ToLower());
 
                     // 當日是特定假日
-                    if (CheckIsExceptionWorkDay(employee, tmpStartTime.Date))
+                    if (CheckIsExceptionWorkDay(employee, timezoneStartTime.Date))
                     {
                         if (!(IsOnlyWorkDay ?? false))
                             duration += 480;
-                        tmpStartTime = tmpStartTime.AddDays(1);
+                        timezoneStartTime = timezoneStartTime.AddDays(1);
                         continue;
                     }
 
@@ -95,12 +105,12 @@ namespace LeaveAndOvertimeCustomization.Descriptor
                     {
                         if (!(IsOnlyWorkDay ?? false))
                             duration += 480;
-                        tmpStartTime = tmpStartTime.AddDays(1);
+                        timezoneStartTime = timezoneStartTime.AddDays(1);
                         continue;
                     }
 
                     // 校正起始時間
-                    var actStartTime = tmpStartTime.TimeOfDay <= actWorkTime.StartTime?.TimeOfDay ? tmpStartTime.Date + actWorkTime.StartTime?.TimeOfDay : tmpStartTime;
+                    var actStartTime = timezoneStartTime.TimeOfDay <= actWorkTime.StartTime?.TimeOfDay ? timezoneStartTime.Date + actWorkTime.StartTime?.TimeOfDay : timezoneStartTime;
                     // 跨日起始時間為上班起始時間
                     if (actStartTime?.Date != LeaveStart?.Date)
                         actStartTime = actStartTime?.Date + actWorkTime?.StartTime?.TimeOfDay;
@@ -109,9 +119,9 @@ namespace LeaveAndOvertimeCustomization.Descriptor
                         actStartTime = actStartTime?.Date + actWorkTime?.EndTime?.TimeOfDay;
 
                     // 校正結束時間
-                    var actEndTime = LeaveEnd?.TimeOfDay >= actWorkTime.EndTime?.TimeOfDay || LeaveEnd?.Date != actStartTime?.Date ? tmpStartTime.Date + actWorkTime.EndTime?.TimeOfDay : tmpStartTime.Date + LeaveEnd?.TimeOfDay;
+                    var actEndTime = timezoneEndTime.TimeOfDay >= actWorkTime.EndTime?.TimeOfDay || LeaveEnd?.Date != actStartTime?.Date ? timezoneStartTime.Date + actWorkTime.EndTime?.TimeOfDay : timezoneStartTime.Date + timezoneEndTime.TimeOfDay;
                     // 跨日結束時間為上班結束時間
-                    if (actEndTime?.Date != LeaveEnd?.Date)
+                    if (actEndTime?.Date != timezoneEndTime.Date)
                         actEndTime = actEndTime?.Date + actWorkTime?.EndTime?.TimeOfDay;
                     // 結束日期位於上班前
                     if (actEndTime?.TimeOfDay <= actWorkTime?.StartTime?.TimeOfDay)
@@ -122,7 +132,7 @@ namespace LeaveAndOvertimeCustomization.Descriptor
                         isHalfday = true;
 
                     // 扣除休息時間 開始時間 小於 休息開始時間 && 結束時間 > "當日"休息結束時間
-                    if (actBreakTime != null && actStartTime?.TimeOfDay < actBreakTime.StartTime?.TimeOfDay && LeaveEnd > actStartTime?.Date + actBreakTime.EndTime?.TimeOfDay)
+                    if (actBreakTime != null && actStartTime?.TimeOfDay < actBreakTime.StartTime?.TimeOfDay && timezoneEndTime > actStartTime?.Date + actBreakTime.EndTime?.TimeOfDay)
                     {
                         duration -= (double)actBreakTime.BreakTime;
                         duration += new TimeSpan(actEndTime.Value.Ticks - actStartTime.Value.Ticks).TotalMinutes;
@@ -131,7 +141,7 @@ namespace LeaveAndOvertimeCustomization.Descriptor
                     else if (actBreakTime != null && (actStartTime?.TimeOfDay >= actBreakTime.StartTime?.TimeOfDay && actStartTime?.TimeOfDay <= actBreakTime.EndTime?.TimeOfDay) &&
                         (actEndTime?.TimeOfDay >= actBreakTime.StartTime?.TimeOfDay && actEndTime?.TimeOfDay <= actBreakTime.EndTime?.TimeOfDay))
                     {
-                        tmpStartTime = tmpStartTime.AddDays(1);
+                        timezoneStartTime = timezoneStartTime.AddDays(1);
                         continue;
                     }
                     else
@@ -147,7 +157,7 @@ namespace LeaveAndOvertimeCustomization.Descriptor
                         if (isHalfday && duration > 240 && duration <= 300)
                             duration = 240;
                     }
-                    tmpStartTime = tmpStartTime.AddDays(1);
+                    timezoneStartTime = timezoneStartTime.AddDays(1);
                 }
                 duration = ((duration < 0 ? 0 : duration) / 60);
                 return duration % 8 == 0 ? (decimal)duration :
@@ -166,7 +176,9 @@ namespace LeaveAndOvertimeCustomization.Descriptor
             if (employee != null)
             {
                 // worktime
-                var workTimeInfo = GetWorkTimeInfo(employee);
+                CSCalendar calendar = SelectFrom<CSCalendar>.Where<CSCalendar.calendarID.IsEqual<P.AsString>>.View.Select(new PXGraph(), employee.CalendarID);
+                var calendarTimeZoneInfo = PXTimeZoneInfo.FindSystemTimeZoneById(calendar.TimeZone);
+                var workTimeInfo = GetWorkTimeInfo(employee, calendar, calendarTimeZoneInfo);
 
                 var tmpStartTime = OTStart.Value;
                 while (tmpStartTime.Date <= OTEnd?.Date)
@@ -218,14 +230,11 @@ namespace LeaveAndOvertimeCustomization.Descriptor
         }
 
         /// <summary> Get Work Time </summary>
-        public List<WorktimeInfo> GetWorkTimeInfo(EPEmployee employee)
+        public List<WorktimeInfo> GetWorkTimeInfo(EPEmployee employee, CSCalendar calendar, PXTimeZoneInfo calendarTimeZoneInfo)
         {
-            var userTimeZone = PXContext.PXIdentity.TimeZone;
             var workCalendar = new List<WorktimeInfo>();
             if (employee == null)
                 return null;
-            CSCalendar calendar = SelectFrom<CSCalendar>.Where<CSCalendar.calendarID.IsEqual<P.AsString>>.View.Select(new PXGraph(), employee.CalendarID);
-            var calendarTimeZoneInfo = PXTimeZoneInfo.FindSystemTimeZoneById(calendar.TimeZone);
             #region Build WorkDay object
             if (calendar.SunWorkDay ?? false)
             {
@@ -291,16 +300,6 @@ namespace LeaveAndOvertimeCustomization.Descriptor
                 });
             }
             #endregion
-
-            // 時區轉換
-            workCalendar.ForEach(x =>
-            {
-                if (x.StartTime.HasValue)
-                    x.StartTime = PXTimeZoneInfo.ConvertTimeFromUtc(PXTimeZoneInfo.ConvertTimeToUtc(x.StartTime.Value, calendarTimeZoneInfo), userTimeZone);
-                if (x.EndTime.HasValue)
-                    x.EndTime = PXTimeZoneInfo.ConvertTimeFromUtc(PXTimeZoneInfo.ConvertTimeToUtc(x.EndTime.Value, calendarTimeZoneInfo), userTimeZone);
-            });
-
             return workCalendar;
         }
 
