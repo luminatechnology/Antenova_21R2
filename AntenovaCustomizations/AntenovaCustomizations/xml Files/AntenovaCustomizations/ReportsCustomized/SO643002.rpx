@@ -6191,8 +6191,8 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
           </Variables>
           <Items>
             <TextBox Name="textBox49">
-              <Location>320px, 0px</Location>
-              <Size>136px, 16px</Size>
+              <Location>328px, 0px</Location>
+              <Size>128px, 16px</Size>
               <Style>
                 <Font>
                   <Size>10pt</Size>
@@ -6280,7 +6280,7 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
               <CanGrow>True</CanGrow>
               <CanSplit>True</CanSplit>
               <Location>256px, 0px</Location>
-              <Size>64px, 16px</Size>
+              <Size>72px, 16px</Size>
               <Style>
                 <Font>
                   <Size>10pt</Size>

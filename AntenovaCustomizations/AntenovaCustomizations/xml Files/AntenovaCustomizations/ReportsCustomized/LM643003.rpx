@@ -6204,8 +6204,8 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
           </Variables>
           <Items>
             <TextBox Name="textBox49">
-              <Location>320px, 0px</Location>
-              <Size>124px, 16px</Size>
+              <Location>328px, 0px</Location>
+              <Size>120px, 16px</Size>
               <Style>
                 <Font>
                   <Size>10pt</Size>
@@ -6229,7 +6229,7 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
               <Value>=IIf([ARTran.InventoryID]&lt;&gt;Null, Format( '{0}: {1}', [ARTran.InventoryID],[ARTran.TranDesc]),[ARTran.TranDesc])#010;+ '{br}' #010;+IIf([SOShipLine.AlternateID]&lt;&gt;null,'Customer P/N: '+[SOShipLine.AlternateID], '')</Value>
             </TextBox>
             <TextBox Name="textBox51">
-              <Location>516px, 0px</Location>
+              <Location>520px, 0px</Location>
               <Size>48px, 16px</Size>
               <Style>
                 <Font>
@@ -6254,7 +6254,7 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
             </TextBox>
             <TextBox Name="textBox59">
               <Format>='#,##0'</Format>
-              <Location>444px, 0px</Location>
+              <Location>448px, 0px</Location>
               <Size>72px, 16px</Size>
               <Style>
                 <Font>
@@ -6278,8 +6278,8 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
             </TextBox>
             <TextBox Name="textBox61">
               <Format>='#,##0.0000'</Format>
-              <Location>564px, 0px</Location>
-              <Size>68px, 16px</Size>
+              <Location>568px, 0px</Location>
+              <Size>64px, 16px</Size>
               <Style>
                 <Font>
                   <Size>10pt</Size>
@@ -6293,7 +6293,7 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
               <CanGrow>True</CanGrow>
               <CanSplit>True</CanSplit>
               <Location>256px, 0px</Location>
-              <Size>64px, 16px</Size>
+              <Size>72px, 16px</Size>
               <Style>
                 <Font>
                   <Size>10pt</Size>

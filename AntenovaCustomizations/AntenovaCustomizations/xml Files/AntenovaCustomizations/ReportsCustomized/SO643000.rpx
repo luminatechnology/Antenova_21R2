@@ -5994,8 +5994,8 @@
           </Variables>
           <Items>
             <TextBox Name="textBox49">
-              <Location>320px, 0px</Location>
-              <Size>124px, 16px</Size>
+              <Location>328px, 0px</Location>
+              <Size>120px, 16px</Size>
               <Style>
                 <Font>
                   <Size>10pt</Size>
@@ -6083,7 +6083,7 @@
               <CanGrow>True</CanGrow>
               <CanSplit>True</CanSplit>
               <Location>256px, 0px</Location>
-              <Size>64px, 16px</Size>
+              <Size>72px, 16px</Size>
               <Style>
                 <Font>
                   <Size>10pt</Size>
