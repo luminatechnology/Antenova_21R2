@@ -22,7 +22,7 @@ holidaySummary as (
 SELECT r.CompanyID,
 	   r.RequestEmployeeID,
 	   r.LeaveType,
-	   YEAR(r.RequestDate) USEDYEAR,
+	   YEAR(t.StartDate) USEDYEAR,
 	   SUM(r.Duration) USEDHour,
 	   t.StartDate,
 	   t.EndDate
@@ -32,7 +32,7 @@ INNER JOIN LumEmployeeAnnualLeaveLine t on r.CompanyID = t.CompanyID
 								   and r.RequestEmployeeID = t.EmployeeID
 								   and r.LeaveType = t.LeaveType
 WHERE r.CompanyID = 2 and r.LeaveType = 'Holiday' and status = 'A'
-GROUP BY r.CompanyID,r.RequestEmployeeID,r.LeaveType,YEAR(r.RequestDate),t.StartDate,t.EndDate )
+GROUP BY r.CompanyID,r.RequestEmployeeID,r.LeaveType,YEAR(t.StartDate),t.StartDate,t.EndDate )
 --OHTER LEAVE TYPE
 SELECT t.CompanyID,
 	   t.BAccountID AS EmployeeID,
