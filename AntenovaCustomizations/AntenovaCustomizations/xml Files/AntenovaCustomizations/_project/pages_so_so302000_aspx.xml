@@ -67,6 +67,13 @@
         <Children Key="Columns">
             <AddItem>
                 <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
+                    <Prop Key="DataField" Value="UsrHSCode" />
+                    <Prop Key="Width" Value="140" />
+                </PXGridColumn>
+            </AddItem>
+            <PXGridColumn DataField="SubItemID" OriginalIndex="7" />
+            <AddItem>
+                <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
                     <Prop Key="DataField" Value="UsrPackingQty" />
                     <Prop Key="NullText" Value="0.0" />
                 </PXGridColumn>
