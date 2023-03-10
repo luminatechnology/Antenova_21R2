@@ -14,10 +14,14 @@
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>ARInvoice.NoteID</ActivitySource>
-            <Body>
-            </Body>
+            <Bcc>
+            </Bcc>
             <Cc>=IsNull([Customer.NOTICECC_Attributes],'')</Cc>
+            <Format>
+            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
+            <Subject>
+            </Subject>
             <TemplateID>Email Shipment Notice</TemplateID>
             <To>=IsNull([ShipContact.Email],'')</To>
         </MailSettings>
@@ -7356,7 +7360,7 @@
                                     <Line Name="line1">
                                         <Direction>Vertical</Direction>
                                         <Location>360px, 0px</Location>
-                                        <Size>1px, 120px</Size>
+                                        <Size>1px, 133px</Size>
                                         <StyleName>BoxedPanel</StyleName>
                                     </Line>
                                     <TextBox Name="textBox19">

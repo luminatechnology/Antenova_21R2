@@ -164,12 +164,12 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>ARInvoice.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
+            <Body>
+            </Body>
             <Cc>=IsNull([Customer.NOTICECC_Attributes],'')</Cc>
-            <Format>
-            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
+            <Subject>
+            </Subject>
             <TemplateID>Email Shipment Notice</TemplateID>
             <To>=IsNull([ShipContact.Email],'')</To>
         </MailSettings>
@@ -7500,7 +7500,7 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
                                     <Line Name="line1">
                                         <Direction>Vertical</Direction>
                                         <Location>360px, 0px</Location>
-                                        <Size>1px, 120px</Size>
+                                        <Size>1px, 133px</Size>
                                         <StyleName>BoxedPanel</StyleName>
                                     </Line>
                                     <TextBox Name="textBox19">
