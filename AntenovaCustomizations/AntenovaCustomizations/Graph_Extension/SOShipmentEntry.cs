@@ -943,10 +943,7 @@ namespace PX.Objects.SO
             e.Cache.AllowUpdate = true;
             PXUIFieldAttribute.SetEnabled<SOShipmentExt.usrCarrierPluginID>(e.Cache, null, true);
             PXUIFieldAttribute.SetEnabled<SOShipmentExt.usrWaybill>(e.Cache, null, true);
-
-            ///<remarks> This is just for temporary testing by David. </remarks>
-            PXUIFieldAttribute.SetVisible<SOShipLineExt.usrHSCode>(Base.Transactions.Cache, null, Base.Accessinfo.CompanyName.Contains("Training"));
-            //PXUIFieldAttribute.SetEnabled<SOShipLineExt.usrHSCode>(Base.Transactions.Cache, null, (Base.Transactions.Cache.GetStateExt<SOShipLine.inventoryID>(Base.Transactions.Current) as PXFieldState)?.Enabled ?? false);
+            PXUIFieldAttribute.SetEnabled<SOShipLineExt.usrHSCode>(Base.Transactions.Cache, null, row.Released != true);
         }
 
         protected void _(Events.FieldSelecting<SOShipmentExt.usrNote> e)
