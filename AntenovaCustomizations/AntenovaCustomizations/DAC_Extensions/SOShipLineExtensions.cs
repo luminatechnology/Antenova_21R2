@@ -1,13 +1,9 @@
-﻿using PX.Data;
+﻿using System;
+using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
 using PX.Objects.CS;
 using PX.Objects.IN;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static PX.Objects.SO.SOShipmentEntry_Extension;
 
 namespace PX.Objects.SO
@@ -18,7 +14,7 @@ namespace PX.Objects.SO
 
         #region RemainingQty
         [PXDecimal]
-        [PXDefault(TypeCode.Decimal, "0.0",PersistingCheck = PXPersistingCheck.Nothing)]
+        [PXDefault(TypeCode.Decimal, "0.0", PersistingCheck = PXPersistingCheck.Nothing)]
         [PXUIField(DisplayName = "Packing Qty")]
         public virtual decimal? UsrPackingQty { get; set; }
         public abstract class usrPackingQty : BqlDecimal.Field<usrPackingQty> { }
@@ -63,6 +59,15 @@ namespace PX.Objects.SO
         [PXFormula(typeof(Default<SOShipLine.inventoryID>))]
         public virtual string UsrHSCode { get; set; }
         public abstract class usrHSCode : PX.Data.BQL.BqlString.Field<usrHSCode> { }
+        #endregion
+
+        #region UsrPlasticWeight
+        [PXDBDecimal(6)]
+        [PXUIField(DisplayName = "Plastic Weight")]
+        [AntenovaCustomizations.Descriptor.ItemPlasticWeight()]
+        //[PXFormula(typeof(Default<SOShipLine.baseShippedQty>))]
+        public virtual decimal? UsrPlasticWeight { get; set; }
+        public abstract class usrPlasticWeight : PX.Data.BQL.BqlDecimal.Field<usrPlasticWeight> { }
         #endregion
     }
 }

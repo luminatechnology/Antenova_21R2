@@ -944,6 +944,7 @@ namespace PX.Objects.SO
             PXUIFieldAttribute.SetEnabled<SOShipmentExt.usrCarrierPluginID>(e.Cache, null, true);
             PXUIFieldAttribute.SetEnabled<SOShipmentExt.usrWaybill>(e.Cache, null, true);
             PXUIFieldAttribute.SetEnabled<SOShipLineExt.usrHSCode>(Base.Transactions.Cache, null, row.Released != true);
+            PXUIFieldAttribute.SetEnabled<SOShipLineExt.usrPlasticWeight>(Base.Transactions.Cache, null, row.Released != true);
         }
 
         protected void _(Events.FieldSelecting<SOShipmentExt.usrNote> e)
