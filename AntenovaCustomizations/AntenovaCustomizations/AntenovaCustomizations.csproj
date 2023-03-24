@@ -80,6 +80,7 @@
     <Compile Include="DAC_Extensions\CROpportunityStandaloneExt.cs" />
     <Compile Include="DAC_Extensions\INItemLotSerialExtensions.cs" />
     <Compile Include="DAC_Extensions\INSiteStatusExtensions.cs" />
+    <Compile Include="DAC_Extensions\POLine.cs" />
     <Compile Include="DAC_Extensions\SalesPersonExtension.cs" />
     <Compile Include="DAC_Extensions\SOPackageDetail_Extension.cs" />
     <Compile Include="DAC_Extensions\SOShipLineExtensions.cs" />
