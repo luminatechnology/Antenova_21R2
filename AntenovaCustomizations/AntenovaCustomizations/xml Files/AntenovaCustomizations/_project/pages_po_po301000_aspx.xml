@@ -3,7 +3,7 @@
         <Children Key="Columns">
             <AddItem>
                 <PXGridColumn TypeFullName="PX.Web.UI.PXGridColumn">
-                    <Prop Key="DataField" Value="UsrItemClassID" />
+                    <Prop Key="DataField" Value="UsrItemClassCD" />
                     <Prop Key="Width" Value="140" />
                     <Prop Key="DisplayMode" Value="Hint" />
                 </PXGridColumn>
@@ -14,8 +14,8 @@
             <AddItem>
                 <PXSegmentMask TypeFullName="PX.Web.UI.PXSegmentMask">
                     <Prop Key="Virtual:ApplyStylesheetSkin" />
-                    <Prop Key="ID" Value="CstPXSegmentMask1" />
-                    <Prop Key="DataField" Value="UsrItemClassID" />
+                    <Prop Key="ID" Value="CstPXSelector1" />
+                    <Prop Key="DataField" Value="UsrItemClassCD" />
                     <Prop Key="AllowEdit" Value="True" />
                 </PXSegmentMask>
             </AddItem>
