@@ -221,7 +221,7 @@ namespace PX.Objects.SO
         #region UK Packing List - LM642007
         public PXAction<SOShipment> UKPackingList;
         [PXButton(IsLockedOnToolbar = false)]
-        [PXUIField(DisplayName = "Print Packing List - UK", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Packing List - Plastic", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable uKpackingList(PXAdapter adapter)
         {
             var _reportID = "LM642007";
