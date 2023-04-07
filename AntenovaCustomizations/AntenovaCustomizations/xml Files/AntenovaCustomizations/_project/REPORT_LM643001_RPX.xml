@@ -14,14 +14,10 @@
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>ARInvoice.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
+            <Body>
+            </Body>
             <Cc>=IsNull([Customer.NOTICECC_Attributes],'')</Cc>
-            <Format>
-            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
-            <Subject>
-            </Subject>
             <TemplateID>Email Shipment Notice</TemplateID>
             <To>=IsNull([ShipContact.Email],'')</To>
         </MailSettings>
@@ -7633,7 +7629,7 @@
                                     </Font>
                                 </Style>
                                 <StyleName>SenderCompany</StyleName>
-                                <Value>='Ship From:' #010;+'{br}'#010;+'4F, No.324, Sec 1, Nei-Hu Road Nei-Hu Dist,#010;11493 Taipei Taiwan Sender: Renee Lin#010;Tel: +886-2-87978630 #216'</Value>
+                                <Value>='Ship From:' #010;+'{br}'#010;+'4F, No.324, Sec 1, Nei-Hu Road Nei-Hu Dist,#010;11493 Taipei Taiwan#010;Tel: +886-2-87978630'</Value>
                             </TextBox>
                             <TextBox Name="textBox7">
                                 <Location>544px, 104px</Location>
