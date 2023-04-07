@@ -80,17 +80,9 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>POOrder.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
             <Body>='Dear Customer, This is an automatic email to notify you that you have a new Purchase Order available on your account.  You will find a copy of Purchase Order #'+[POOrder.OrderNbr]+' attached to this email.  #010;#010;If you have any questions, please don’t hesitate to contact us at email.  #010;#010;Thank you for choosing '+[CompanyContact.FullName]+'.'</Body>
-            <Cc>
-            </Cc>
-            <Format>
-            </Format>
             <ParentSource>Vendor.NoteID</ParentSource>
             <Subject>=[CompanyContact.FullName]+' Purchase Order #'+[POOrder.OrderNbr]+' is now available'</Subject>
-            <TemplateID>
-            </TemplateID>
             <To>=[RemitContact.EMail]</To>
         </MailSettings>
         <PageSettings>
@@ -412,7 +404,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                 <ParentName>POLine</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/Antenova/</SchemaUrl>
+        <SchemaUrl>https://www.acumatica.com.tw/Antenova</SchemaUrl>
         <StylesTemplate>TemplateForm.rpx</StylesTemplate>
         <Tables>
             <ReportTable Name="POOrder">
@@ -3229,6 +3221,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
         </ViewerFields>
         <Sections>
             <PageHeader Name="pageHeaderSection1">
+                <Expanded>False</Expanded>
                 <Height>0.08333in</Height>
                 <Visible>False</Visible>
             </PageHeader>
@@ -3281,6 +3274,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                 </Grouping>
                 <Headers>
                     <Header Name="groupHeaderSection1">
+                        <Expanded>False</Expanded>
                         <Height>3.33333in</Height>
                         <PrintForEmptyGroup>True</PrintForEmptyGroup>
                         <PrintOnEveryPage>True</PrintOnEveryPage>
@@ -3532,6 +3526,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                         </Items>
                     </Header>
                     <Header Name="groupHeaderSection3">
+                        <Expanded>False</Expanded>
                         <Height>0.16667in</Height>
                         <Items>
                             <Panel Name="panel1">
@@ -3634,9 +3629,12 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection1">
+                        <Expanded>False</Expanded>
                         <Height>0.83333in</Height>
                         <PrintAtBottom>True</PrintAtBottom>
+                        <PrintOnEveryPage>True</PrintOnEveryPage>
                         <ProcessOrder>Always</ProcessOrder>
+                        <ResetPageNumber>True</ResetPageNumber>
                         <Items>
                             <Panel Name="panel3">
                                 <Location>0px, 0px</Location>
@@ -3716,6 +3714,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                         </Items>
                     </Footer>
                     <Footer Name="groupFooterSection2">
+                        <Expanded>False</Expanded>
                         <Height>0.16777in</Height>
                         <PrintAtBottom>True</PrintAtBottom>
                         <PrintOnEveryPage>True</PrintOnEveryPage>
@@ -3745,7 +3744,8 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                         </Items>
                     </Footer>
                     <Footer Name="groupFooterSection4">
-                        <Height>2.41667in</Height>
+                        <Expanded>False</Expanded>
+                        <Height>9.08334in</Height>
                         <PageBreak>Before</PageBreak>
                         <ProcessOrder>Always</ProcessOrder>
                         <Items>
@@ -3804,14 +3804,8 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                                 </Style>
                                 <Value>='This Code of Conduct defines the basic requirements placed on suppliers of goods and services to discoverIE Group plc (‘discoverIE’) companies, in particular their responsibilities towards their stakeholders and the environment. The principles expressed in this Supplier Code of Conduct comprise an important component of supplier selection and evaluation, as well as reflecting the environmental, social and governance principles that discoverIE incorporates in all aspects of its business. discoverIE reserves the right to reasonably change the requirements of this Code of Conduct. In such an event, discoverIE expects the supplier to accept such reasonable changes. The discoverIE Group plc Board of Directors has ultimate responsibility for the implementation of this Code of Conduct.' #010;+ '{br}'</Value>
                             </TextBox>
-                        </Items>
-                    </Footer>
-                    <Footer Name="groupFooterSection5">
-                        <Expanded>False</Expanded>
-                        <Height>0.75in</Height>
-                        <Items>
                             <TextBox Name="textBox49">
-                                <Location>8px, 0px</Location>
+                                <Location>0px, 232px</Location>
                                 <Size>704px, 16px</Size>
                                 <Style>
                                     <Font>
@@ -3823,7 +3817,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                             </TextBox>
                             <TextBox Name="textBox50">
                                 <CanGrow>True</CanGrow>
-                                <Location>40px, 24px</Location>
+                                <Location>32px, 256px</Location>
                                 <Size>680px, 48px</Size>
                                 <Style>
                                     <Font>
@@ -3833,49 +3827,9 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                                 </Style>
                                 <Value>= 'This code of conduct applies to all suppliers currently supplying goods and services to any discoverIE Group business.'#010;+ '{br}'</Value>
                             </TextBox>
-                        </Items>
-                    </Footer>
-                    <Footer Name="groupFooterSection6">
-                        <Expanded>False</Expanded>
-                        <Height>5.91667in</Height>
-                        <Items>
-                            <TextBox Name="textBox51">
-                                <Location>8px, 0px</Location>
-                                <Size>704px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>MS PGothic</Name>
-                                        <Size>16px</Size>
-                                    </Font>
-                                </Style>
-                                <Value>1.3   Carbon Emissions</Value>
-                            </TextBox>
-                            <TextBox Name="textBox53">
+                            <TextBox Name="textBox56">
                                 <CanGrow>True</CanGrow>
-                                <Location>40px, 24px</Location>
-                                <Size>680px, 224px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>MS PGothic</Name>
-                                        <Size>16px</Size>
-                                    </Font>
-                                </Style>
-                                <Value>= 'The discoverIE Group has implemented a target to reduce our carbon emissions to net zero (Scope 1 &amp; 2) by 2030. Along with the focus on selling into markets that are aligned with a sustainable future, this target reflects the Group’s commitment to reducing the impact of its operations on the environment.'#010;+ '{br}'+ '{br}'#010;+ 'Suppliers should be committed to helping the Group meet its environmental commitments. Suppliers should be seeking to reduce negative environmental impacts including the prevention of pollution. We expect our suppliers to encourage the use of environmentally friendly technologies and practices and the reduction of negative environmental impacts throughout their supply chain.'#010;+ '{br}'+ '{br}'#010;+ 'Suppliers are encouraged to implement an environmental management system and we would value suppliers who are working towards or have a certified management system, such as, or similar to ISO14001 (UKAS Accredited).'#010;+ '{br}'</Value>
-                            </TextBox>
-                            <TextBox Name="textBox69">
-                                <Location>8px, 256px</Location>
-                                <Size>704px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>MS PGothic</Name>
-                                        <Size>16px</Size>
-                                    </Font>
-                                </Style>
-                                <Value>1.4   Ethical Requirements</Value>
-                            </TextBox>
-                            <TextBox Name="textBox70">
-                                <CanGrow>True</CanGrow>
-                                <Location>40px, 280px</Location>
+                                <Location>32px, 584px</Location>
                                 <Size>680px, 288px</Size>
                                 <Style>
                                     <Font>
@@ -3885,10 +3839,46 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                                 </Style>
                                 <Value>= 'To meet social responsibilities, suppliers shall conduct their business in an ethical manner and act with integrity. Ethical requirements include the following aspects:'#010;+ '{br}'+ '{br}'#010;+ '1.4.1 Business Integrity: Suppliers shall not practice or tolerate any form of corruption, extortion, embezzlement, or money laundering. Suppliers shall not offer or accept bribes or other unlawful incentives (e.g. facilitation payments) to or from their business partners or government officials. Suppliers shall not offer to discoverIE employees any kind of gifts or personal benefit which could be perceived as a bribe. In all cases, gifts or entertainment shall not be offered to improperly influence a business relationship and must not violate applicable laws or ethical standards.'#010;+ '{br}'+ '{br}'#010;+ '1.4.2 Conflicts of Interest: Suppliers shall disclose to the business any situation that could constitute a conflict of interest, such as discoverIE employees having professional, private and/or significant financial advantages or interests in any of the supplier’s businesses.'#010;+ '{br}'+ '{br}'#010;+ '1.4.3 Fair Competition: Suppliers will conduct their business in line with fair competition and in accordance with all applicable anti-trust laws.'#010;+ '{br}'</Value>
                             </TextBox>
+                            <TextBox Name="textBox73">
+                                <Location>0px, 560px</Location>
+                                <Size>704px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>MS PGothic</Name>
+                                        <Size>16px</Size>
+                                    </Font>
+                                </Style>
+                                <Value>1.4   Ethical Requirements</Value>
+                            </TextBox>
+                            <TextBox Name="textBox74">
+                                <CanGrow>True</CanGrow>
+                                <Location>32px, 328px</Location>
+                                <Size>680px, 224px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>MS PGothic</Name>
+                                        <Size>16px</Size>
+                                    </Font>
+                                </Style>
+                                <Value>= 'The discoverIE Group has implemented a target to reduce our carbon emissions to net zero (Scope 1 &amp; 2) by 2030. Along with the focus on selling into markets that are aligned with a sustainable future, this target reflects the Group’s commitment to reducing the impact of its operations on the environment.'#010;+ '{br}'+ '{br}'#010;+ 'Suppliers should be committed to helping the Group meet its environmental commitments. Suppliers should be seeking to reduce negative environmental impacts including the prevention of pollution. We expect our suppliers to encourage the use of environmentally friendly technologies and practices and the reduction of negative environmental impacts throughout their supply chain.'#010;+ '{br}'+ '{br}'#010;+ 'Suppliers are encouraged to implement an environmental management system and we would value suppliers who are working towards or have a certified management system, such as, or similar to ISO14001 (UKAS Accredited).'#010;+ '{br}'</Value>
+                            </TextBox>
+                            <TextBox Name="textBox75">
+                                <Location>0px, 304px</Location>
+                                <Size>704px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>MS PGothic</Name>
+                                        <Size>16px</Size>
+                                    </Font>
+                                </Style>
+                                <Value>1.3   Carbon Emissions</Value>
+                            </TextBox>
                         </Items>
                     </Footer>
                     <Footer Name="groupFooterSection7">
+                        <Expanded>False</Expanded>
                         <Height>8in</Height>
+                        <PageBreak>After</PageBreak>
                         <Items>
                             <PictureBox Name="pictureBox4">
                                 <Location>576px, 0px</Location>
@@ -3936,7 +3926,9 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                         </Items>
                     </Footer>
                     <Footer Name="groupFooterSection8">
-                        <Height>1.16667in</Height>
+                        <Expanded>False</Expanded>
+                        <Height>8.25in</Height>
+                        <PageBreak>After</PageBreak>
                         <Items>
                             <PictureBox Name="pictureBox3">
                                 <Location>576px, 0px</Location>
@@ -3949,14 +3941,14 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                             <TextBox Name="textBox54">
                                 <CanGrow>True</CanGrow>
                                 <Location>40px, 94px</Location>
-                                <Size>680px, 16px</Size>
+                                <Size>680px, 578px</Size>
                                 <Style>
                                     <Font>
                                         <Name>MS PGothic</Name>
                                         <Size>16px</Size>
                                     </Font>
                                 </Style>
-                                <Value>= 'Suppliers shall make adequate provision for the health and safety of their employees, customers, visitors, contractors, and others who may be affected by their activities. They shall operate in an environmentally responsible and resource-efficient manner. This comprises the following aspects:'#010;+ '{br}'+ '{br}'#010;+ '1.6.1 Occupational health and safety: Suppliers shall adequately protect their employees against chemical, biological and physical hazards. Physically demanding tasks and conditions in the workplace, as well as risks associated with infrastructures used, must be adequately managed to protect their employees. Suppliers shall provide appropriate safe work procedures, technical protective measures and adequate maintenance to mitigate health and safety risks in the workplace and to prevent accidents and occupational illnesses. In addition, suppliers shall provide employees with appropriate personal protective equipment.'#010;+ '{br}'+ '{br}'#010;+ 'Safety information relating to any identified workplace risk or hazardous materials – including compounds in intermediate materials – shall be available to educate, train and protect workers from hazards. A safe and healthy working environment shall include as a minimum the provision of potable drinking water, adequate lighting, temperature, ventilation, sanitation and, if applicable, safe and healthy company living quarters.'#010;+ '{br}'</Value>
+                                <Value>= 'Suppliers shall make adequate provision for the health and safety of their employees, customers, visitors, contractors, and others who may be affected by their activities. They shall operate in an environmentally responsible and resource-efficient manner. This comprises the following aspects:'#010;+ '{br}'+ '{br}'#010;+ '1.6.1 Occupational health and safety: Suppliers shall adequately protect their employees against chemical, biological and physical hazards. Physically demanding tasks and conditions in the workplace, as well as risks associated with infrastructures used, must be adequately managed to protect their employees. Suppliers shall provide appropriate safe work procedures, technical protective measures and adequate maintenance to mitigate health and safety risks in the workplace and to prevent accidents and occupational illnesses. In addition, suppliers shall provide employees with appropriate personal protective equipment.'#010;+ '{br}'+ '{br}'#010;+ 'Safety information relating to any identified workplace risk or hazardous materials – including compounds in intermediate materials – shall be available to educate, train and protect workers from hazards. A safe and healthy working environment shall include as a minimum the provision of potable drinking water, adequate lighting, temperature, ventilation, sanitation and, if applicable, safe and healthy company living quarters.'#010;+ '{br}'#010;+ '1.6.2 Product safety: Suppliers must comply with product safety regulations, label products properly and communicate product-handling requirements. They shall provide to relevant parties the applicable documentation containing all necessary safety-relevant information for all hazardous substances in case of a legitimate need.'#010;+ '{br}'+ '{br}'#010;+ '1.6.3 Waste and emissions: Suppliers shall ensure the safe and compliant handling, storage, transportation, disposal, recycling, reuse and management of waste, air emissions and wastewater discharges. Any activity that has the potential to adversely impact human or environmental health shall be appropriately managed, measured and controlled. The release of hazardous substances shall be minimised. Suppliers shall prevent or mitigate accidental spills and fugitive emissions of hazardous materials.'#010;+ '{br}'+ '{br}'#010;+ '1.6.4 Natural resource conservation: Suppliers shall use natural resources (e.g. water, sources of energy, raw materials) in an economical way and preserve them. Negative impacts on the environment and climate caused by the suppliers or in their supply chain shall be minimised or eliminated at their source.'#010;+ '{br}'+ '{br}'</Value>
                             </TextBox>
                             <TextBox Name="textBox61">
                                 <CanGrow>True</CanGrow>
@@ -3969,6 +3961,29 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                                     </Font>
                                 </Style>
                                 <Value>= '1.5.6 Freedom of association and collective bargaining: Suppliers shall recognise and respect the rights of employees to freely associate, organise and bargain collectively, if they so wish to. In situations where the right to freedom of association and collective bargaining is restricted by applicable laws and regulations, discoverIE expects suppliers to allow alternate forms of worker representations.#010;'#010;+ '{br}'</Value>
+                            </TextBox>
+                            <TextBox Name="textBox65">
+                                <Location>0px, 672px</Location>
+                                <Size>704px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>MS PGothic</Name>
+                                        <Size>16px</Size>
+                                    </Font>
+                                </Style>
+                                <Value>1.7   Quality</Value>
+                            </TextBox>
+                            <TextBox Name="textBox66">
+                                <CanGrow>True</CanGrow>
+                                <Location>32px, 696px</Location>
+                                <Size>680px, 96px</Size>
+                                <Style>
+                                    <Font>
+                                        <Name>MS PGothic</Name>
+                                        <Size>16px</Size>
+                                    </Font>
+                                </Style>
+                                <Value>= 'Suppliers shall meet generally recognized quality standards or contractually agreed quality requirements and standards. Suppliers shall immediately address all critical issues that have the potential to negatively affect the quality of goods and services. Suppliers must inform discoverIE about changes to the manufacturing or supply process that have the potential to impact the specification of goods and services provided.'#010;+ '{br}'</Value>
                             </TextBox>
                             <TextBox Name="textBox71">
                                 <Location>8px, 72px</Location>
@@ -3983,55 +3998,9 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                             </TextBox>
                         </Items>
                     </Footer>
-                    <Footer Name="groupFooterSection9">
-                        <Expanded>False</Expanded>
-                        <Height>2.83333in</Height>
-                        <Items>
-                            <TextBox Name="textBox63">
-                                <CanGrow>True</CanGrow>
-                                <Location>40px, 0px</Location>
-                                <Size>680px, 272px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>MS PGothic</Name>
-                                        <Size>16px</Size>
-                                    </Font>
-                                </Style>
-                                <Value>='1.6.2 Product safety: Suppliers must comply with product safety regulations, label products properly and communicate product-handling requirements. They shall provide to relevant parties the applicable documentation containing all necessary safety-relevant information for all hazardous substances in case of a legitimate need.'#010;+ '{br}'+ '{br}'#010;+ '1.6.3 Waste and emissions: Suppliers shall ensure the safe and compliant handling, storage, transportation, disposal, recycling, reuse and management of waste, air emissions and wastewater discharges. Any activity that has the potential to adversely impact human or environmental health shall be appropriately managed, measured and controlled. The release of hazardous substances shall be minimised. Suppliers shall prevent or mitigate accidental spills and fugitive emissions of hazardous materials.'#010;+ '{br}'+ '{br}'#010;+ '1.6.4 Natural resource conservation: Suppliers shall use natural resources (e.g. water, sources of energy, raw materials) in an economical way and preserve them. Negative impacts on the environment and climate caused by the suppliers or in their supply chain shall be minimised or eliminated at their source.'#010;+ '{br}'+ '{br}'</Value>
-                            </TextBox>
-                        </Items>
-                    </Footer>
-                    <Footer Name="groupFooterSection10">
-                        <Expanded>False</Expanded>
-                        <Height>1.25in</Height>
-                        <Items>
-                            <TextBox Name="textBox65">
-                                <Location>8px, 0px</Location>
-                                <Size>704px, 16px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>MS PGothic</Name>
-                                        <Size>16px</Size>
-                                    </Font>
-                                </Style>
-                                <Value>1.7   Quality</Value>
-                            </TextBox>
-                            <TextBox Name="textBox66">
-                                <CanGrow>True</CanGrow>
-                                <Location>40px, 24px</Location>
-                                <Size>680px, 96px</Size>
-                                <Style>
-                                    <Font>
-                                        <Name>MS PGothic</Name>
-                                        <Size>16px</Size>
-                                    </Font>
-                                </Style>
-                                <Value>= 'Suppliers shall meet generally recognized quality standards or contractually agreed quality requirements and standards. Suppliers shall immediately address all critical issues that have the potential to negatively affect the quality of goods and services. Suppliers must inform discoverIE about changes to the manufacturing or supply process that have the potential to impact the specification of goods and services provided.'#010;+ '{br}'</Value>
-                            </TextBox>
-                        </Items>
-                    </Footer>
                     <Footer Name="groupFooterSection11">
                         <Height>2.83333in</Height>
+                        <PageBreak>After</PageBreak>
                         <Items>
                             <PictureBox Name="pictureBox2">
                                 <Location>576px, 0px</Location>
@@ -4088,6 +4057,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                 </Grouping>
                 <Headers>
                     <Header Name="groupHeaderSection2">
+                        <Expanded>False</Expanded>
                         <Height>0.16667in</Height>
                         <Items>
                             <TextBox Name="textBox17">
@@ -4158,6 +4128,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                 </Headers>
                 <Footers>
                     <Footer Name="groupFooterSection3">
+                        <Expanded>False</Expanded>
                         <Height>0px</Height>
                     </Footer>
                 </Footers>
