@@ -2511,7 +2511,27 @@
         <ReportField Name="ShipmentNbr"></ReportField>
         <ReportField Name="TrackData"></ReportField>
         <ReportField Name="TrackNumber"></ReportField>
+        <ReportField Name="TrackUrl"></ReportField>
         <ReportField Name="tstamp"></ReportField>
+        <ReportField Name="Usr1stInnerQty">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="UsrCountry"></ReportField>
+        <ReportField Name="UsrDateCode"></ReportField>
+        <ReportField Name="UsrDateCode4LastBox"></ReportField>
+        <ReportField Name="UsrDateCode4ThisBox"></ReportField>
+        <ReportField Name="UsrGrossWeight">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="UsrOuterBoxOrder">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="UsrPlasticWeight">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="UsrShipmentSplitLineNbr">
+          <DataType>Int32</DataType>
+        </ReportField>
         <ReportField Name="Weight">
           <DataType>Decimal</DataType>
         </ReportField>
@@ -2685,6 +2705,7 @@
           <DataType>Decimal</DataType>
         </ReportField>
         <ReportField Name="Description"></ReportField>
+        <ReportField Name="EELPFC"></ReportField>
         <ReportField Name="Height">
           <DataType>Int32</DataType>
         </ReportField>
@@ -2734,10 +2755,22 @@
         <ReportField Name="StampsAddOns"></ReportField>
         <ReportField Name="TrackData"></ReportField>
         <ReportField Name="TrackNumber"></ReportField>
+        <ReportField Name="TrackUrl"></ReportField>
         <ReportField Name="tstamp"></ReportField>
+        <ReportField Name="Usr1stInnerQty">
+          <DataType>Int32</DataType>
+        </ReportField>
         <ReportField Name="UsrCountry"></ReportField>
         <ReportField Name="UsrDateCode"></ReportField>
+        <ReportField Name="UsrDateCode4LastBox"></ReportField>
+        <ReportField Name="UsrDateCode4ThisBox"></ReportField>
         <ReportField Name="UsrGrossWeight">
+          <DataType>Decimal</DataType>
+        </ReportField>
+        <ReportField Name="UsrOuterBoxOrder">
+          <DataType>Int32</DataType>
+        </ReportField>
+        <ReportField Name="UsrPlasticWeight">
           <DataType>Decimal</DataType>
         </ReportField>
         <ReportField Name="UsrShipmentSplitLineNbr">
@@ -2913,7 +2946,7 @@
             <TextAlign>Right</TextAlign>
           </Style>
           <StyleName>Normal</StyleName>
-          <Value>=[SOShipLine.UsrPlasticWeight]</Value>
+          <Value>=[SOPackageDetail.UsrPlasticWeight]</Value>
         </TextBox>
         <TextBox Name="textBox5">
           <Format>='N2'</Format>

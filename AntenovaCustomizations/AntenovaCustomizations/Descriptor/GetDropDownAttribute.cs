@@ -58,14 +58,13 @@ namespace AntenovaCustomizations.Descriptor
 
         public virtual void FieldDefaulting(PXCache sender, PXFieldDefaultingEventArgs e)
         {
-            var row = e.Row as PX.Objects.SO.SOShipLine;
+            var row = e.Row as PX.Objects.SO.SOPackageDetailEx;
 
             if (e.NewValue == null && row?.InventoryID != null)
             {
                 var attr = CSAnswers.PK.Find(sender.Graph, InventoryItem.PK.Find(sender.Graph, row.InventoryID)?.NoteID, PlastWeighID);
 
-                // Since BaseShippedQty formula triggers later than this event, so that temporarily use the field for now.
-                e.NewValue = row.BaseOrigOrderQty * Convert.ToDecimal(attr?.Value ?? "0");
+                e.NewValue = row.Qty * Convert.ToDecimal(attr?.Value ?? "0");
             }
         }
         #endregion

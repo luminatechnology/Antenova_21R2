@@ -63,8 +63,8 @@ namespace PX.Objects.SO
 
         #region UsrPlasticWeight
         [PXDBDecimal(6)]
-        [PXUIField(DisplayName = "Plastic Weight")]
-        [AntenovaCustomizations.Descriptor.ItemPlasticWeight()]
+        [PXUIField(DisplayName = "Plastic Weight", Visible = false)] 
+        //[AntenovaCustomizations.Descriptor.ItemPlasticWeight()]
         //[PXFormula(typeof(Default<SOShipLine.baseShippedQty>))]
         public virtual decimal? UsrPlasticWeight { get; set; }
         public abstract class usrPlasticWeight : PX.Data.BQL.BqlDecimal.Field<usrPlasticWeight> { }
