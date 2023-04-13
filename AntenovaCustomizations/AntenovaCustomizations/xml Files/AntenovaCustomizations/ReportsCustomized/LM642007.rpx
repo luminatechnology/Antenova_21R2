@@ -3224,7 +3224,7 @@
                     <TextAlign>Right</TextAlign>
                   </Style>
                   <StyleName>Normal</StyleName>
-                  <Value>=Sum([SOShipLine.UsrPlasticWeight])</Value>
+                  <Value>=Sum([SOPackageDetail.UsrPlasticWeight])</Value>
                 </TextBox>
                 <TextBox Name="textBox36">
                   <Format>='N0'</Format>
