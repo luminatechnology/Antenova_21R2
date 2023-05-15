@@ -221,7 +221,7 @@ namespace PX.Objects.SO
         #region UK Packing List - LM642007
         public PXAction<SOShipment> UKPackingList;
         [PXButton(IsLockedOnToolbar = false)]
-        [PXUIField(DisplayName = "Print Packing List - UK", Enabled = true, MapEnableRights = PXCacheRights.Select)]
+        [PXUIField(DisplayName = "Print Packing List - Plastic", Enabled = true, MapEnableRights = PXCacheRights.Select)]
         protected virtual IEnumerable uKpackingList(PXAdapter adapter)
         {
             var _reportID = "LM642007";
@@ -943,6 +943,8 @@ namespace PX.Objects.SO
             e.Cache.AllowUpdate = true;
             PXUIFieldAttribute.SetEnabled<SOShipmentExt.usrCarrierPluginID>(e.Cache, null, true);
             PXUIFieldAttribute.SetEnabled<SOShipmentExt.usrWaybill>(e.Cache, null, true);
+            PXUIFieldAttribute.SetEnabled<SOShipLineExt.usrHSCode>(Base.Transactions.Cache, null, row.Released != true);
+            PXUIFieldAttribute.SetEnabled<SOShipLineExt.usrPlasticWeight>(Base.Transactions.Cache, null, row.Released != true);
         }
 
         protected void _(Events.FieldSelecting<SOShipmentExt.usrNote> e)

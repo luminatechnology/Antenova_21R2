@@ -1,12 +1,11 @@
-﻿using PX.CS;
+﻿//using PX.CS;
 using PX.Data;
 using PX.Data.BQL;
 using PX.Data.BQL.Fluent;
+using PX.Objects.CS;
+using PX.Objects.IN;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AntenovaCustomizations.Descriptor
 {
@@ -45,6 +44,29 @@ namespace AntenovaCustomizations.Descriptor
                 }
             }
         }
+    }
 
+    #region ItemPlasticWeightAttribute
+    public class ItemPlasticWeightAttribute : PXEventSubscriberAttribute, IPXFieldDefaultingSubscriber
+    {
+        const string PlastWeighID = "PLASTWEIGH";
+
+        public class PlastWeighAttr : PX.Data.BQL.BqlString.Constant<PlastWeighAttr>
+        {
+            public PlastWeighAttr() : base(PlastWeighID) { }
+        }
+
+        public virtual void FieldDefaulting(PXCache sender, PXFieldDefaultingEventArgs e)
+        {
+            var row = e.Row as PX.Objects.SO.SOPackageDetailEx;
+
+            if (e.NewValue == null && row?.InventoryID != null)
+            {
+                var attr = CSAnswers.PK.Find(sender.Graph, InventoryItem.PK.Find(sender.Graph, row.InventoryID)?.NoteID, PlastWeighID);
+
+                e.NewValue = row.Qty * Convert.ToDecimal(attr?.Value ?? "0");
+            }
+        }
+        #endregion
     }
 }

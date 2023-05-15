@@ -2838,7 +2838,6 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
       <FullName>PX.Objects.SO.SOPackageDetailEx</FullName>
     </ReportTable>
   </Tables>
-  <Version></Version>
   <ViewerFields>
     <ViewerField Name="SOShipment.ShipmentNbr"></ViewerField>
     <ViewerField Name="SOShipment.SiteID"></ViewerField>
@@ -3062,8 +3061,8 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
               <Value>=[Branch.BranchOrOrganizationLogoNameReport]</Value>
             </PictureBox>
             <TextBox Name="textBox1">
-              <Location>616px, 88px</Location>
-              <Size>80px, 16px</Size>
+              <Location>576px, 88px</Location>
+              <Size>120px, 16px</Size>
               <Style>
                 <TextAlign>Right</TextAlign>
               </Style>
@@ -3090,8 +3089,8 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
             </TextBox>
             <TextBox Name="textBox23">
               <CanGrow>True</CanGrow>
-              <Location>616px, 56px</Location>
-              <Size>80px, 16px</Size>
+              <Location>576px, 56px</Location>
+              <Size>120px, 16px</Size>
               <Style>
                 <TextAlign>Right</TextAlign>
               </Style>
@@ -3099,7 +3098,7 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
               <Value>=IIF([SOOrderShipment.InvoiceNbr] &lt;&gt; Null, [SOOrderShipment.InvoiceNbr], [SOShipment.ShipmentNbr])</Value>
             </TextBox>
             <TextBox Name="textBox29">
-              <Location>520px, 88px</Location>
+              <Location>480px, 88px</Location>
               <Size>94px, 16px</Size>
               <Style>
                 <TextAlign>Right</TextAlign>
@@ -3109,8 +3108,8 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
             </TextBox>
             <TextBox Name="textBox3">
               <Format>='dd-MMM-yyyy'</Format>
-              <Location>616px, 40px</Location>
-              <Size>80px, 16px</Size>
+              <Location>576px, 40px</Location>
+              <Size>120px, 16px</Size>
               <Style>
                 <TextAlign>Right</TextAlign>
               </Style>
@@ -3118,7 +3117,7 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
               <Value>=[SOShipment.ShipDate]</Value>
             </TextBox>
             <TextBox Name="textBox30">
-              <Location>520px, 40px</Location>
+              <Location>480px, 40px</Location>
               <Size>94px, 16px</Size>
               <Style>
                 <TextAlign>Right</TextAlign>
@@ -3127,7 +3126,7 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
               <Value>DATE:</Value>
             </TextBox>
             <TextBox Name="textBox31">
-              <Location>520px, 56px</Location>
+              <Location>480px, 56px</Location>
               <Size>94px, 16px</Size>
               <Style>
                 <TextAlign>Right</TextAlign>
@@ -3136,7 +3135,7 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
               <Value>INVOICE NO.:</Value>
             </TextBox>
             <TextBox Name="textBox43">
-              <Location>520px, 72px</Location>
+              <Location>480px, 72px</Location>
               <Size>94px, 16px</Size>
               <Style>
                 <TextAlign>Right</TextAlign>
@@ -3146,8 +3145,8 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
             </TextBox>
             <TextBox Name="textBox45">
               <CanGrow>True</CanGrow>
-              <Location>616px, 72px</Location>
-              <Size>80px, 16px</Size>
+              <Location>576px, 72px</Location>
+              <Size>120px, 16px</Size>
               <Style>
                 <TextAlign>Right</TextAlign>
               </Style>
