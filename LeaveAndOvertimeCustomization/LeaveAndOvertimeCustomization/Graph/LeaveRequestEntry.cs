@@ -19,6 +19,17 @@ namespace LeaveAndOvertimeCustomization
 {
     public class LeaveRequestEntry : PXGraph<LeaveRequestEntry, LumLeaveRequest>
     {
+        /// <summary> 判斷是否要檢查權限 </summary>
+        public static bool validRight = true;
+
+        public static string[] availableRight = new string[]
+        {
+            "4A5E2B06-B8C2-4383-A44D-0F13FAE97014",// Louisa
+            "11B32642-BB9F-4B41-ADAD-BA0194B48386",// Jane
+            "060C814A-8D49-43AE-8B9F-8B1D017B546F",// Fiona 
+            "B17F1DC1-FB84-4396-B884-4DD9196653B6" // Christy
+        };
+
         public PXSave<LumLeaveRequest> save;
         public PXCancel<LumLeaveRequest> cancel;
 
@@ -73,6 +84,7 @@ namespace LeaveAndOvertimeCustomization
                 AlertWaring(doc);
                 doc.Approved = true;
                 doc.Status = LumLeaveRequestStatus.Approved;
+                validRight = false;
 
                 this.document.Update(doc);
                 this.save.Press();
@@ -91,6 +103,7 @@ namespace LeaveAndOvertimeCustomization
             {
                 doc.Rejected = true;
                 doc.Status = LumLeaveRequestStatus.Rejected;
+                validRight = false;
 
                 this.document.Update(doc);
                 this.save.Press();
@@ -202,8 +215,12 @@ namespace LeaveAndOvertimeCustomization
                    PXView.Filters, ref startrow, PXView.MaximumRows, ref totalrow);
             PXView.StartRow = 0;
 
-
-            return CheckIsApprovalOwner(this.document.Current) ? result : Enumerable.Empty<object>();
+            foreach (PXResult<LumLeaveType, LumLeaveRequest, EPEmployee> item in result)
+            {
+                var emp = (EPEmployee)item;
+                if (CheckIsApprovalOwner(this.document.Current) || emp.UserID == Accessinfo.UserID)
+                    yield return item;
+            }
         }
 
         public override void Persist()
@@ -241,6 +258,12 @@ namespace LeaveAndOvertimeCustomization
         {
             if (e.Row != null && e.Row is LumLeaveRequest row)
             {
+                var emp = SelectFrom<EPEmployee>.Where<EPEmployee.userID.IsEqual<P.AsGuid>>.View.Select(this, Accessinfo.UserID).TopFirst;
+                // 非審核人/申請人 無法看到此筆資料
+                if (!CheckIsApprovalOwner(e.Row) && !(e.Row.RequestEmployeeID == emp.BAccountID) && validRight && !availableRight.Contains(Accessinfo.UserID.ToString().ToUpper()))
+                    throw new PXException("You don't have right to read this data.");
+
+
                 if (this.setup.Current.LeaveRequestApproval ?? false)
                 {
                     this.Approve.SetVisible(row.Status == LumLeaveRequestStatus.PendingApproval && (row.IsApprover ?? false));
@@ -560,7 +583,7 @@ namespace LeaveAndOvertimeCustomization
                                 .Where<EPEmployee.userID.IsEqual<AccessInfo.userID.FromCurrent>>.View.Select(this);
                 if (acct.DefContactID == approvalRecord.OwnerID)
                     return true;
-                return true;
+                return false;
             }
             return false;
         }

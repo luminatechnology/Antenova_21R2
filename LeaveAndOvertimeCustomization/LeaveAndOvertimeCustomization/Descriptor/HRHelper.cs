@@ -76,14 +76,16 @@ namespace LeaveAndOvertimeCustomization.Descriptor
                 if (workTimeInfo == null)
                     throw new PXException("can not find working day");
 
+                ///將User時區 轉換成 申請時的WorkCalendar時區
                 // 請假人的工作Calander時區請假開始時間
-                var timezoneStartTime = userTimezone.ShortName == "GMT+00:00" ? 
-                                            TimeZoneInfo.ConvertTimeFromUtc(LeaveStart.Value, TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId)) :
-                                            TimeZoneInfo.ConvertTimeFromUtc(LeaveStart.Value.ToUniversalTime(), TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId));
+                var timezoneStartTime = userTimezone.ShortName == calendarTimeZoneInfo.ShortName ? LeaveStart.Value :
+                                        userTimezone.ShortName == "GMT+00:00" ? TimeZoneInfo.ConvertTimeFromUtc(LeaveStart.Value, TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId)) :
+                                        TimeZoneInfo.ConvertTime(LeaveStart.Value, TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId));
+
                 // 請假人的工作Calander時區請假結束時間
-                var timezoneEndTime = userTimezone.ShortName == "GMT+00:00" ?
-                                            TimeZoneInfo.ConvertTimeFromUtc(LeaveEnd.Value, TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId)) :
-                                            TimeZoneInfo.ConvertTimeFromUtc(LeaveEnd.Value.ToUniversalTime(), TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId));
+                var timezoneEndTime = userTimezone.ShortName == calendarTimeZoneInfo.ShortName ? LeaveEnd.Value :
+                                      userTimezone.ShortName == "GMT+00:00" ? TimeZoneInfo.ConvertTimeFromUtc(LeaveEnd.Value, TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId)) :
+                                      TimeZoneInfo.ConvertTime(LeaveEnd.Value, TimeZoneInfo.FindSystemTimeZoneById(calendarTimeZoneInfo.RegionId));
                 // minute
                 double duration = 0;
                 while (timezoneStartTime.Date <= timezoneEndTime.Date)
