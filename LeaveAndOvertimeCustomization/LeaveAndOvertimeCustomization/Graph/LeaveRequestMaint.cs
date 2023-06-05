@@ -42,8 +42,8 @@ namespace LeaveAndOvertimeCustomization.Graph
                 EPEmployee employee = SelectFrom<EPEmployee>.Where<EPEmployee.bAccountID.IsEqual<P.AsInt>>.View.Select(this, item.RequestEmployeeID);
                 if (employee != null)
                     item.DurationDays = new HRHelper().GetLeaveDuration(employee, item.LeaveStart, item.LeaveEnd, new HRHelper().GetLeaveTypeInfo(item.LeaveType)?.IsOnlyWorkDay) / 8;
+                yield return item;
             }
-            return result;
         }
 
         #region Action
