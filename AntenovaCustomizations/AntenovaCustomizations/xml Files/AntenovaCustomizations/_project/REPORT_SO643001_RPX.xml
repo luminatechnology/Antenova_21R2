@@ -164,14 +164,10 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>ARInvoice.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
+            <Body>
+            </Body>
             <Cc>=IsNull([Customer.EMAILCC_Attributes],'')</Cc>
-            <Format>
-            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
-            <Subject>
-            </Subject>
             <TemplateID>Email Invoice &amp; Shipment Tracking</TemplateID>
             <To>=IsNull([BillingContact.EMail],'')</To>
         </MailSettings>
@@ -8596,7 +8592,7 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
                             </TextBox>
                             <TextBox Name="textBox21">
                                 <Location>40px, 0px</Location>
-                                <Size>216px, 16px</Size>
+                                <Size>210px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
@@ -8640,8 +8636,8 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
                                 <Value>QTY.</Value>
                             </TextBox>
                             <TextBox Name="textBox40">
-                                <Location>328px, 0px</Location>
-                                <Size>120px, 16px</Size>
+                                <Location>338px, 0px</Location>
+                                <Size>110px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
@@ -8666,8 +8662,8 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
                                 <Value>NO.</Value>
                             </TextBox>
                             <TextBox Name="textBox66">
-                                <Location>256px, 0px</Location>
-                                <Size>72px, 16px</Size>
+                                <Location>250px, 0px</Location>
+                                <Size>88px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
@@ -8732,8 +8728,8 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
                         </Variables>
                         <Items>
                             <TextBox Name="textBox49">
-                                <Location>328px, 0px</Location>
-                                <Size>120px, 16px</Size>
+                                <Location>338px, 0px</Location>
+                                <Size>110px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
@@ -8747,7 +8743,7 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
                                 <CanGrow>True</CanGrow>
                                 <CanSplit>True</CanSplit>
                                 <Location>40px, 0px</Location>
-                                <Size>216px, 16px</Size>
+                                <Size>210px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
@@ -8820,8 +8816,8 @@ BErFLDT75YX34qviJw0LV44V64kFD46ZNO8IGDnvMZNePrT8/Ji/Dpp5PjM6f+/8qRI5aK+Z8g+x/x+H
                             <TextBox Name="textBox65">
                                 <CanGrow>True</CanGrow>
                                 <CanSplit>True</CanSplit>
-                                <Location>256px, 0px</Location>
-                                <Size>72px, 16px</Size>
+                                <Location>250px, 0px</Location>
+                                <Size>88px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>

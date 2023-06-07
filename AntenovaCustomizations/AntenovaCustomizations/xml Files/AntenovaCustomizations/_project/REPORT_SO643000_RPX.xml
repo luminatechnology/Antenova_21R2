@@ -14,8 +14,16 @@
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>ARInvoice.NoteID</ActivitySource>
+            <Bcc>
+            </Bcc>
+            <Body>
+            </Body>
             <Cc>=IsNull([Customer.EMAILCC_Attributes],'')</Cc>
+            <Format>
+            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
+            <Subject>
+            </Subject>
             <TemplateID>Email Invoice &amp; Shipment Tracking</TemplateID>
             <To>=IsNull([BillingContact.EMail],'')</To>
         </MailSettings>
@@ -349,7 +357,7 @@
                 <ParentName>ARTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/Antenova/</SchemaUrl>
+        <SchemaUrl>https://www.acumatica.com.tw/Antenova</SchemaUrl>
         <Style>
             <Font>
                 <Size>10pt</Size>
@@ -7323,24 +7331,24 @@
                 </Grouping>
                 <Headers>
                     <Header Name="groupHeaderSection1">
-                        <Height>3.2in</Height>
+                        <Height>3.41667in</Height>
                         <PrintForEmptyGroup>True</PrintForEmptyGroup>
                         <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
                             <Panel Name="panel1">
                                 <Location>0px, 184px</Location>
-                                <Size>720px, 120px</Size>
+                                <Size>720px, 144px</Size>
                                 <StyleName>BoxedPanel</StyleName>
                                 <Items>
                                     <Line Name="line1">
                                         <Direction>Vertical</Direction>
                                         <Location>360px, 0px</Location>
-                                        <Size>1px, 133px</Size>
+                                        <Size>1px, 144px</Size>
                                         <StyleName>BoxedPanel</StyleName>
                                     </Line>
                                     <TextBox Name="textBox19">
-                                        <Location>8px, 24px</Location>
-                                        <Size>344px, 96px</Size>
+                                        <Location>8px, 20px</Location>
+                                        <Size>344px, 112px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>10pt</Size>
@@ -7380,8 +7388,8 @@
                                     <TextBox Name="textBox27">
                                         <CanGrow>True</CanGrow>
                                         <CanShrink>True</CanShrink>
-                                        <Location>368px, 24px</Location>
-                                        <Size>208px, 96px</Size>
+                                        <Location>368px, 20px</Location>
+                                        <Size>232px, 112px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>10pt</Size>
@@ -7393,8 +7401,8 @@
                                     <TextBox Name="textBox69">
                                         <CanGrow>True</CanGrow>
                                         <CanShrink>True</CanShrink>
-                                        <Location>576px, 24px</Location>
-                                        <Size>144px, 96px</Size>
+                                        <Location>600px, 20px</Location>
+                                        <Size>120px, 112px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>10pt</Size>
@@ -7903,7 +7911,7 @@
                             </TextBox>
                             <TextBox Name="textBox21">
                                 <Location>40px, 0px</Location>
-                                <Size>216px, 16px</Size>
+                                <Size>210px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
@@ -7947,8 +7955,8 @@
                                 <Value>QTY.</Value>
                             </TextBox>
                             <TextBox Name="textBox40">
-                                <Location>328px, 0px</Location>
-                                <Size>120px, 16px</Size>
+                                <Location>338px, 0px</Location>
+                                <Size>110px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
@@ -7973,8 +7981,8 @@
                                 <Value>NO.</Value>
                             </TextBox>
                             <TextBox Name="textBox66">
-                                <Location>256px, 0px</Location>
-                                <Size>72px, 16px</Size>
+                                <Location>250px, 0px</Location>
+                                <Size>88px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
@@ -8040,8 +8048,8 @@
                         </Variables>
                         <Items>
                             <TextBox Name="textBox49">
-                                <Location>328px, 0px</Location>
-                                <Size>120px, 16px</Size>
+                                <Location>338px, 0px</Location>
+                                <Size>110px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
@@ -8055,7 +8063,7 @@
                                 <CanGrow>True</CanGrow>
                                 <CanSplit>True</CanSplit>
                                 <Location>40px, 0px</Location>
-                                <Size>216px, 16px</Size>
+                                <Size>210px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
@@ -8128,8 +8136,8 @@
                             <TextBox Name="textBox65">
                                 <CanGrow>True</CanGrow>
                                 <CanSplit>True</CanSplit>
-                                <Location>256px, 0px</Location>
-                                <Size>72px, 16px</Size>
+                                <Location>250px, 0px</Location>
+                                <Size>88px, 16px</Size>
                                 <Style>
                                     <Font>
                                         <Size>10pt</Size>
