@@ -80,9 +80,17 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>POOrder.NoteID</ActivitySource>
+            <Bcc>
+            </Bcc>
             <Body>='Dear Customer, This is an automatic email to notify you that you have a new Purchase Order available on your account.  You will find a copy of Purchase Order #'+[POOrder.OrderNbr]+' attached to this email.  #010;#010;If you have any questions, please don’t hesitate to contact us at email.  #010;#010;Thank you for choosing '+[CompanyContact.FullName]+'.'</Body>
+            <Cc>
+            </Cc>
+            <Format>
+            </Format>
             <ParentSource>Vendor.NoteID</ParentSource>
             <Subject>=[CompanyContact.FullName]+' Purchase Order #'+[POOrder.OrderNbr]+' is now available'</Subject>
+            <TemplateID>
+            </TemplateID>
             <To>=[RemitContact.EMail]</To>
         </MailSettings>
         <PageSettings>
@@ -404,7 +412,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                 <ParentName>POLine</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://acumatica.com.tw/Antenova/</SchemaUrl>
+        <SchemaUrl>https://www.acumatica.com.tw/Antenova</SchemaUrl>
         <StylesTemplate>TemplateForm.rpx</StylesTemplate>
         <Tables>
             <ReportTable Name="POOrder">
@@ -3756,6 +3764,18 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Vendor Tax Nbr:</Value>
                             </TextBox>
+                            <TextBox Name="textBox51">
+                                <Location>344px, 128px</Location>
+                                <Size>376px, 16px</Size>
+                                <Style>
+                                    <Font>
+                                        <Size>10px</Size>
+                                    </Font>
+                                </Style>
+                                <StyleName>SenderCompany</StyleName>
+                                <Value>Antenova Limited Taiwan Branch place order on behalf of Antenova Limited.</Value>
+                                <VisibleExpr>=IsNull([POOrder.AttributePOPRINTTW], False)</VisibleExpr>
+                            </TextBox>
                             <TextBox Name="textBox7">
                                 <Location>552px, 88px</Location>
                                 <Size>168px, 16px</Size>
@@ -3880,7 +3900,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                             <Panel Name="panel3">
                                 <Location>0px, 0px</Location>
                                 <ProcessOrder>Always</ProcessOrder>
-                                <Size>720px, 80px</Size>
+                                <Size>720px, 72px</Size>
                                 <StyleName>BoxedPanel</StyleName>
                                 <VisibleExpr>=([PageIndex]=[PageCount])</VisibleExpr>
                                 <Items>
@@ -3919,7 +3939,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                                         <VisibleExpr>=([PageIndex]=[PageCount])</VisibleExpr>
                                     </TextBox>
                                     <TextBox Name="textBox46">
-                                        <Location>8px, 24px</Location>
+                                        <Location>8px, 8px</Location>
                                         <Size>40px, 16px</Size>
                                         <StyleName>Normal</StyleName>
                                         <Value>NOTE:</Value>
@@ -3927,22 +3947,10 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                                     </TextBox>
                                     <TextBox Name="textBox47">
                                         <CanGrow>True</CanGrow>
-                                        <Location>48px, 24px</Location>
-                                        <Size>328px, 52px</Size>
+                                        <Location>48px, 8px</Location>
+                                        <Size>328px, 64px</Size>
                                         <StyleName>Normal</StyleName>
                                         <Value>=[Note.NoteText]</Value>
-                                    </TextBox>
-                                    <TextBox Name="textBox51">
-                                        <Location>8px, 8px</Location>
-                                        <Size>368px, 16px</Size>
-                                        <Style>
-                                            <Font>
-                                                <Size>10px</Size>
-                                            </Font>
-                                        </Style>
-                                        <StyleName>SenderCompany</StyleName>
-                                        <Value>Antenova Limited Taiwan Branch place order on behalf of Antenova Limited.</Value>
-                                        <VisibleExpr>=IsNull([POOrder.AttributePOPRINTTW], False)</VisibleExpr>
                                     </TextBox>
                                     <TextBox Name="textBox6">
                                         <Location>504px, 24px</Location>
@@ -4311,7 +4319,6 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                 </Grouping>
                 <Headers>
                     <Header Name="groupHeaderSection2">
-                        <Expanded>False</Expanded>
                         <Height>0.16667in</Height>
                         <Items>
                             <TextBox Name="textBox17">
@@ -4360,6 +4367,7 @@ nkWjJ3UFsNS0GVCI791+lI3ZWigu6+slfxsrAURd+ADhkqPhz+11DISEWg9SV2nKlD/jCDqdhVc92CIU
                                 <Value>=[POLine.UOM]</Value>
                             </TextBox>
                             <TextBox Name="textBox39">
+                                <CanGrow>True</CanGrow>
                                 <Location>240px, 0px</Location>
                                 <Size>72px, 16px</Size>
                                 <Style>
