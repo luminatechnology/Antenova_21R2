@@ -207,12 +207,12 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>ARInvoice.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
+            <Body>
+            </Body>
             <Cc>=IsNull([Customer.NOTICECC_Attributes],'')</Cc>
-            <Format>
-            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
+            <Subject>
+            </Subject>
             <TemplateID>Email Shipment Notice</TemplateID>
             <To>=IsNull([ShipContact.Email],'')</To>
         </MailSettings>
@@ -557,7 +557,7 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
                 <ParentName>ARTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>http://localhost/Antenova/</SchemaUrl>
+        <SchemaUrl>http://localhost/Antenova</SchemaUrl>
         <Style>
             <Font>
                 <Size>10pt</Size>
@@ -7531,24 +7531,24 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
                 </Grouping>
                 <Headers>
                     <Header Name="groupHeaderSection1">
-                        <Height>3.2in</Height>
+                        <Height>3.41667in</Height>
                         <PrintForEmptyGroup>True</PrintForEmptyGroup>
                         <PrintOnEveryPage>True</PrintOnEveryPage>
                         <Items>
                             <Panel Name="panel1">
                                 <Location>0px, 184px</Location>
-                                <Size>720px, 120px</Size>
+                                <Size>720px, 144px</Size>
                                 <StyleName>BoxedPanel</StyleName>
                                 <Items>
                                     <Line Name="line1">
                                         <Direction>Vertical</Direction>
                                         <Location>360px, 0px</Location>
-                                        <Size>1px, 133px</Size>
+                                        <Size>1px, 144px</Size>
                                         <StyleName>BoxedPanel</StyleName>
                                     </Line>
                                     <TextBox Name="textBox19">
-                                        <Location>8px, 24px</Location>
-                                        <Size>344px, 96px</Size>
+                                        <Location>8px, 20px</Location>
+                                        <Size>344px, 112px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>10pt</Size>
@@ -7588,8 +7588,8 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
                                     <TextBox Name="textBox27">
                                         <CanGrow>True</CanGrow>
                                         <CanShrink>True</CanShrink>
-                                        <Location>368px, 24px</Location>
-                                        <Size>208px, 96px</Size>
+                                        <Location>368px, 20px</Location>
+                                        <Size>208px, 112px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>10pt</Size>
@@ -7601,8 +7601,8 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
                                     <TextBox Name="textBox69">
                                         <CanGrow>True</CanGrow>
                                         <CanShrink>True</CanShrink>
-                                        <Location>576px, 24px</Location>
-                                        <Size>144px, 96px</Size>
+                                        <Location>576px, 20px</Location>
+                                        <Size>144px, 112px</Size>
                                         <Style>
                                             <Font>
                                                 <Size>10pt</Size>
@@ -7771,6 +7771,7 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
                                 </Style>
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Shipment Terms:</Value>
+                                <VisibleExpr>=[SOOrder.ShipTermsID] &lt;&gt; Null</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox48">
                                 <Location>544px, 152px</Location>
@@ -7782,7 +7783,7 @@ DxQO7433jEuhJAb1aS4QmwkQB5pNyiEgpfBJMTcECBLGvs/AD1Cf6Oq1duH0pHb/GnzGNsgbpBlO4DFJ
                                     <TextAlign>Right</TextAlign>
                                 </Style>
                                 <StyleName>Normal</StyleName>
-                                <Value>=[SOOrder.ShipTermsID_description]</Value>
+                                <Value>=[SOOrder.ShipTermsID_description] + IIf([SOOrder.FOBPoint] &lt;&gt; Null, ' - ' + [SOOrder.FOBPoint], '')</Value>
                             </TextBox>
                             <TextBox Name="textBox56">
                                 <Location>544px, 120px</Location>

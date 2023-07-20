@@ -14,16 +14,8 @@
         <LayoutUnit>Inch</LayoutUnit>
         <MailSettings>
             <ActivitySource>ARInvoice.NoteID</ActivitySource>
-            <Bcc>
-            </Bcc>
-            <Body>
-            </Body>
             <Cc>=IsNull([Customer.EMAILCC_Attributes],'')</Cc>
-            <Format>
-            </Format>
             <ParentSource>Customer.NoteID</ParentSource>
-            <Subject>
-            </Subject>
             <TemplateID>Email Invoice &amp; Shipment Tracking</TemplateID>
             <To>=IsNull([BillingContact.EMail],'')</To>
         </MailSettings>
@@ -357,7 +349,7 @@
                 <ParentName>ARTran</ParentName>
             </ReportRelation>
         </Relations>
-        <SchemaUrl>https://www.acumatica.com.tw/Antenova</SchemaUrl>
+        <SchemaUrl>http://localhost/Antenova</SchemaUrl>
         <Style>
             <Font>
                 <Size>10pt</Size>
@@ -7571,6 +7563,7 @@
                                 </Style>
                                 <StyleName>Heading 1</StyleName>
                                 <Value>Shipment Terms:</Value>
+                                <VisibleExpr>=[SOOrder.ShipTermsID] &lt;&gt; Null</VisibleExpr>
                             </TextBox>
                             <TextBox Name="textBox48">
                                 <Location>544px, 152px</Location>
@@ -7582,7 +7575,7 @@
                                     <TextAlign>Right</TextAlign>
                                 </Style>
                                 <StyleName>Normal</StyleName>
-                                <Value>=[SOOrder.ShipTermsID_description]</Value>
+                                <Value>=[SOOrder.ShipTermsID_description] + IIf([SOOrder.FOBPoint] &lt;&gt; Null, ' - ' + [SOOrder.FOBPoint], '')</Value>
                             </TextBox>
                             <TextBox Name="textBox56">
                                 <Location>544px, 120px</Location>
