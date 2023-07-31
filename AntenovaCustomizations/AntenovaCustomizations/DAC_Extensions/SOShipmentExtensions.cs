@@ -1,8 +1,6 @@
 using PX.Data;
-using PX.Data.BQL;
 using PX.Objects.AR;
 using PX.Objects.CS;
-using System;
 using static PX.Objects.SO.SOShipmentEntry_Extension;
 
 namespace PX.Objects.SO
@@ -37,8 +35,8 @@ namespace PX.Objects.SO
         #endregion
 
         #region UsrNote
-        [PXString(InputMask = "", IsUnicode = true)]
-        [PXUIField(IsReadOnly = true)]
+        [PXString(IsUnicode = true)]
+        [PXUIField(DisplayName = "Note", IsReadOnly = true)]
         public virtual string UsrNote { get; set; }
         public abstract class usrNote : PX.Data.BQL.BqlString.Field<usrNote> { }
         #endregion
