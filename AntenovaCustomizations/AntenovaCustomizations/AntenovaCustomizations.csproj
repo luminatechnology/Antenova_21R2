@@ -86,7 +86,6 @@
     <Compile Include="DAC_Extensions\SOShipLineExtensions.cs" />
     <Compile Include="DAC_Extensions\SOShipmentExtensions.cs" />
     <Compile Include="Descriptor\GetDropDownAttribute.cs" />
-    <Compile Include="Examples.cs" />
     <Compile Include="Graph\CRMendCustMaint.cs" />
     <Compile Include="Graph\ENGineeringMaint.cs" />
     <Compile Include="Graph\ENGSetupMaint.cs" />

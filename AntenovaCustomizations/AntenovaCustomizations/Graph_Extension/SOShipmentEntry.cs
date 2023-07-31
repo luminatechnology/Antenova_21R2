@@ -129,6 +129,9 @@ namespace PX.Objects.SO
 
             Labels.AddMenuAction(AtrackInnerLabel);
             AtrackInnerLabel.SetDisplayOnMainToolbar(false);
+
+            Labels.AddMenuAction(JABILHUInnerLabel);
+            JABILHUInnerLabel.SetDisplayOnMainToolbar(false);
         }
 
         /// <summary> Override Persist Event </summary>
@@ -867,6 +870,26 @@ namespace PX.Objects.SO
         }
         #endregion
 
+        #region JABILHU Inner label - LM642037
+        public PXAction<SOShipment> JABILHUInnerLabel;
+        [PXButton(), PXUIField(DisplayName = "Print JABILHU Inner Label", MapEnableRights = PXCacheRights.Select, MapViewRights = PXCacheRights.Select)]
+        protected virtual IEnumerable jABILHUInnerLabel(PXAdapter adapter)
+        {
+            var _reportID = "LM642037";
+
+            if (Base.Document.Current != null)
+            {
+                throw new PXReportRequiredException(new Dictionary<string, string>()
+                                                    {
+                                                        [nameof(SOShipment.ShipmentNbr)] = Base.Document.Current.ShipmentNbr
+                                                    }, 
+                                                    _reportID, string.Format("Report {0}", _reportID));
+            }
+            
+            return adapter.Get();
+        }
+        #endregion
+
         ///// <summary> Auto Packaging Button Click Event </summary>
         public PXAction<SOShipment> autoPackaging;
         [PXButton]
@@ -927,7 +950,6 @@ namespace PX.Objects.SO
             });
             return adapter.Get();
         }
-
 
         #endregion
 
