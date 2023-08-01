@@ -2694,7 +2694,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
                 <TextAlign>Left</TextAlign>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
-              <Value>='MPN: ' + [SOShipLine.InventoryID]</Value>
+              <Value>='MPN: ' + IsNull([SOShipLine.InventoryID], '')</Value>
             </TextBox>
             <TextBox Name="textBox12">
               <Location>24px, 112px</Location>
@@ -2707,7 +2707,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
                 <TextAlign>Left</TextAlign>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
-              <Value>='Customer PN: ' + [SOLine.AlternateID]</Value>
+              <Value>='Customer PN: ' + IsNull([SOLine.AlternateID], '')</Value>
             </TextBox>
             <TextBox Name="textBox4">
               <Location>24px, 48px</Location>
@@ -2720,7 +2720,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
                 <TextAlign>Left</TextAlign>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
-              <Value>='PO Number: ' + [SOOrder.CustomerRefNbr]</Value>
+              <Value>='PO Number: ' + IsNull([SOOrder.CustomerOrderNbr], '')</Value>
             </TextBox>
             <TextBox Name="textBox5">
               <Location>24px, 144px</Location>
@@ -2733,7 +2733,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
                 <TextAlign>Left</TextAlign>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
-              <Value>='Quantity: ' #010;+IIf([SOLine.UOM] = 'PCS', Format('{0:N0}', [InventoryItem.QTYINBOX_Attributes]), Format('{0:N2}', [SOPackageDetailEx.Qty]))#010;+' ' #010;+[SOLine.UOM]</Value>
+              <Value>='Quantity: ' #010;+IIf([InventoryItem.QTYINBOX_Attributes] &lt;&gt; Null, #010;     IIf([SOLine.UOM] = 'PCS', Format('{0:N0}', [InventoryItem.QTYINBOX_Attributes]), Format('{0:N2}',[InventoryItem.QTYINBOX_Attributes])), #010;     '')#010;+' ' #010;+[SOLine.UOM]</Value>
             </TextBox>
             <TextBox Name="textBox6">
               <Location>24px, 176px</Location>
@@ -2746,7 +2746,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
                 <TextAlign>Left</TextAlign>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
-              <Value>='Made in ' + [CSAttributeDetail.Description]</Value>
+              <Value>='Made in ' + IsNull([CSAttributeDetail.Description], '')</Value>
             </TextBox>
             <TextBox Name="textBox8">
               <Location>0px, 9px</Location>
