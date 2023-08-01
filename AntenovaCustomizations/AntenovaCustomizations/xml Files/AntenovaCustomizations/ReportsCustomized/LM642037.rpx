@@ -147,7 +147,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
       <ParentName>CSAttribute</ParentName>
     </ReportRelation>
   </Relations>
-  <SchemaUrl>http://localhost/AntenovaDB/</SchemaUrl>
+  <SchemaUrl>http://localhost/Antenova</SchemaUrl>
   <Tables>
     <ReportTable Name="SOShipment">
       <Fields>
@@ -1317,6 +1317,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
         <ReportField Name="AttributeDescriptionGroupID">
           <DataType>Int32</DataType>
         </ReportField>
+        <ReportField Name="Availability"></ReportField>
         <ReportField Name="BaseItemVolume">
           <DataType>Decimal</DataType>
         </ReportField>
@@ -1441,6 +1442,9 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
         <ReportField Name="ExpenseSubID">
           <DataType>Int32</DataType>
         </ReportField>
+        <ReportField Name="ExportToExternal">
+          <DataType>Boolean</DataType>
+        </ReportField>
         <ReportField Name="GenerationRuleCntr">
           <DataType>Int32</DataType>
         </ReportField>
@@ -1450,6 +1454,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
         <ReportField Name="HasChild">
           <DataType>Boolean</DataType>
         </ReportField>
+        <ReportField Name="HSCODE_Attributes"></ReportField>
         <ReportField Name="HSTariffCode"></ReportField>
         <ReportField Name="ImageUrl"></ReportField>
         <ReportField Name="Included">
@@ -1531,15 +1536,20 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
         <ReportField Name="MovementClassIsFixed">
           <DataType>Boolean</DataType>
         </ReportField>
+        <ReportField Name="MyCustomField"></ReportField>
         <ReportField Name="NegQty">
           <DataType>Boolean</DataType>
         </ReportField>
         <ReportField Name="NonStockReceipt">
           <DataType>Boolean</DataType>
         </ReportField>
+        <ReportField Name="NonStockReceiptAsService">
+          <DataType>Boolean</DataType>
+        </ReportField>
         <ReportField Name="NonStockShip">
           <DataType>Boolean</DataType>
         </ReportField>
+        <ReportField Name="NotAvailMode"></ReportField>
         <ReportField Name="NoteActivity"></ReportField>
         <ReportField Name="NoteFiles"></ReportField>
         <ReportField Name="NoteID">
@@ -1571,6 +1581,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
         <ReportField Name="PercentOfSalesPrice">
           <DataType>Decimal</DataType>
         </ReportField>
+        <ReportField Name="PLASTWEIGH_Attributes"></ReportField>
         <ReportField Name="POAccrualAcctID"></ReportField>
         <ReportField Name="POAccrualAcctID_Account_description"></ReportField>
         <ReportField Name="POAccrualAcctID_description"></ReportField>
@@ -1604,15 +1615,21 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
         <ReportField Name="PriceClassID"></ReportField>
         <ReportField Name="PriceClassID_description"></ReportField>
         <ReportField Name="PriceClassID_INPriceClass_description"></ReportField>
-        <ReportField Name="PriceManagerID"></ReportField>
+        <ReportField Name="PriceManagerID">
+          <DataType>Int32</DataType>
+        </ReportField>
         <ReportField Name="PriceManagerID_description"></ReportField>
-        <ReportField Name="PriceManagerID_EPEmployee_acctName"></ReportField>
+        <ReportField Name="PriceManagerID_Owner_displayName"></ReportField>
         <ReportField Name="PriceWorkgroupID"></ReportField>
-        <ReportField Name="ProductManagerID"></ReportField>
+        <ReportField Name="ProductManagerID">
+          <DataType>Int32</DataType>
+        </ReportField>
         <ReportField Name="ProductManagerID_description"></ReportField>
-        <ReportField Name="ProductManagerID_EPEmployee_acctName"></ReportField>
+        <ReportField Name="ProductManagerID_Owner_displayName"></ReportField>
         <ReportField Name="ProductWorkgroupID"></ReportField>
         <ReportField Name="PurchaseUnit"></ReportField>
+        <ReportField Name="QTYCARTON_Attributes"></ReportField>
+        <ReportField Name="QTYINBOX_Attributes"></ReportField>
         <ReportField Name="ReasonCodeSubID"></ReportField>
         <ReportField Name="ReasonCodeSubID_description"></ReportField>
         <ReportField Name="ReasonCodeSubID_Segment1"></ReportField>
@@ -1690,10 +1707,14 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
         <ReportField Name="UndershipThreshold">
           <DataType>Decimal</DataType>
         </ReportField>
+        <ReportField Name="UpdateOnlySelected">
+          <DataType>Boolean</DataType>
+        </ReportField>
         <ReportField Name="UseParentSubID">
           <DataType>Boolean</DataType>
         </ReportField>
         <ReportField Name="ValMethod"></ReportField>
+        <ReportField Name="Visibility"></ReportField>
         <ReportField Name="VolumeUOM"></ReportField>
         <ReportField Name="WeightItem">
           <DataType>Boolean</DataType>
@@ -2673,7 +2694,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
                 <TextAlign>Left</TextAlign>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
-              <Value>='MPN: ' + [SOPackageDetailEx.InventoryID]</Value>
+              <Value>='MPN: ' + [SOShipLine.InventoryID]</Value>
             </TextBox>
             <TextBox Name="textBox12">
               <Location>24px, 112px</Location>
@@ -2699,7 +2720,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
                 <TextAlign>Left</TextAlign>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
-              <Value>='PO Number: ' + [SOOrder.CustomerOrderNbr]</Value>
+              <Value>='PO Number: ' + [SOOrder.CustomerRefNbr]</Value>
             </TextBox>
             <TextBox Name="textBox5">
               <Location>24px, 144px</Location>
@@ -2712,7 +2733,7 @@ yudjrZcVlmC8tof84sXUZCY40NWIr8NVhRqLQ//QIG9i3oWMjMbZlbJHJ5oktIzbKisugLQrK+o5f4fU
                 <TextAlign>Left</TextAlign>
                 <VerticalAlign>Middle</VerticalAlign>
               </Style>
-              <Value>='Quantity: ' #010;+IIf([SOLine.UOM] = 'PCS', Format('{0:N0}', [SOPackageDetailEx.Qty]), Format('{0:N2}', [SOPackageDetailEx.Qty]))#010;+' ' #010;+[SOLine.UOM]</Value>
+              <Value>='Quantity: ' #010;+IIf([SOLine.UOM] = 'PCS', Format('{0:N0}', [InventoryItem.QTYINBOX_Attributes]), Format('{0:N2}', [SOPackageDetailEx.Qty]))#010;+' ' #010;+[SOLine.UOM]</Value>
             </TextBox>
             <TextBox Name="textBox6">
               <Location>24px, 176px</Location>
