@@ -2872,6 +2872,7 @@
           <Value>=[SOLine.AlternateID]</Value>
         </TextBox>
         <TextBox Name="textBox13">
+          <CanGrow>True</CanGrow>
           <Location>120px, 0px</Location>
           <Size>104px, 16px</Size>
           <Style>
